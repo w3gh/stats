@@ -1,0 +1,180 @@
+/* Import highlighting classes */
+@import url(highlight.css);
+
+.qtip-green .qtip-content{
+   line-height: 20px !important;
+}
+
+   .qtip-green .qtip-content .qtip-title{
+      background-color: #A9DB66;
+      color: #454545;
+      margin: -14px -14px 10px;
+      padding: 5px 8px;
+   }
+
+   .qtip-green .qtip-content code{
+      border-color: #A9DB66;
+      overflow: hidden;
+      text-align: left;
+      white-space: pre !important;
+   }
+
+#contentheader .content{
+}
+
+   #contentheader ul.index{
+      margin-top: 9px;
+   }
+
+   #contentheader ul.index h4{
+      color: #68BADA;
+   }
+
+   #contentheader ul.index li{
+      width: 167px;
+   }
+
+   #contentheader ul.index > li{
+      width: 188px;
+   }
+
+   #contentheader ul.index ul.subindex{
+      color: #68BADA;
+      list-style-position: inside;
+      list-style-type: square;
+   }
+
+   #contentheader ul.index ul.subindex li{
+      margin-left: 3px;
+      padding: 1px 0 3px 1px;
+   }
+
+   #contentheader ul.index ul.subindex a,
+   #contentheader ul.index ul.subindex a:link 
+   #contentheader ul.index ul.subindex a:visited{
+      color: #454545;
+   }
+
+#content{
+   line-height: 25px;
+}
+
+   #content .qtip .qtip-content{
+      line-height: 100% !important;
+   }
+
+   #content h2{
+      margin-bottom: 15px;
+   }
+
+   #content h3 a, 
+   #content h3 a:link, 
+   #content h3 a:visited{
+      color: #68BADA;
+      float: right;
+      font-size: 14px;
+      margin-top: -1px;
+   }
+
+   #content .section{
+
+   }
+
+   #content .subsection{
+      border-bottom: 3px solid #F1F1F1;
+      margin-bottom: 15px;
+      padding: 5px 0 40px;
+   }
+   
+      #content .subsection p{
+         width: 100%;
+      }
+      #content .subsection > p{ width: auto; }
+
+   #content table{
+      background-color: #E5F6FE;
+      margin: 10px 0 10px 8px;
+      width: 100%;
+   }
+
+      #content table td, #content table th{
+         border-bottom: 1px solid #C9E7F5;
+         padding: 9px 25px 10px 10px;
+      }
+
+      #content table th.example{
+         text-align: center;
+      }
+
+      #content table th{
+         background-color: #454545;
+         border: 0 none;
+         color: white;
+         font-weight: bold;
+         padding: 11px 25px 21px 10px;
+      }
+
+      #content table td.description{ width: 80%; }
+      #content table td.name{ font-weight: bold; }
+      #content table td.default{ font-style: italic; }
+      #content table td.arguments{ width: 15%; }
+      #content table td.example{
+         background-color: #A2D959;
+         border-color: #8FD401;
+         border-style: solid;
+         border-width: 0 0 1px;
+         color: #353535;
+         cursor: pointer;
+         font-weight: bold;
+         overflow: hidden;
+         padding: 11px 20px 12px;
+         vertical-align: middle;
+         display: none;
+      }
+
+         #content table tr.optionhead td{
+            background-color: #C9E7F5;
+            border-bottom: 0 none;
+            padding: 10px;
+         }
+
+         #content table tr.optionhead td.name{
+            font-weight: bold;
+         }
+
+         #content table tr.suboption td.name{
+            border-left: 5px solid #C9E7F5;
+            padding-left: 30px;
+         }
+
+
+
+#tut-position code{ overflow: hidden; }
+
+#tut-position img.right{ margin: -30px 0 0 10px; }
+
+
+#tut-styling img.right{ 
+   margin-top: -94px;
+   border: 1px solid #e1e1e1; 
+   border-width: 1px 0 0 1px 
+}
+
+
+#faq{
+   margin-left: 10px;
+}
+
+   #faq h3{ 
+      margin: 0 0 -10px -10px; 
+      padding: 0; 
+   }
+
+   #faq h4{
+      margin: 30px 0 4px;
+   }
+   
+   #faq p{
+      margin: 0 0 5px;
+      padding: 0;
+   }

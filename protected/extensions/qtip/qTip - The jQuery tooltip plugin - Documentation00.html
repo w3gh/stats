@@ -1,0 +1,652 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0056)http://craigsworks.com/projects/qtip/docs/reference/#api -->
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>qTip - The jQuery tooltip plugin - Documentation</title>
+<!--Stylesheets-->
+<link rel="shortcut icon" href="http://craigsworks.com/projects/qtip/favicon.ico">
+<link type="text/css" rel="stylesheet" href="./qTip - The jQuery tooltip plugin - Documentation00_files/master.css">
+<link type="text/css" rel="stylesheet" href="./qTip - The jQuery tooltip plugin - Documentation00_files/qtip.css">
+<link type="text/css" rel="stylesheet" href="./qTip - The jQuery tooltip plugin - Documentation00_files/docs.css">
+<!--Meta-->
+
+<meta name="description" content="Simpletip jQuery plugin. Making tooltips simple!">
+<meta name="keywords" content="simpletip, jquery, javascript, plugin, tooltip, tooltips, craigsworks, craig thompson">
+<meta name="author" content="Craig Thompson">
+</head>
+<body>
+<div id="master">
+
+   <div id="header">
+      <div class="center">
+         <a class="craigsworks right" href="http://craigsworks.com/"><img src="./qTip - The jQuery tooltip plugin - Documentation00_files/craigsworks.png" alt="Craig Thompson Web Development"></a>
+         <img class="bubbles right" src="./qTip - The jQuery tooltip plugin - Documentation00_files/bubbles_blue.png" alt="">
+         
+         <h1 class="left"><a href="http://craigsworks.com/projects/qtip/"><img class="logo" src="./qTip - The jQuery tooltip plugin - Documentation00_files/logo_small.png" alt="qTip - jQuery plugin"></a></h1>
+         <div class="intro left">
+            <div class="default">
+               <p><b>qTip</b> is a tooltip plugin for the jQuery framework. It's <b>cross-browser</b>, <b>customizable</b> and <b>packed full of features</b>!</p>
+               <p>So what are you waiting for? <b>Join the qTip community!</b></p>
+            </div>
+            <div class="hover"></div>
+         </div>
+         
+         <div class="clear">&nbsp;</div>
+         
+         <ul class="nav">
+            <li><a href="http://craigsworks.com/projects/qtip">Home</a></li>
+            <li><a href="http://craigsworks.com/projects/qtip/features/">Features</a></li>
+            <li><a href="http://craigsworks.com/projects/qtip/demos/">Demos</a></li>
+            <li><a href="http://craigsworks.com/projects/qtip/download/">Download</a></li>
+            <li><a href="http://craigsworks.com/projects/qtip/docs/">Documentation</a></li>
+            <li><a href="http://craigsworks.com/projects/qtip/forum/">Forum</a></li>
+         </ul>
+      </div>
+   </div>
+   
+   <div id="navarrow" class="center"><div class="docs"></div></div>
+   <div id="contentheader">
+   <div class="center">
+      <h2>Documentation</h2>
+      <ul class="index">
+         <li class="left">
+            <h4><a href="http://craigsworks.com/projects/qtip/docs/">Getting started</a></h4>
+            <ul class="subindex">
+               <li><a href="http://craigsworks.com/projects/qtip/docs/#requirements">Requirements</a></li>
+               <li><a href="http://craigsworks.com/projects/qtip/docs/#downloading">Downloading qTip</a></li>
+               <li><a href="http://craigsworks.com/projects/qtip/docs/#installation">Installation</a></li>
+               <li><a href="http://craigsworks.com/projects/qtip/docs/#structure">HTML structure</a></li>
+               <li><a href="http://craigsworks.com/projects/qtip/docs/#create">Creating a tooltip</a></li>
+               <li><a href="http://craigsworks.com/projects/qtip/docs/#replace">Replacing title tooltips</a></li>
+            </ul>
+         </li>
+         <li class="left">
+            <h4><a href="http://craigsworks.com/projects/qtip/docs/tutorials/">Tutorials</a></h4>
+            <ul class="subindex">
+               <li><a href="http://craigsworks.com/projects/qtip/docs/tutorials/#position">Positioning</a></li>
+               <li><a href="http://craigsworks.com/projects/qtip/docs/tutorials/#styling">Styling</a></li>
+               <li><a href="http://craigsworks.com/projects/qtip/docs/tutorials/#borders">Borders</a></li>
+               <li><a href="http://craigsworks.com/projects/qtip/docs/tutorials/#tips">Tips</a></li>
+               <li><a href="http://craigsworks.com/projects/qtip/docs/tutorials/#dynamic">Dynamic content</a></li>
+               <li><a href="http://craigsworks.com/projects/qtip/docs/tutorials/#effects">Effects</a></li>
+               <li><a href="http://craigsworks.com/projects/qtip/docs/tutorials/#events">Events</a></li>
+               <li><a href="http://craigsworks.com/projects/qtip/docs/tutorials/#override">Overriding defaults</a></li>
+               <li><a href="http://craigsworks.com/projects/qtip/forum/forum/11/tutorials-and-howtos/">User submitted</a></li>
+            </ul>
+         </li>
+         <li class="left">
+            <h4><a href="http://craigsworks.com/projects/qtip/docs/reference/">Option Reference</a></h4>
+            <ul class="subindex">
+               <li><a href="http://craigsworks.com/projects/qtip/docs/reference/#content">Content</a></li>
+               <li><a href="http://craigsworks.com/projects/qtip/docs/reference/#position">Position</a></li>
+               <li><a href="http://craigsworks.com/projects/qtip/docs/reference/#show">Show</a></li>
+               <li><a href="http://craigsworks.com/projects/qtip/docs/reference/#hide">Hide</a></li>
+               <li><a href="http://craigsworks.com/projects/qtip/docs/reference/#style">Style</a></li>
+               <li><a href="./qTip - The jQuery tooltip plugin - Documentation00_files/qTip - The jQuery tooltip plugin - Documentation00.html">API</a></li>
+            </ul>
+         </li>
+         <li class="left">
+            <h4><a href="http://craigsworks.com/projects/qtip/docs/api/">API Reference</a></h4>
+            <ul class="subindex">
+               <li><a href="http://craigsworks.com/projects/qtip/docs/api/#shortcuts">Shortcut methods</a></li>
+               <li><a href="http://craigsworks.com/projects/qtip/docs/api/#access">Accessing the API</a></li>
+               <li><a href="http://craigsworks.com/projects/qtip/docs/api/#methods">Methods</a></li>
+               <li><a href="http://craigsworks.com/projects/qtip/docs/api/#callbacks">Callbacks</a></li>
+               <li><a href="http://craigsworks.com/projects/qtip/docs/api/#attributes">Attributes</a></li>
+            </ul>
+         </li>
+         <li class="left">
+            <h4><a href="http://craigsworks.com/projects/qtip/docs/support/">Support</a></h4>
+            <ul class="subindex">
+               <li><a href="http://craigsworks.com/projects/qtip/docs/support/#faq">FAQ</a></li>
+               <li><a href="http://craigsworks.com/projects/qtip/forum/">User forum</a></li>
+               <li><a href="http://bugs.launchpad.net/qtip/"><b>Submit a bug report</b></a></li>
+               <li><a href="http://craigsworks.com/projects/qtip/donate/">Make a donation</a></li>
+               <li><a href="http://craigsworks.com/projects/qtip/docs/support/#contact">Contact me</a></li>
+            </ul>
+         </li>
+      </ul>
+
+      <div class="clear">&nbsp;</div>
+   </div>
+   </div>
+
+   <div id="content">
+   <div class="center">
+      <div id="reference" class="section">
+         <h2>Options Reference</h2>
+         <div id="ref-content" class="subsection">
+            <a name="content"></a>
+            <h3 class=""><a href="http://craigsworks.com/projects/qtip/docs/reference/#">Back to the top</a>Content</h3>
+            The content option allows you to specify what appears inside the tooltip. A variety of sub-options are available to you regarding data, simple text strings, HTML, and even dynamically loaded content from other local files. The content option also allows you to specify a title header for your tooltip.
+
+            <table cellspacing="0" cellpadding="0">
+               <tbody><tr class="header">
+                  <th class="name">Name</th>
+                  <th class="default">Value</th>
+                  <th class="description">Description</th>
+                  <th class="example">
+               </tr>
+               <tr class="option">
+                  <td class="name "><a name="content-prerender"></a>prerender</td>
+                  <td class="default">&nbsp;</td>
+                  <td class="description">
+                     <b>As of beta3, this option is false by default! Meaning all tooltips are generated when needed, not at page load.</b>
+                     <br><br>
+                     If set to <b>true</b>, the tooltip will be created on document load, like pre-beta3 releases.
+                  </td>
+                  <td class="example " style="display: table-cell; ">Example</td>
+               </tr>
+               <tr class="option">
+                  <td class="name "><a name="content-text"></a>text</td>
+                  <td class="default">&nbsp;</td>
+                  <td class="description">Text/HTML which will appear inside the tooltip initially. If set to false <i>the title attribute of the target element will be used, and if that isn't present, the alt attribute will be used instead.</i>
+                  <br><br>
+                  You can also pass a <b>jQuery DOM array</b> as the argument, which will <i>clone the referenced elements and append them to the tooltip content.</i>
+                  <br><br>
+                  <b>Note:</b> Any content set using this property will be overwritten upon retrieval of remote data <i>e.g. using the url attribute or API updateContent or loadContent methods.</i></td>
+                  <td class="example " style="display: table-cell; ">Example</td>
+               </tr>
+               <tr class="optionhead">
+                  <td colspan="5"><b>Dynamic content options. Only needed when retrieving content via AJAX.</b></td>
+               </tr>
+                  <tr class="suboption">
+                     <td class="name "><a name="content-url"></a>url</td>
+                     <td class="default">false</td>
+                     <td class="description">URL (Uniform Resource Locater) of the content to load. The content <b>must be stored locally</b> as cross-site XMLHTTPRequest is not yet supported by any major browsers.
+                     <br><br>
+                     If set to <b>false</b>, no data retrieval will occur.</td>
+                     <td class="example " style="display: table-cell; ">Example</td>
+                  </tr>
+                  <tr class="suboption">
+                     <td class="name "><a name="content-data"></a>data</td>
+                     <td class="default">null</td>
+                     <td class="description">An object containing key/value pairs of all data to be transmitted during the content request to the above URL. </td>
+                     <td class="example " style="display: table-cell; ">Example</td>
+                  </tr>
+                  <tr class="suboption">
+                     <td class="name "><a name="content-method"></a>method</td>
+                     <td class="default">get</td>
+                     <td class="description">A string determining the type of request to use. <b>Possible values are 'get' and 'post'</b>.</td>
+                     <td class="example " style="display: table-cell; ">Example</td>
+                  </tr>
+               <tr class="optionhead">
+                  <td class="name" colspan="2">title: {</td>
+                  <td class="description" colspan="3">Object containing sub-options below</td>
+               </tr>
+                  <tr class="suboption">
+                     <td class="name "><a name="content-title-text"></a>text</td>
+                     <td class="default">false</td>
+                     <td class="description">Text/HTML which will appear inside the title element of the content.
+                     <br><br>
+                     If set to <b>false</b>, no title element will be created.</td>
+                     <td class="example " style="display: table-cell; ">Example</td>
+                  </tr>
+                  <tr class="suboption">
+                     <td class="name "><a name="content-title-button"></a>button</td>
+                     <td class="default">false</td>
+                     <td class="description">Text/HTML which will appear inside the title's button element (e.g. close link) located to the right of the title content. Button only appears if title element is created e.g. above title attributes is <b>not</b> false.
+                     <br><br>
+                     If set to <b>false</b>, no button will appear.</td>
+                     <td class="example " style="display: table-cell; ">Example</td>
+                  </tr>
+            </tbody></table>
+         </div>
+
+         <div id="ref-position" class="subsection">
+            <a name="position"></a>
+            <h3 class=""><a href="http://craigsworks.com/projects/qtip/docs/reference/#">Back to the top</a>Position</h3>
+            The position option specifies how your tooltip will be positioned in relation to the document. First a target is specified, by default the element which the qTip method was called upon, and placed in relation to it using the corner sub-option. This can then be adjusted using the adjust sub-option's x and y values.
+
+            <table cellspacing="0" cellpadding="0">
+               <tbody><tr class="header">
+                  <th class="name">Name</th>
+                  <th class="default">Value</th>
+                  <th class="description">Description</th>
+                  <th class="example">
+               </tr>
+               <tr class="option">
+                  <td class="name "><a name="position-target"></a>target</td>
+                  <td class="default">false</td>
+                  <td class="description">HTML element to position the tooltip in relation to. <br><br>
+                  <b>Can also be set to position in relation to the mouse.</b></td>
+                  <td class="example " style="display: table-cell; ">Example</td>
+               </tr>
+               <tr class="option">
+                  <td class="name "><a name="position-type"></a>type</td>
+                  <td class="default">absolute</td>
+                  <td class="description">Positioning type of the tooltip e.g. absolute. In most cases absolute positioning is sufficient.</td>
+                  <td class="example " style="display: table-cell; ">Example</td>
+               </tr>
+               <tr class="option">
+                  <td class="name "><a name="position-container"></a>container</td>
+                  <td class="default">$(document.body)</td>
+                  <td class="description">Determines the HTML element which the tooltip is appended to e.g. its container.</td>
+                  <td class="example " style="display: table-cell; ">Example</td>
+               </tr>
+               <tr class="optionhead">
+                  <td class="name" colspan="2">corner: {</td>
+                  <td class="description" colspan="3">Object containing sub-options below</td>
+               </tr>
+                  <tr class="suboption">
+                     <td class="name "><a name="position-corner-target"></a>target</td>
+                     <td class="default">bottomRight</td>
+                     <td class="description">The corner of the target element by which to position the tooltip by. See the <a href="http://craigsworks.com/projects/qtip/docs/tutorials/#position">positioning tutorial</a> for all possible corner values.</td>
+                     <td class="example " style="display: table-cell; ">Example</td>
+                  </tr>
+                  <tr class="suboption">
+                     <td class="name "><a name="position-corner-tooltip"></a>tooltip</td>
+                     <td class="default">topLeft</td>
+                     <td class="description">The corner of the tooltip to position in relation to the above targets corner. See the <a href="http://craigsworks.com/projects/qtip/docs/tutorials/#position">positioning tutorial</a> for all possible corner values.</td>
+                     <td class="example " style="display: table-cell; ">Example</td>
+                  </tr>
+
+               <tr class="optionhead">
+                  <td class="name" colspan="2">adjust: {</td>
+                  <td class="description" colspan="3">Object containing sub-options below</td>
+               </tr>
+                  <tr class="suboption">
+                     <td class="name "><a name="position-adjust-x"></a>x</td>
+                     <td class="default">0</td>
+                     <td class="description">Increment by which to increase the x value of the tooltip coordinate. To decrease, use a minus number.</td>
+                     <td class="example " style="display: table-cell; ">Example</td>
+                  </tr>
+                  <tr class="suboption">
+                     <td class="name "><a name="position-adjust-y"></a>y</td>
+                     <td class="default">0</td>
+                     <td class="description">Increment by which to increase the y value of the tooltip coordinate. To decrease, use a minus number.</td>
+                     <td class="example " style="display: table-cell; ">Example</td>
+                  </tr>
+                  <tr class="suboption">
+                     <td class="name "><a name="position-adjust-mouse"></a>mouse</td>
+                     <td class="default">true</td>
+                     <td class="description">Determines if the tooltips position is adjusted to the mouse position <b>when the position.target is set to 'mouse'</b>.</td>
+                     <td class="example " style="display: table-cell; ">Example</td>
+                  </tr>
+                  <tr class="suboption">
+                     <td class="name "><a name="position-adjust-screen"></a>screen</td>
+                     <td class="default">false</td>
+                     <td class="description">Determines if the tooltips positioning takes into account screen width and height, preventing it from rendering off screen if possible.
+                     <br><br>
+                     <b>Note:</b> Your tip and target corner options may be ignored when adjusting the position.</td>
+                     <td class="example " style="display: table-cell; ">Example</td>
+                  </tr>
+                  <tr class="suboption">
+                     <td class="name "><a name="position-adjust-scroll"></a>scroll</td>
+                     <td class="default">true</td>
+                     <td class="description">Determines if the tooltips position is adjusted when the document is scrolled.</td>
+                     <td class="example " style="display: table-cell; ">Example</td>
+                  </tr>
+                  <tr class="suboption">
+                     <td class="name "><a name="position-adjust-resize"></a>resize</td>
+                     <td class="default">true</td>
+                     <td class="description">Determines if the tooltips position is adjusted when the window is resized.</td>
+                     <td class="example " style="display: table-cell; ">Example</td>
+                  </tr>
+            </tbody></table>
+         </div>
+
+         <div id="ref-show" class="subsection">
+            <a name="show"></a>
+            <h3 class=""><a href="http://craigsworks.com/projects/qtip/docs/reference/#">Back to the top</a>Show</h3>
+            The show option determines how the tooltip is shown, what effect is used to display it, and when to show it e.g. what event must be triggered.
+
+            <table cellspacing="0" cellpadding="0">
+               <tbody><tr class="header">
+                  <th class="name">Name</th>
+                  <th class="default">Value</th>
+                  <th class="description">Description</th>
+                  <th class="example">
+               </tr>
+               <tr class="option">
+                  <td class="name "><a name="show-delay"></a>delay</td>
+                  <td class="default">140</td>
+                  <td class="description">Time in milliseconds by which to delay the showing of the tooltip.</td>
+                  <td class="example " style="display: table-cell; ">Example</td>
+               </tr>
+               <tr class="option">
+                  <td class="name "><a name="show-solo"></a>solo</td>
+                  <td class="default">false</td>
+                  <td class="description">Determines whether or not the tooltip will be shown in conjunction with other tooltips or on its own</td>
+                  <td class="example " style="display: table-cell; ">Example</td>
+               </tr>
+               <tr class="option">
+                  <td class="name "><a name="show-ready"></a>ready</td>
+                  <td class="default">false</td>
+                  <td class="description">Determines whether or not the tooltip is initially hidden or shown when ready</td>
+                  <td class="example " style="display: table-cell; ">Example</td>
+               </tr>
+               <tr class="optionhead">
+                  <td class="name" colspan="2">when: {</td>
+                  <td class="description" colspan="3">Object containing sub-options below</td>
+               </tr>
+                  <tr class="suboption">
+                     <td class="name "><a name="show-when-target"></a>target</td>
+                     <td class="default">false</td>
+                     <td class="description">Defines the HTML element which will assigned the show event handler.</td>
+                     <td class="example " style="display: table-cell; ">Example</td>
+                  </tr>
+                  <tr class="suboption">
+                     <td class="name "><a name="show-when-event"></a>event</td>
+                     <td class="default">mouseover</td>
+                     <td class="description">Event type which will trigger the show event of the tooltip. All possible values are documented under <a href="http://docs.jquery.com/Events/bind#typedatafn">jQuery's Event: bind()</a> documentation.</td>
+                     <td class="example " style="display: table-cell; ">Example</td>
+                  </tr>
+
+               <tr class="optionhead">
+                  <td class="name" colspan="2">effect: {</td>
+                  <td class="description" colspan="3">Object containing sub-options below</td>
+               </tr>
+                  <tr class="suboption">
+                     <td class="name "><a name="show-effect-type"></a>type</td>
+                     <td class="default">fade</td>
+                     <td class="description">Effect type to use upon showing the tooltip e.g. fade, slide or grow. Can also be a callback method which will be called when the tooltip is shown.</td>
+                     <td class="example " style="display: table-cell; ">Example</td>
+                  </tr>
+                  <tr class="suboption">
+                     <td class="name "><a name="show-effect-length"></a>length</td>
+                     <td class="default">100</td>
+                     <td class="description">Length of time in milliseconds the above effect will last for.</td>
+                     <td class="example " style="display: table-cell; ">Example</td>
+                  </tr>
+            </tbody></table>
+         </div>
+
+         <div id="ref-hide" class="subsection">
+            <a name="hide"></a>
+            <h3 class=""><a href="http://craigsworks.com/projects/qtip/docs/reference/#">Back to the top</a>Hide</h3>
+            The hide option determines how the tooltip is hidden, what effect is used to hide it, and what event must be triggered to hide it.
+
+            <table cellspacing="0" cellpadding="0">
+               <tbody><tr class="header">
+                  <th class="name">Name</th>
+                  <th class="default">Value</th>
+                  <th class="description">Description</th>
+                  <th class="example">
+               </tr>
+               <tr class="option">
+                  <td class="name "><a name="hide-delay"></a>delay</td>
+                  <td class="default">0</td>
+                  <td class="description">Time in milliseconds by which to delay the hiding of the tooltip.
+                  <br><br>
+                  When used in conjunction with the <i>fixed</i> hide event, it determines the amount of time the user has to mouseover the tooltip when exiting the target element before the tooltip is hidden.
+                  <br><br>
+                  When used in conjunction with the <i>inactive<i> hide event, it determines how long the tooltip stays visible for before being hidden, when to events are triggered on the tooltip.
+                  </i></i></td>
+                  <td class="example " style="display: table-cell; ">Example</td>
+               </tr>
+               <tr class="option">
+                  <td class="name "><a name="hide-fixed"></a>fixed</td>
+                  <td class="default">false</td>
+                  <td class="description">
+                     <b>For use in conjunction with mouseout and similar hide events.</b><br><br>
+                     When set to <b>true</b>, the tooltip will not hide if moused over, allowing the contents to be clicked and interacted with.
+                  </td>
+                  <td class="example " style="display: table-cell; ">Example</td>
+               </tr>
+               <tr class="optionhead">
+                  <td class="name" colspan="2">when: {</td>
+                  <td class="description" colspan="3">Object containing sub-options below</td>
+               </tr>
+                  <tr class="suboption">
+                     <td class="name "><a name="hide-when-target"></a>target</td>
+                     <td class="default">false</td>
+                     <td class="description">Defines the HTML element which will assigned the hide event handler.</td>
+                     <td class="example " style="display: table-cell; ">Example</td>
+                  </tr>
+                  <tr class="suboption">
+                     <td class="name "><a name="hide-when-event"></a>event</td>
+                     <td class="default">mouseover</td>
+                     <td class="description">Event type which will trigger the hide event of the tooltip. There are two custom events available: 'inactive' and 'unfocus'.
+                     <br><br>
+                     The 'unfocus' event hides the tooltip when anywhere else on the document, except the tooltip itself, is clicked. The 'inactive' event hies the tooltip after a set period of inactivity, which is determined by the <a href="http://craigsworks.com/projects/qtip/docs/reference/#hide-delay">hide.delay option</a>.
+                     <br><br>
+                     All other possible values are documented under <a href="http://docs.jquery.com/Events/bind">jQuery's Event: bind()</a> documentation.</td>
+                     <td class="example " style="display: table-cell; ">Example</td>
+                  </tr>
+
+               <tr class="optionhead">
+                  <td class="name" colspan="2">effect: {</td>
+                  <td class="description" colspan="3">Object containing sub-options below</td>
+               </tr>
+                  <tr class="suboption">
+                     <td class="name "><a name="hide-effect-type"></a>type</td>
+                     <td class="default">fade</td>
+                     <td class="description">Effect type to use upon hiding the tooltip e.g. fade, slide or grow. Can also be a callback method which will be called when the tooltip is hidden.</td>
+                     <td class="example " style="display: table-cell; ">Example</td>
+                  </tr>
+                  <tr class="suboption">
+                     <td class="name "><a name="hide-effect-length"></a>length</td>
+                     <td class="default">100</td>
+                     <td class="description">Length of time in milliseconds the above effect will last for.</td>
+                     <td class="example " style="display: table-cell; ">Example</td>
+                  </tr>
+            </tbody></table>
+         </div>
+
+         <div id="ref-style" class="subsection">
+            <a name="style"></a>
+            <h3 class=""><a href="http://craigsworks.com/projects/qtip/docs/reference/#">Back to the top</a>Style</h3>
+            The style option allows you to set how your tooltip styled, including many sub-options such as width, border and element classes. Each tooltip is styled according to the passed style option, allowing you to customize each tooltip separately.
+
+            <table cellspacing="0" cellpadding="0">
+               <tbody><tr class="header">
+                  <th class="name">Name</th>
+                  <th class="default">Value</th>
+                  <th class="description">Description</th>
+                  <th class="example">
+               </tr>
+               <tr class="option">
+                  <td class="name "><a name="style-name"></a>name</td>
+                  <td class="default">&nbsp;</td>
+                  <td class="description">Name of the tooltip style to apply to the generated tooltip.</td>
+                  <td class="example " style="display: table-cell; ">Example</td>
+               </tr>
+               <tr class="option">
+                  <td class="name "><a name="style-css"></a>CSS-Attribute</td>
+                  <td class="default">&nbsp;</td>
+                  <td class="description">
+                     Any valid CSS attribute/value pair can be specified here.
+                     <br><br>
+                     <b>Note: Make sure to surround attribute names in quotation marks to avoid problems!</b>
+                  </td>
+                  <td class="example " style="display: table-cell; ">Example</td>
+               </tr>
+               <tr class="optionhead">
+                  <td class="name" colspan="2">width: {</td>
+                  <td class="description" colspan="3">Either a <b>number</b> OR an object containing sub-options below</td>
+               </tr>
+                  <tr class="suboption">
+                     <td class="name "><a name="style-border-width-min"></a>min</td>
+                     <td class="default">0</td>
+                     <td class="description">Determines the minimum width of the tooltip.</td>
+                     <td class="example " style="display: table-cell; ">Example</td>
+                  </tr>
+                  <tr class="suboption">
+                     <td class="name "><a name="style-border-width-max"></a>max</td>
+                     <td class="default">250</td>
+                     <td class="description">Determines the maximum width of the tooltip.</td>
+                     <td class="example " style="display: table-cell; ">Example</td>
+                  </tr>
+               <tr class="optionhead">
+                  <td class="name" colspan="2">border: {</td>
+                  <td class="description" colspan="3">Object containing sub-options below</td>
+               </tr>
+                  <tr class="suboption">
+                     <td class="name "><a name="style-border-width"></a>width</td>
+                     <td class="default">3</td>
+                     <td class="description">Determines the border width of the tooltip.</td>
+                     <td class="example " style="display: table-cell; ">Example</td>
+                  </tr>
+                  <tr class="suboption">
+                     <td class="name "><a name="style-border-radius"></a>radius</td>
+                     <td class="default">0</td>
+                     <td class="description">Determines the border radius, or roundness, of the tooltip border.</td>
+                     <td class="example " style="display: table-cell; ">Example</td>
+                  </tr>
+                  <tr class="suboption">
+                     <td class="name "><a name="style-border-color"></a>color</td>
+                     <td class="default">#d3d3d3</td>
+                     <td class="description">Determines the colour of the tooltip border</td>
+                     <td class="example " style="display: table-cell; ">Example</td>
+                  </tr>
+
+               <tr class="optionhead">
+                  <td class="name" colspan="2">tip: {</td>
+                  <td class="description" colspan="3">Object containing sub-options below</td>
+               </tr>
+                  <tr class="suboption">
+                     <td class="name "><a name="style-tip-corner"></a>corner</td>
+                     <td class="default">topLeft</td>
+                     <td class="description">The corner of the tooltip the tip will be placed in relation to. See the <a href="http://craigsworks.com/projects/qtip/docs/tutorials/#position">positioning tutorial</a> for all possible corner strings.</td>
+                     <td class="example " style="display: table-cell; ">Example</td>
+                  </tr>
+                  <tr class="suboption">
+                     <td class="name "><a name="style-tip-color"></a>color</td>
+                     <td class="default">false</td>
+                     <td class="description">Determines the colour of the tooltips tip. If set to <b>false</b>, the border colour will be used</td>
+                     <td class="example " style="display: table-cell; ">Example</td>
+                  </tr>
+                  <tr class="suboption">
+                     <td class="name "><a name="style-tip-size"></a>size</td>
+                     <td class="default">{x:12,y:12}</td>
+                     <td class="description">An object containing x and y coordinates, or width and height, of the tip.</td>
+                     <td class="example " style="display: table-cell; ">Example</td>
+                  </tr>
+
+               <tr class="optionhead">
+                  <td class="name" colspan="2">title: {</td>
+                  <td class="description" colspan="3">Object containing sub-options below</td>
+               </tr>
+                  <tr class="suboption">
+                     <td class="name "><a name="style-title-css"></a>CSS-Attribute</td>
+                     <td class="default">&nbsp;</td>
+                     <td class="description">
+                        Any valid CSS attribute/value pair can be specified here.
+                        <br><br>
+                        <b>Note: Make sure to surround attribute names in quotation marks to avoid problems!</b>
+                     </td>
+                     <td class="example " style="display: table-cell; ">Example</td>
+                  </tr>
+
+               <tr class="optionhead">
+                  <td class="name" colspan="2">button: {</td>
+                  <td class="description" colspan="3">Object containing sub-options below</td>
+               </tr>
+                  <tr class="suboption">
+                     <td class="name "><a name="style-title-css"></a>CSS-Attribute</td>
+                     <td class="default">&nbsp;</td>
+                     <td class="description">
+                        Any valid CSS attribute/value pair can be specified here.
+                        <br><br>
+                        <b>Note: Make sure to surround attribute names in quotation marks to avoid problems!</b>
+                     </td>
+                     <td class="example " style="display: table-cell; ">Example</td>
+                  </tr>
+
+               <tr class="optionhead">
+                  <td class="name" colspan="2">classes: {</td>
+                  <td class="description" colspan="3">Object containing sub-options below</td>
+               </tr>
+                  <tr class="suboption">
+                     <td class="name "><a name="style-classes-target"></a>target</td>
+                     <td class="default">&nbsp;</td>
+                     <td class="description">Class name assigned to the target element e.g. the element defined by the target option</td>
+                     <td class="">&nbsp;</td>
+                  </tr>
+                  <tr class="suboption">
+                     <td class="name "><a name="style-classes-tooltip"></a>tooltip</td>
+                     <td class="default">qtip</td>
+                     <td class="description">Class name assigned to the tooltip.</td>
+                     <td class="">&nbsp;</td>
+                  </tr>
+                  <tr class="suboption">
+                     <td class="name "><a name="style-classes-tip"></a>tip</td>
+                     <td class="default">qtip-tip</td>
+                     <td class="description">Class name assigned to the tooltip tip.</td>
+                     <td class="">&nbsp;</td>
+                  </tr>
+                  <tr class="suboption">
+                     <td class="name "><a name="style-classes-title"></a>title</td>
+                     <td class="default">qtip-title</td>
+                     <td class="description">Class name assigned to the tooltip title.</td>
+                     <td class="">&nbsp;</td>
+                  </tr>
+                  <tr class="suboption">
+                     <td class="name "><a name="style-classes-content"></a>content</td>
+                     <td class="default">qtip-content</td>
+                     <td class="description">Class name assigned to the tooltip content.</td>
+                     <td class="">&nbsp;</td>
+                  </tr>
+                  <tr class="suboption">
+                     <td class="name "><a name="style-classes-active"></a>active</td>
+                     <td class="default">qtip-active</td>
+                     <td class="description">Class name assigned to any tooltip which is currently active e.g. on show.</td>
+                     <td class="">&nbsp;</td>
+                  </tr>
+            </tbody></table>
+         </div>
+
+         <div id="ref-api" class="subsection">
+            <a name="api"></a>
+            <h3 class=""><a href="http://craigsworks.com/projects/qtip/docs/reference/#">Back to the top</a>API</h3>
+            <p>The API option is simply a subset of the <a href="http://craigsworks.com/projects/qtip/docs/api/#callbacks">API Callbacks</a> object. See <a href="http://craigsworks.com/projects/qtip/docs/api/#callbacks">here</a> for full details and documentation.</p>
+            <table cellspacing="0" cellpadding="0">
+               <tbody><tr class="header">
+                  <th class="name">Name</th>
+                  <th class="default">Value</th>
+                  <th class="description">Description</th>
+                  <th class="example">
+               </tr>
+               <tr class="optionhead">
+                  <td class="name" colspan="2">api: {</td>
+                  <td class="description" colspan="3">Object containing sub-options below</td>
+               </tr>
+                  <tr class="suboption">
+                     <td class="name "><a name="style-classes-target"></a>Callback</td>
+                     <td class="default">&nbsp;</td>
+                     <td class="description"> See <a href="http://craigsworks.com/projects/qtip/docs/api/#callbacks">here</a> for full details on all valid API callbacks for this object.</td>
+                     <td class="">&nbsp;</td>
+                  </tr>
+            </tbody></table>
+         </div>
+      </div>
+   </div>
+   </div>   
+   <div id="footer">
+   <div class="center">
+      <div class="right">
+         <a href="http://launchpad.net/qtip">launchpad project</a> -
+         <a href="http://plugins.jquery.com/project/qtip">jQuery plugin project</a> -
+         <a href="mailto:craig@craigsworks.com">contact me</a> 
+      </div>
+      
+      Content copyright 2009 © <a href="http://craigsworks.com/">Craig Thompson</a>
+   </div>
+   </div>
+</div>
+<!--JavaScript-->
+<script type="text/javascript" src="./qTip - The jQuery tooltip plugin - Documentation00_files/jquery-1.3.2.min.js"></script>
+<script type="text/javascript" src="./qTip - The jQuery tooltip plugin - Documentation00_files/jquery-ui-personalized-1.5.3.min.js"></script>
+<script type="text/javascript" src="./qTip - The jQuery tooltip plugin - Documentation00_files/jquery.qtip-1.0.0-rc3.js"></script>
+<script type="text/javascript" src="./qTip - The jQuery tooltip plugin - Documentation00_files/examples.js"></script>
+<script type="text/javascript" src="./qTip - The jQuery tooltip plugin - Documentation00_files/reference.js"></script>
+
+<!--Highlight JavaScript-->
+<script type="text/javascript" src="./qTip - The jQuery tooltip plugin - Documentation00_files/highlight.js"></script>
+<script type="text/javascript" src="./qTip - The jQuery tooltip plugin - Documentation00_files/html.js"></script>
+<script type="text/javascript" src="./qTip - The jQuery tooltip plugin - Documentation00_files/css.js"></script>
+<script type="text/javascript" src="./qTip - The jQuery tooltip plugin - Documentation00_files/javascript.js"></script>
+<script type="text/javascript">hljs.initHighlightingOnLoad('html', 'css', 'javascript');</script>
+
+<!--Google Analytics-->
+<script type="text/javascript">
+document.write(unescape("%3Cscript src='http://www.google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script><script src="./qTip - The jQuery tooltip plugin - Documentation00_files/ga.js" type="text/javascript"></script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-5228245-5");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+
+
+<div qtip="97" class="qtip qtip-blue" style="border-top-left-radius: 0px 0px; border-top-right-radius: 0px 0px; border-bottom-right-radius: 0px 0px; border-bottom-left-radius: 0px 0px; position: absolute; width: 46px; left: 149px; top: 6275px; display: none; ">  <div class="qtip-wrapper" style="position:relative; overflow:hidden; text-align:left;">    <div class="qtip-contentWrapper" style="overflow-x: hidden; overflow-y: hidden; background-image: initial; background-attachment: initial; background-origin: initial; background-clip: initial; background-color: rgb(229, 246, 254); border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-top-color: rgb(173, 217, 237); border-right-color: rgb(173, 217, 237); border-bottom-color: rgb(173, 217, 237); border-left-color: rgb(173, 217, 237); background-position: initial initial; background-repeat: initial initial; ">       <div class="qtip-content qtip-content" style="background-image: initial; background-attachment: initial; background-origin: initial; background-clip: initial; background-color: rgb(229, 246, 254); color: rgb(77, 159, 191); overflow-x: hidden; overflow-y: hidden; text-align: left; padding-top: 5px; padding-right: 8px; padding-bottom: 5px; padding-left: 8px; cursor: pointer; background-position: initial initial; background-repeat: initial initial; ">#api</div></div></div></div><div qtip="78" class="qtip qtip-blue" style="border-top-left-radius: 0px 0px; border-top-right-radius: 0px 0px; border-bottom-right-radius: 0px 0px; border-bottom-left-radius: 0px 0px; position: absolute; width: 58px; left: 137px; top: 4658px; display: none; ">  <div class="qtip-wrapper" style="position:relative; overflow:hidden; text-align:left;">    <div class="qtip-contentWrapper" style="overflow-x: hidden; overflow-y: hidden; background-image: initial; background-attachment: initial; background-origin: initial; background-clip: initial; background-color: rgb(229, 246, 254); border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-top-color: rgb(173, 217, 237); border-right-color: rgb(173, 217, 237); border-bottom-color: rgb(173, 217, 237); border-left-color: rgb(173, 217, 237); background-position: initial initial; background-repeat: initial initial; ">       <div class="qtip-content qtip-content" style="background-image: initial; background-attachment: initial; background-origin: initial; background-clip: initial; background-color: rgb(229, 246, 254); color: rgb(77, 159, 191); overflow-x: hidden; overflow-y: hidden; text-align: left; padding-top: 5px; padding-right: 8px; padding-bottom: 5px; padding-left: 8px; cursor: pointer; background-position: initial initial; background-repeat: initial initial; ">#style</div></div></div></div><div qtip="63" class="qtip qtip-blue" style="border-top-left-radius: 0px 0px; border-top-right-radius: 0px 0px; border-bottom-right-radius: 0px 0px; border-bottom-left-radius: 0px 0px; position: absolute; width: 62px; left: 133px; top: 2934px; display: none; ">  <div class="qtip-wrapper" style="position:relative; overflow:hidden; text-align:left;">    <div class="qtip-contentWrapper" style="overflow-x: hidden; overflow-y: hidden; background-image: initial; background-attachment: initial; background-origin: initial; background-clip: initial; background-color: rgb(229, 246, 254); border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-top-color: rgb(173, 217, 237); border-right-color: rgb(173, 217, 237); border-bottom-color: rgb(173, 217, 237); border-left-color: rgb(173, 217, 237); background-position: initial initial; background-repeat: initial initial; ">       <div class="qtip-content qtip-content" style="background-image: initial; background-attachment: initial; background-origin: initial; background-clip: initial; background-color: rgb(229, 246, 254); color: rgb(77, 159, 191); overflow-x: hidden; overflow-y: hidden; text-align: left; padding-top: 5px; padding-right: 8px; padding-bottom: 5px; padding-left: 8px; cursor: pointer; background-position: initial initial; background-repeat: initial initial; ">#show</div></div></div></div><div qtip="43" class="qtip qtip-blue" style="border-top-left-radius: 0px 0px; border-top-right-radius: 0px 0px; border-bottom-right-radius: 0px 0px; border-bottom-left-radius: 0px 0px; position: absolute; width: 74px; left: 121px; top: 618px; display: none; ">  <div class="qtip-wrapper" style="position:relative; overflow:hidden; text-align:left;">    <div class="qtip-contentWrapper" style="overflow-x: hidden; overflow-y: hidden; background-image: initial; background-attachment: initial; background-origin: initial; background-clip: initial; background-color: rgb(229, 246, 254); border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-top-color: rgb(173, 217, 237); border-right-color: rgb(173, 217, 237); border-bottom-color: rgb(173, 217, 237); border-left-color: rgb(173, 217, 237); background-position: initial initial; background-repeat: initial initial; ">       <div class="qtip-content qtip-content" style="background-image: initial; background-attachment: initial; background-origin: initial; background-clip: initial; background-color: rgb(229, 246, 254); color: rgb(77, 159, 191); overflow-x: hidden; overflow-y: hidden; text-align: left; padding-top: 5px; padding-right: 8px; padding-bottom: 5px; padding-left: 8px; cursor: pointer; background-position: initial initial; background-repeat: initial initial; ">#content</div></div></div></div></body><style type="text/css">embed[type*="application/x-shockwave-flash"],embed[src*=".swf"],object[type*="application/x-shockwave-flash"],object[codetype*="application/x-shockwave-flash"],object[src*=".swf"],object[codebase*="swflash.cab"],object[classid*="D27CDB6E-AE6D-11cf-96B8-444553540000"],object[classid*="d27cdb6e-ae6d-11cf-96b8-444553540000"],object[classid*="D27CDB6E-AE6D-11cf-96B8-444553540000"]{	display: none !important;}</style></html>
