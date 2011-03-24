@@ -8,7 +8,6 @@
  * @copyright Copyright &copy; 2010-2012 Nikolay Kosturin
  * @license http://www.apache.org/licenses/LICENSE-2.0
  */
-
 /**
  * 
  *
@@ -30,15 +29,17 @@ class GHtml extends CHtml
    * @param mixed $data object or array data from player
    * @return string formated span element with right status class
    */
-  public static function playerStatus($data, $htmlOptions=array('class'=>''))
+  public static function playerStatus($data, $htmlOptions=array('class' => ''))
   {
     $htmlOptions['class'].=' normal';
-    
-    if($data->isadmin) $htmlOptions['class']=' admin';
-    if($data->isbanned) $htmlOptions['class']=' banned';
 
-    $span=self::tag('span', array('class'=>'icon'), '&nbsp;');
-    return self::tag('span', $htmlOptions, $span.$data->name);
+    if ($data->isadmin)
+      $htmlOptions['class'] = ' admin';
+    if ($data->isbanned)
+      $htmlOptions['class'] = ' banned';
+
+    $span = self::tag('span', array('class' => 'icon'), '&nbsp;');
+    return self::tag('span', $htmlOptions, $span . $data->name);
   }
 
   /**
@@ -48,7 +49,7 @@ class GHtml extends CHtml
    */
   public static function normalizeMapName($data)
   {
-    $map=is_object($data) ? $data->map : $data; // maps\download\DotA Allstars v6.65.w3x
+    $map = is_object($data) ? $data->map : $data; // maps\download\DotA Allstars v6.65.w3x
     $mapElems = explode("\\", $map); // array of all path elements ( maps, download, DotA Allstars v6.65.w3x )
     $mapFile = array_pop($mapElems); // get DotA Allstars v6.65.w3x
     return $mapName = str_replace('.w3x', '', $mapFile); // replace DotA Allstars v6.65.w3x to DotA Allstars v6.65
@@ -61,8 +62,9 @@ class GHtml extends CHtml
    */
   public static function gameType($data)
   {
-    $type=is_object($data) ? $data->gamestate : $data;
-    switch ($type) {
+    $type = is_object($data) ? $data->gamestate : $data;
+    switch ($type)
+    {
       case '16':
         return "public";
         break;
@@ -70,18 +72,18 @@ class GHtml extends CHtml
         return "private";
         break;
     }
-
   }
 
-    /**
+  /**
    * Determine game winner ( scourge or sentinel )
    * @param mixed $data data from game
    * @return string
    */
   public static function gameWinner($data)
   {
-    $type=is_object($data) ? $data->winner : $data;
-    switch ($type) {
+    $type = is_object($data) ? $data->winner : $data;
+    switch ($type)
+    {
       case '0':
         return "draw";
         break;
@@ -92,7 +94,6 @@ class GHtml extends CHtml
         return "scourge";
         break;
     }
-
   }
 
   /**
@@ -102,55 +103,55 @@ class GHtml extends CHtml
    */
   public static function secondsToTime($seconds)
   {
-    $hours = floor($seconds/3600);
+    $hours = floor($seconds / 3600);
     $secondsRemaining = $seconds % 3600;
 
-    $minutes = floor($secondsRemaining/60);
+    $minutes = floor($secondsRemaining / 60);
     $seconds_left = $secondsRemaining % 60;
 
-    if($hours != 0)
+    if ($hours != 0)
     {
-      if(strlen($minutes) == 1)
+      if (strlen($minutes) == 1)
       {
-      $minutes = "0".$minutes;
+        $minutes = "0" . $minutes;
       }
-      if(strlen($seconds_left) == 1)
+      if (strlen($seconds_left) == 1)
       {
-      $seconds_left = "0".$seconds_left;
+        $seconds_left = "0" . $seconds_left;
       }
-      return $hours.":".$minutes.":".$seconds_left;
+      return $hours . ":" . $minutes . ":" . $seconds_left;
     }
     else
     {
-      if(strlen($seconds_left) == 1)
+      if (strlen($seconds_left) == 1)
       {
-      $seconds_left = "0".$seconds_left;
+        $seconds_left = "0" . $seconds_left;
       }
-      return "00:".$minutes.":".$seconds_left;
+      return "00:" . $minutes . ":" . $seconds_left;
     }
   }
 
   /**
-   * Convert player db colour value into css color class
+   * Convert player db colour value into css colour class
    * @param int $number player newcolour value
    * @return string css class of color
    */
   public static function getColor($number)
   {
-    switch ($number) {
+    switch ($number)
+    {
       case 1: return 'red';
-        case 2: return 'blue';
-          case 3: return 'purple';
-            case 4: return 'yellow';
-              case 5: return 'orange';
-                case 6: return 'red';
-                  case 7: return 'red';
-                    case 8: return 'red';
-                      case 9: return 'red';
-                        case 10: return 'red';
-                          case 11: return 'red';
-                            case 12: return 'red';
-
+      case 2: return 'blue';
+      case 3: return 'purple';
+      case 4: return 'yellow';
+      case 5: return 'orange';
+      case 6: return 'red';
+      case 7: return 'red';
+      case 8: return 'red';
+      case 9: return 'red';
+      case 10: return 'red';
+      case 11: return 'red';
+      case 12: return 'red';
     }
   }
 

@@ -23,12 +23,12 @@
             <div id="navigation" class="clearfix">
                 <com:zii.widgets.CMenu items={$this->menu->toArray()} htmlOptions={array('class'=>'links inline grid_12')} />
                   <div class="search grid_4">
-                    <?php
+                    <%
                     $form=$this->beginWidget('CActiveForm', array(
                       'action'=>Yii::app()->createUrl('ghpp/players/index'),
                       'method'=>'get',
-                    )); ?>
-                    <?php $this->widget('CAutoComplete',
+                    )); %>
+                    <% $this->widget('CAutoComplete',
                           array(
                              'model'=>new Players('search'),
                              'name'=>'Players[name]',
@@ -37,7 +37,7 @@
                              'cssFile'=>false,
                              'htmlOptions'=>array('class'=>'form-autocomplete'),
                              ));
-                    ?>
+                    %>
                     <%= CHtml::submitButton('Search'); %>
                     <% $this->endWidget(); %>
                   </div>
@@ -76,7 +76,7 @@
           </div><!-- /#container -->
         </div><!-- /#wrapper -->
 
-        <div id="fourcols" class="clearfix">
+        <!-- <div id="fourcols" class="clearfix">
             <div class="wrapper container_12">
                 <div class="column grid_3">
                     <h2>Column Heading 1</h2>
@@ -103,7 +103,7 @@
                     </div>
                 </div>
             </div>
-        </div><!-- /#fourclos -->
+        </div> /#fourclos -->
 
         <div id="footer">
             <div class="wrapper container_12">

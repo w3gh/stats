@@ -1,46 +1,7 @@
 <div class="grid_16"><h4>List of all Admins for all Servers</h4></div>
 
-<?php $this->widget('zii.widgets.grid.CGridView', array(
-    'id'=>'admins-grid',
-    'dataProvider'=>$dataProvider,
-    'cssFile'=>false,
-    'columns'=>array(
-       array(
-           'id'=>'playername',
-           'header'=>'Player Name',
-           'name'=>'name',
-           'headerHtmlOptions'=>array(),
-           'type'=>'raw',
-           'value'=>'CHtml::link($data->name, array("players/player","name"=>$data->name, "server"=>$data->serverid));',
-       ),
-       array(
-           'id'=>'gameshosted',
-           'header'=>'Games',
-           'name'=>'gameshosted',
-           'headerHtmlOptions'=>array(),
-       ),
-       array(
-           'id'=>'banscount',
-           'header'=>'Bans',
-           'name'=>'banscount',
-           'headerHtmlOptions'=>array(),
-           'type'=>'raw',
-           'value'=>'CHtml::link($data->banscount, array("admins/bansby","name"=>$data->name, "server"=>$data->serverid));',
-       ),
-      array(
-            'id'=>'server',
-            'name'=>'servername',
-            'header'=>'Server',
-            'headerHtmlOptions'=>array(),
-      ),
-      array(
-            'id'=>'bot',
-            'name'=>'boname',
-            'header'=>'Bot',
-            'headerHtmlOptions'=>array(),
-      ),
-   ),
-   'pager'=>array(
-      'cssFile'=>false,
-    ),
-)); ?>
+<div class="grid_8">
+  <com:ServersMenu htmlOptions={array('class'=>'links inline')} />
+</div>
+<div class="clear"></div>
+<?php $this->renderPartial('_grid',array('dataProvider'=>$dataProvider)); ?>

@@ -4,6 +4,7 @@ class DefaultController extends Controller
 {
 	public function actionIndex()
 	{
+    $this->forward('servers/index');
 		$this->render('index');
 	}
 
@@ -11,35 +12,6 @@ class DefaultController extends Controller
   {
     $app=Yii::app();
 
-//    $serverCriteria = $botCriteria = array();
-//
-//    $serverCriteria['select'] = array('s.name AS servername', 's.id AS serverid');
-//    $serverCriteria['join'] = ' INNER JOIN servers AS s ON b.server = s.server';
-//    if(!empty($server)) {
-//      $serverCriteria['condition'] = 's.id = :server';
-//      $serverCriteria['params'][':server'] = $server;
-//    }
-//
-//    $botCriteria['select'] = array('bo.name AS boname', 'bo.id AS boid');
-//    $botCriteria['join'] = 'INNER JOIN bots AS bo ON b.botid = bo.botid';
-//    if(!empty($bot)) {
-//      $botCriteria['condition'] = ' bo.id = :bot';
-//      $botCriteria['params'][':bot'] = $bot;
-//    }
-//
-//    $serverBotCriteria = array('condition' => 's.id = bo.serversid');//(!empty($bot) && !empty($server)) ? array('condition' => 's.id = bo.serversid') : array();
-//    //var_dump(Bans::model()->findAll($criteria)); die();
-//
-//    $criteria = new CDbCriteria($serverCriteria);
-//    $criteria->mergeWith($botCriteria);
-//    $criteria->mergeWith($serverBotCriteria);
-    
-//    $dataProvider=new CActiveDataProvider('Bans', array(
-//			'pagination'=>array(
-//				'pageSize'=>$app->params['postsPerPage'],
-//			),
-//			'criteria'=>$criteria,
-//		));
 		$rawData=Bans::model()->byServer($server)->byBot($bot)->findAll();
     $dataProvider=new CArrayDataProvider($rawData,array(
       'id'=>'bans',

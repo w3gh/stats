@@ -124,7 +124,6 @@ class EloRanker extends GBaseRanker {
             $unrankedPlayer->neutralkills
           );
 
-          var_dump($rankedPlayer->contributionpoints);
           if ($rankedPlayer->contributionpoints < 0) // negative contribution points
           {
             $unrankedTeam['lossContribution'] += $rankedPlayer->contributionpoints;

@@ -42,24 +42,26 @@ class GRank extends CApplicationComponent {
    * @param int $processCap
    */
   public function run($processCap=0) {
+    //check last ranked game id, if null, we not rank any games
     $lastRankedGameID = Yii::app()->var->get('lastRankedGameID');
     $lastRankedGameID = $lastRankedGameID == null ? 0 : $lastRankedGameID;
     Yii::trace("lastRankedGameID = " . $lastRankedGameID, "Ranker");
 
+    //find games start from last ranked game id
     $criteria = new CDbCriteria();
     $criteria->condition = 'g.id > :gameid';
     $criteria->params = array(':gameid' => $lastRankedGameID);
 
     $unrankedGames = Games::model()->unrankedGames()->findAll($criteria);
 
+    //rank all unranked games
     $processedGames = 0;
     while ($unrankedGame = array_shift($unrankedGames)) {
       $processedGames++;
       if (($processedGames < $processCap) or !($processCap)) {
         Yii::app()->var->set('lastRankedGameID', $unrankedGame['id']);
-        if ($this->rankGame($unrankedGame['id']) == false
-          );
-        continue;
+        if ($this->rankGame($unrankedGame['id']) == false);
+          continue;
       }
       else {
         break;
@@ -97,6 +99,7 @@ class GRank extends CApplicationComponent {
 
     $transaction = Yii::app()->getDb()->beginTransaction();
     try {
+      //first we score summary points per team
       foreach ($unrankedTeams as $teamid => $team) {
         $rankedTeams[$teamid] = $this->getRanker()->scoreTeam($unrankedPlayers, $teamid); // Process the team data
         if ($rankedTeams[$teamid]['players'] == 0) {
@@ -105,6 +108,7 @@ class GRank extends CApplicationComponent {
         }
       }
 
+      //second we score individual points for player
       foreach ($unrankedPlayers as $unrankedPlayer) {
         $this->getRanker()->scorePlayer($unrankedPlayer, $rankedTeams); // Process the player data
       }

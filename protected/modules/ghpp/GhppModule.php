@@ -17,6 +17,7 @@ class GhppModule extends CWebModule
 		$this->setImport(array(
 			$this->id.'.models.*',
 			$this->id.'.components.*',
+      $this->id.'.components.widgets.*',
       $this->id.'.components.GHtml.*',
       $this->id.'.components.GRank.*',
 		));
@@ -35,12 +36,4 @@ class GhppModule extends CWebModule
 			return false;
 	}
 
-  /**
-   *
-   * @return array for using in {@link CHtml::dropDownList()}
-   */
-  public static function getServerList()
-  {
-    return Servers::model()->getList();
-  }
 }

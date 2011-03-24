@@ -18,14 +18,15 @@ $this->breadcrumbs->mergeWith(array(
 $this->tabs->copyFrom(array(
   array('label'=>'List Players', 'url'=>array('index')),
   array('label'=>'Heroes', 'url'=>array('players/heroes','name'=>$name, 'server'=>$server)),
-  array('label'=>'History', 'url'=>array('players/games','name'=>$name,'server'=>$server)),
-  array('label'=>'Items', 'url'=>array('index')),
-  array('label'=>'Achiv\'s', 'url'=>array('index')),
+  array('label'=>'Games History', 'url'=>array('players/games','name'=>$name,'server'=>$server)),
+  array('label'=>'Items', 'url'=>array('players/items','name'=>$name,'server'=>$server)),
+  array('label'=>'Achiv\'s', 'url'=>array('players/achivs','name'=>$name,'server'=>$server)),
 ));
 
 ?>
 
-<div class="grid_6"><com:zii.widgets.CMenu items={$serversmenu} htmlOptions={array('class'=>'links inline')} /></div>
+<div class="grid_6">
+  <com:zii.widgets.CMenu items={$serversmenu} htmlOptions={array('class'=>'links inline')} /></div>
 <div class="grid_10"><h4>View Player <?php echo $model->name; ?></h4></div>
 <div class="clear"></div>
 <div class="grid_4">

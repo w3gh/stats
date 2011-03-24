@@ -1,6 +1,6 @@
 <?php
 
-class ServersController extends Controller
+class BotsController extends Controller
 {
 
 	/**
@@ -26,7 +26,7 @@ class ServersController extends Controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update','updateServers'),
+				'actions'=>array('create','update'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -48,21 +48,16 @@ class ServersController extends Controller
     $model=$this->loadModel($id);
 
     $this->breadcrumbs->mergeWith(array(
-      'Servers'=>array('index'),
+      'Bots'=>array('index'),
       $model->name,
     ));
 
     $this->tabs->copyFrom(array(
-      array('label'=>'List Servers', 'url'=>array('index')),
-      array('label'=>'Create Servers', 'url'=>array('create')),
-      array('label'=>'Update Servers', 'url'=>array('update', 'id'=>$model->id)),
-      array('label'=>'Delete Servers', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?')),
-      array('label'=>'Manage Servers', 'url'=>array('admin')),
     ));
 
 		$this->render('view',array(
-			'model'=>$model,
-		));
+      'model'=>$model,
+    ));
 	}
 
 	/**
@@ -121,47 +116,6 @@ class ServersController extends Controller
 			'model'=>$model,
 		));
 	}
-
-  /**
-   * Add new servers into table
-   */
-  public function actionUpdateServers()
-  {
-      $playerServers   = Players::model()->servers()->findAll();
-      $bansServers     = Bans::model()->servers()->findAll();
-      $adminsServers   = Admins::model()->servers()->findAll();
-      
-      $serversList     = Servers::model()->findAll();
-
-      $servers=CMap::mergeArray($playerServers, $bansServers);
-      $servers=CMap::mergeArray($servers, $adminsServers);
-
-      $exServers = $avServers = array();
-      foreach($serversList as $id => $server)
-      {
-        $exServers[$server->server]=$server->server;
-      }
-      
-      foreach($servers as $id => $server)
-        $avServers[$server->server]=$server->server;//array_push(, $server->server);
-
-      foreach($avServers as $id => $server)
-      {
-        //var_dump($server->server);
-        if(!isset($exServers[$id]))
-        {
-          $s = new Servers;
-          $s->server=$server;
-          $s->name=gethostbyaddr($server);
-          $s->port=6112;
-          $s->save();
-          Yii::app()->user->setFlash('system', 'Added '.$server.' to servers list');
-        }
-      }
-
-			$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('index'));
-    
-  }
 
 	/**
 	 * Deletes a particular model.
@@ -237,7 +191,7 @@ class ServersController extends Controller
 	 */
 	public function loadModel($id)
 	{
-		$model=Servers::model()->findByPk((int)$id);
+		$model=Bots::model()->findByPk((int)$id);
 		if($model===null)
 			throw new CHttpException(404,'The requested page does not exist.');
 		return $model;

@@ -10,16 +10,21 @@ define('YII_ENABLE_ERROR_HANDLER', TRUE);
 // change the following paths if necessary
 //Base Framework Path
 $yii = dirname(__FILE__) . '/framework/yii.php';
-require_once($yii);
 //Path to config for Web Application
 $config = dirname(__FILE__) . '/protected/config/web.php';
 
+
+require_once($yii);
 //var_dump(require_once($config)); die();
 
 $app=Yii::createWebApplication($config);
 
+/* @var $app CWebApplication */
+
+$lang=Yii::app()->request->preferredLanguage;
+
 //Detect Browser Language and apply it to Application
-$app->language=array_shift(explode('_',Yii::app()->request->preferredLanguage));
+$app->language=$lang;
 
 header("Content-Type:	text/html; charset=utf-8");
 //Run Dispatch

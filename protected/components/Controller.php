@@ -73,9 +73,6 @@ class Controller extends CController
 
     //Register base path url
     $this->baseUrl=Yii::app()->request->baseUrl;
-
-    QTip::qtip('.row input[title], a[title]');
-
 	}
 
   public function getAssetsPath()

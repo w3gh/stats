@@ -32,7 +32,7 @@
 
 	<div class="row form-item">
 		<?php echo $form->labelEx($model,'server'); ?>
-		<?php echo $form->dropDownList($model, 'server', $servers); ?>
+		<?php echo $form->dropDownList($model, 'server', Servers::model()->list); ?>
 		<?php echo $form->error($model,'server'); ?>
 	</div>
 

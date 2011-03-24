@@ -8,19 +8,10 @@ $('.playersearch form').submit(function(){
 });
 ");
 
-$serversMenu=array(
-  array('label'=>Yii::t('ghppModule.players', 'All'), 'url'=>array('index')),
-);
-foreach($servers as $id=>$server)
-{
-  //array('label'=>Yii::t('menuTop', 'Home'), 'url'=>array('/post/index')),
-  $serversMenu[]=array('label'=>$server->name, 'url'=>array('index', 'server'=>$server->id));
-}
-
 ?>
 
 <div class="grid_8">
-  <com:zii.widgets.CMenu items={$serversMenu} htmlOptions={array('class'=>'links inline')} />
+  <com:ServersMenu htmlOptions={array('class'=>'links inline')} />
 </div>
 <div class="grid_2"><h4>Bans</h4></div>
 <div class="grid_6 playersearch">
