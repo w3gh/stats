@@ -1,0 +1,88 @@
+<?php /* source file: /home/jilizart/www/Yii/apps/w3ghstats/protected/modules/ghpp/views/players/_grid.php */ ?>
+<?php $this->widget('zii.widgets.grid.CGridView', array(
+  'id'=>'Players-list-grid',
+	'dataProvider'=>$dataProvider,
+  'cssFile'=>false,
+   'pager'=>array(
+       'cssFile'=>false,
+   ),
+   'columns'=>array(
+       array(
+           'header'=>'Player Name',
+           'id'=>'playername',
+           'headerHtmlOptions'=>array(),
+           'type'=>'raw',
+           'name'=>'name',
+           'value'=>'CHtml::link(GHtml::playerStatus($data), array("player","name"=>$data->name, "server"=>$data->serverid));',
+       ),
+       array(
+           'header'=>'Games',
+           'id'=>'totalgames',
+           'name'=>'totgames',
+           'headerHtmlOptions'=>array(),
+       ),
+       array(
+           'header'=>'Kills',
+           'id'=>'herokills',
+           'name'=>'kills',
+           'headerHtmlOptions'=>array(),
+       ),
+       array(
+           'header'=>'Deaths',
+           'id'=>'herodeaths',
+           'name'=>'deaths',
+           'headerHtmlOptions'=>array(),
+       ),
+       array(
+           'header'=>'Assists',
+           'id'=>'herodeaths',
+           'name'=>'assists',
+           'headerHtmlOptions'=>array(),
+       ),
+       array(
+           'header'=>'Creeps',
+           'id'=>'creepkills',
+           'name'=>'creepkills',
+           'headerHtmlOptions'=>array(),
+       ),
+       array(
+           'header'=>'Denies',
+           'id'=>'creepdenies',
+           'name'=>'creepdenies',
+           'headerHtmlOptions'=>array(),
+       ),
+       array(
+           'header'=>'Neutrals',
+           'id'=>'neutralkills',
+           'name'=>'neutralkills',
+           'headerHtmlOptions'=>array(),
+       ),
+       array(
+           'header'=>'Towers',
+           'id'=>'towerkills',
+           'name'=>'towerkills',
+           'headerHtmlOptions'=>array(),
+       ),
+       array(
+           'header'=>'Last Game',
+           'id'=>'lastplayed',
+           'name'=>'lastplayed',
+           'headerHtmlOptions'=>array(),
+       ),
+       array(
+           'header'=>'First Game',
+           'id'=>'firstplayed',
+           'name'=>'firstplayed',
+           'headerHtmlOptions'=>array(),
+       ),
+       array(
+           'header'=>'Server',
+           'id'=>'server',
+           'name'=>'server',
+           'type'=>'raw',
+           'value'=>'CHtml::encode($data->servername);',
+           'headerHtmlOptions'=>array(),
+       ),
+   ),
+));
+?>
