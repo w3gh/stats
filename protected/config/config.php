@@ -10,7 +10,6 @@ return array(
     'application.models.*',
     'application.components.*',
     'application.components.widgets.*',
-    'ext.qtip.*',
     'application.modules.ghpp.models.*',
     'application.modules.ghpp.components.*',
     'application.modules.ghpp.components.GHtml.*',
@@ -26,10 +25,6 @@ return array(
 //      'gamesPerPage'=>40,
 //      'adminsPerPage'=>40,
 //      'bansPerPage'=>40,
-    ),
-    'srbac' => array(
-      'userclass' => 'User',
-    //'debug'=>TRUE,
     ),
     'gii' => array(
       'class' => 'system.gii.GiiModule',

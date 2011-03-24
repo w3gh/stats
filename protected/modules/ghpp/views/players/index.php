@@ -18,7 +18,7 @@ $('#navigation div.search form').submit(function(){
 ");
 
 ?>
-
+<?php if($this->beginCache('asd',array('duration'=>Yii::app()->params['pageCacheTime']))): ?>
 <div class="grid_8">
   <com:ServersMenu htmlOptions={array('class'=>'links inline')} />
 </div>
@@ -54,3 +54,4 @@ $form=$this->beginWidget('CActiveForm', array(
 <div class="clear"></div>
 <?php $this->renderPartial('_grid',array('dataProvider'=>$dataProvider)); ?>
 
+<?php $this->endCache('asd'); endif; ?>

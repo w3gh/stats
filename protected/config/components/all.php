@@ -40,14 +40,7 @@ return array(
   ),
   'cache' => array(
     'class' => 'system.caching.CFileCache',
-  ),
-
-  'authManager' => array(
-    'class' => 'CDbAuthManager',
-    'connectionID' => 'db',
-    'itemTable' => 'items',
-    'assignmentTable' => 'assigments',
-    'itemChildTable' => 'itemchildren',
+    'cachePath'=>dirname(__FILE__).'../../../runtime/filecache',
   ),
   'urlManager' => array(
     'class' => 'CUrlManager',
