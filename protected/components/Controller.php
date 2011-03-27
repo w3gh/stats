@@ -11,11 +11,6 @@ class Controller extends CController
 	public $breadcrumbs;
 
   /**
-   * @var CStack the collection of menu items
-   */
-	public $menu, $menu_top;
-
-  /**
    *
    * @var CStack the collection of tab items
    */
@@ -35,8 +30,6 @@ class Controller extends CController
 	{
 		parent::init();
     $this->breadcrumbs = new CMap();
-    $this->menu = new CStack(require Yii::getPathOfAlias('application.config').'/menu.php');
-    $this->menu_top = new CStack(require Yii::getPathOfAlias('application.config').'/menu_top.php');
     $this->tabs = new CStack();
     
     /* @var $app->clientScript CClientScript */
@@ -66,7 +59,7 @@ class Controller extends CController
         $this->_themeAssetsPath = Yii::app()->assetManager->publish($themeAssetsFolder, false, -1, YII_DEBUG);
     }
     //var_dump($theme->getLayoutFile($this,"main")); die();
-    Yii::app()->clientScript->registerCoreScript('jquery.ui');
+    //Yii::app()->clientScript->registerCoreScript('jquery.ui');
     //Yii::app()->clientScript->renderCoreScripts();
 
     if($theme!==null) Yii::app()->clientScript->registerCssFile($this->_themeAssetsPath.'/css/style.css', 'screen');

@@ -1,5 +1,4 @@
 ﻿<?php
-
 define('CONSOLE', FALSE);
 
 // remove the following line when in production mode
@@ -17,14 +16,49 @@ $config = dirname(__FILE__) . '/protected/config/web.php';
 require_once($yii);
 //var_dump(require_once($config)); die();
 
-$app=Yii::createWebApplication($config);
+$app = Yii::createWebApplication($config);
+
+define('BASEURL', Yii::app()->baseUrl);
+
+function d()
+{
+  echo '<pre>';
+  $_ = func_get_args();
+  echo call_user_func_array(
+    array('CVarDumper', 'dump'), $_
+  );
+  exit();
+}
 
 /* @var $app CWebApplication */
 
-$lang=Yii::app()->request->preferredLanguage;
+// Language
+if ($app->session->itemAt('language'))
+{
+  $app->setLanguage($app->session->itemAt('language'));
+}
+elseif ($app->request->preferredLanguage && is_dir('protected/messages/' . $app->request->preferredLanguage))
+{
+  $app->setLanguage($app->request->preferredLanguage);
+}
+else
+{
+  $app->setLanguage('en_us');
+}
 
-//Detect Browser Language and apply it to Application
-$app->language=$lang;
+// Theme
+$theme = $app->session->itemAt('theme') ? $app->session->itemAt('theme') : 'standard';
+$app->setTheme($theme);
+
+// Unset jQuery in Ajax requests
+if ($app->request->isAjaxRequest)
+{
+  $app->clientScript->scriptMap['jquery.js'] = false;
+  $app->clientScript->scriptMap['jquery.min.js'] = false;
+}
+
+// Publish messages for javascript usage
+///Yii::app()->getComponent('messages')->publishJavaScriptMessages();
 
 header("Content-Type:	text/html; charset=utf-8");
 //Run Dispatch

@@ -1,4 +1,4 @@
-<?php $this->beginContent('/layouts/main'); ?>
+<?php $this->beginContent('//layouts/main'); ?>
 <div class="container">
   <div class="grid_16">
     <div id="content">

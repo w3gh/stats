@@ -1,6 +1,21 @@
 <?php
 
 return array(
+   'session' => array(
+    'sessionName' => 'chiveSession',
+    'savePath' => 'protected/runtime/sessions',
+  ),
+
+  'request' => array(
+    //'class' => 'ChiveHttpRequest',
+    'enableCookieValidation' => true,
+  ),
+
+  'locale' => array(
+    'dateFormat' => 'middle',
+    'dateTimeFormat' => 'middle'
+  ),
+
   'ranker' => array(
     'class' => 'application.modules.ghpp.components.GRank.GRank',
     'modelClass' => 'Players',
@@ -20,28 +35,34 @@ return array(
       'avgGoldNeutral' => 40.0,
     ),
   ),
+
   'viewRenderer' => array(
     'class' => 'CPradoViewRenderer',
   ),
+
   'user' => array(
     // enable cookie-based authentication
     'allowAutoLogin' => true,
   ),
+
   'db' => require(dirname(__FILE__) . '/db.php'),
   'errorHandler' => array(
     // use 'site/error' action to display errors
     'errorAction' => 'error',
   ),
+
   'var' => array(
     'class' => 'system.caching.CDbCache',
     'connectionID' => 'db',
     'cacheTableName' => 'variables',
     'autoCreateCacheTable' => true,
   ),
+
   'cache' => array(
     'class' => 'system.caching.CFileCache',
-    'cachePath'=>dirname(__FILE__).'../../../runtime/filecache',
+    'cachePath'=>'protected/runtime/filecache',
   ),
+
   'urlManager' => array(
     'class' => 'CUrlManager',
     'urlFormat' => 'path',
@@ -58,6 +79,7 @@ return array(
 //        'post/update/<id:\d+>'=>'post/update',
     ),
   ),
+
   'messages' => array(
     'class' => 'CPhpMessageSource',
   ),

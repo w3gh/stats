@@ -1,6 +1,6 @@
 <?php
 
-class ServersController extends Controller
+class ServersController extends GController
 {
 
 	/**

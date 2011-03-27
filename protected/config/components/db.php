@@ -8,13 +8,14 @@ return array(
   'username' => 'ghpp', //your database username
   'password' => 'ghpppass', //your database password
 
-    
-  'charset'=>'UTF-8',
+  'charset'=>'utf8',
   'emulatePrepare' => true,
-  'charset' => 'utf8',
   'tablePrefix' => '',
+  
   'enableParamLogging'=>YII_DEBUG,
   'enableProfiling'=>YII_DEBUG,
+
   'schemaCacheID'=>'cache',
+  'schemaCachingDuration'=>1800,
   'persistent'=>true,
 );

@@ -7,8 +7,8 @@
 return CMap::mergeArray(
   require_once dirname(__FILE__) . DIRECTORY_SEPARATOR . 'config.php',
   array(
-    'name' => 'W3GH Ghost Stats',
-    'theme' => 'w3ghs',
+    'name' => 'Warcraft III Game Host Stats',
+    'theme' => 'standard',
     'defaultController'=>'post',
     'preload' => array('log'),
     
