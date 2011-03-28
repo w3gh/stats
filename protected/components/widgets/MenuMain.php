@@ -17,6 +17,7 @@ class MenuMain extends CMenu
   public function __construct($owner = null)
   {
     parent::__construct($owner);
+    $this->id='menu-main';
     $this->items = $this->getItems();
   }
 

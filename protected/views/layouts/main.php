@@ -6,18 +6,16 @@
     </head>
 
     <body>
-        <div id="header-region" class="clearfix">
-          <div class="wrapper">
-            <com:MenuTop htmlOptions={array('class'=>'links inline')} />
-          </div>
-        </div>
-        <div id="wrapper">
+        <div id="wrapper-container">
          <div id="container" class="clearfix">
          
             <div id="header">
                 <div id="logo-container">
                     <h1><a title="demo W3ghs" href="<%= $this->baseUrl %>"><img src="<%= $this->assetsPath %>/images/logo.png" alt="W3GHS"/></a></h1>
                 </div>
+              <div id="top-navigation">
+                <com:MenuTop htmlOptions={array('class'=>'links inline')} />
+              </div>
             </div>
 
             <div id="navigation" class="clearfix">

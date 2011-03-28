@@ -17,5 +17,6 @@ return array(
 
   'schemaCacheID'=>'cache',
   'schemaCachingDuration'=>1800,
+  'autoConnect'=>false,
   'persistent'=>true,
 );

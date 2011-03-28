@@ -1,8 +1,23 @@
 <div class="server-view">
-  <div class="logo">&nbsp;</div>
+  <h4><?php echo CHtml::encode($data->name); ?></h4>
+      <em><?php echo CHtml::encode($data->server); ?> <?php echo CHtml::encode($data->port); ?></em>
+<!--  <div class="logo">&nbsp;</div>
   <div class="description">
     Server Description
-  </div>
+  </div>-->
+  <div class="misc">
+
+ <?php $this->widget('zii.widgets.jui.CJuiTabs', array(
+    'cssFile'=>false,
+    'tabs'=>array(
+        'StaticTab 1'=>'Content for tab 1',
+        'StaticTab 2'=>'Content for tab 2',
+    ),
+     'options'=>array(
+         'collapsible'=>true,
+     ),
+ )); ?>
+
   <div class="bots">
     <ul class="bot-list">
       <?php foreach (array('Bot1', 'Bot2', 'Bot3', 'Bot4') as $value):?>
@@ -10,11 +25,7 @@
       <?php endforeach;?>
     </ul>
   </div>
-  <div class="misc">
-    <dl>
-      <dt><?php echo CHtml::encode($data->name); ?></dt>
-      <dd><?php echo CHtml::encode($data->server); ?> <?php echo CHtml::encode($data->port); ?></dd>
-    </dl>
+
     <ul>
       <li><a href="#">Admins</a></li>
       <li><a href="#">Bans</a></li>

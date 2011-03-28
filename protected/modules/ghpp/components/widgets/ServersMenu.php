@@ -8,6 +8,7 @@ class ServersMenu extends CMenu
   public function  __construct($owner = null)
   {
     parent::__construct($owner);
+    $this->id='ghpp-servers-menu';
     $this->items=$this->prepareServers();
   }
 
