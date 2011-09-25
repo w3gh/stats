@@ -1,65 +1,55 @@
-﻿<?php
-define('CONSOLE', FALSE);
-
-// remove the following line when in production mode
-define('YII_DEBUG', TRUE);
-define('YII_ENABLE_EXCEPTION_HANDLER', TRUE);
-define('YII_ENABLE_ERROR_HANDLER', TRUE);
+<?php
 
 // change the following paths if necessary
-//Base Framework Path
-$yii = dirname(__FILE__) . '/framework/yii.php';
-//Path to config for Web Application
-$config = dirname(__FILE__) . '/protected/config/web.php';
+$yii=dirname(__FILE__).'/app/framework/yii.php';
+$config=dirname(__FILE__).'/app/config/web.php';
 
+// remove the following lines when in production mode
+defined('YII_DEBUG') or define('YII_DEBUG',true);
+// specify how many levels of call stack should be shown in each log message
+defined('YII_TRACE_LEVEL') or define('YII_TRACE_LEVEL',3);
 
 require_once($yii);
-//var_dump(require_once($config)); die();
-
 $app = Yii::createWebApplication($config);
 
-define('BASEURL', Yii::app()->baseUrl);
-
+/**
+ * Debug function alias
+ * @see CVarDumper::dump()
+ */
 function d()
 {
-  echo '<pre>';
-  $_ = func_get_args();
-  echo call_user_func_array(
-    array('CVarDumper', 'dump'), $_
-  );
-  exit();
+	return call_user_func_array('CVarDumper::dump',func_get_args());
 }
 
-/* @var $app CWebApplication */
-
-// Language
-if ($app->session->itemAt('language'))
+/**
+ * Short Application alias
+ * @see Yii::app()
+ * @return CApplication the application singleton, null if the singleton has not been created yet.
+ */
+function app()
 {
-  $app->setLanguage($app->session->itemAt('language'));
+	return Yii::app();
 }
-elseif ($app->request->preferredLanguage && is_dir('protected/messages/' . $app->request->preferredLanguage))
+
+/**
+ * Fast access to Application params
+ * @param string $param index name of Yii::app()->params array
+ * @param bool $default Used if $param not found
+ * @return mixed
+ */
+function param($param,$default=FALSE)
 {
-  $app->setLanguage($app->request->preferredLanguage);
+	return (app()->params[$param]) ? app()->params[$param] : $default;
 }
-else
+
+/**
+ * Translate function short alias
+ * @see Yii::t()
+ * @return string
+ */
+function __()
 {
-  $app->setLanguage('en_us');
+	return call_user_func_array('Yii::t',func_get_args());
 }
 
-// Theme
-$theme = $app->session->itemAt('theme') ? $app->session->itemAt('theme') : 'standard';
-$app->setTheme($theme);
-
-// Unset jQuery in Ajax requests
-if ($app->request->isAjaxRequest)
-{
-  $app->clientScript->scriptMap['jquery.js'] = false;
-  $app->clientScript->scriptMap['jquery.min.js'] = false;
-}
-
-// Publish messages for javascript usage
-///Yii::app()->getComponent('messages')->publishJavaScriptMessages();
-
-header("Content-Type:	text/html; charset=utf-8");
-//Run Dispatch
 $app->run();

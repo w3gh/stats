@@ -1,14 +1,6 @@
-nbproject/
-framework/
-assets/
-960_grid_16_col_v4.psd
-960_grid_16_col_v5.psd
-bot-ev.php
-bot.php
-bot_work_ver_at_19.05.10.php
-ghpp.tar.gz
-html.zip
-index.psd
+.idea/
+vendor/
 index-test.php
-protected/runtime/
+app/runtime/
+assets/
 
