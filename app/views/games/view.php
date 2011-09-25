@@ -203,12 +203,13 @@ foreach ($gameStats as $player):
 		$bestScore = ($kills - $deaths + $assists * 0.5) + ($towerKills * 0.3 + $raxkills * 0.3);
 	}
 
+	$playerHtmlOptions=array();
 	if (trim(strtolower($player['banname'])) == strtolower($player['name'])) {
-		$name = "<span style='color:#BD0000'>{$player['name']}</span>";
+		$playerHtmlOptions['style']='color:#BD0000';
 	}
 
 	if (trim(strtolower($player['adminname'])) == strtolower($player['name'])) {
-		$name = "<span style='color:#0031bd'>{$player['name']}</span>";
+		$playerHtmlOptions['style']='color:#0031bd';
 	}
 
 	//Trim down the leftreason
@@ -265,7 +266,7 @@ foreach ($gameStats as $player):
 ?>
 	<tr>
 		<td>
-			<?=$country.CHtml::link($name,array('players/view','id'=>$name)).$points?>
+			<?=$country.CHtml::link($name,array('players/view','id'=>$name),$playerHtmlOptions).$points?>
 			<div class="server"><?=$server?></div>
 		</td>
 		<td><?=$hero?></td>

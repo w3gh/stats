@@ -11,8 +11,9 @@ use the following commands:
 	wget https://github.com/JiLiZART/w3ghstats/tarball/master
 	mv master w3ghstats.tgz
 	tar -zxvf w3ghstats.tgz
-	
-Create 'assets' folder with write permissions
+	cd w3ghstats
+	mkdir assets
+	chmod 775 assets
 
 2. Database setup
 You can edit configuration in path/to/w3ghstats/app/config/web.php 
@@ -50,14 +51,21 @@ also you can edit params in 'params' section
 
 If you don't have a ghost database, you can create it
 on Linux/Unix command line, use the following commands:
+
 	mysql -uYOUR_USER -pYOUR_PASSWORD
+
 you will be entered in mysql shell, now type
-	CREATE DATABASE `databasename`; 
-and hit ENTER, you will see: Query OK, 0 rows affected (0.13 sec).
+
+	CREATE DATABASE ``databasename``;
+
+and hit ENTER, you will see:
+
+    Query OK, 0 rows affected (0.13 sec).
+    
 quit and ENTER.
 
-Import install.schema.sql into your database
-on Linux/Unix command line, use the following commands:
+Import install.schema.sql into your database on Linux/Unix command line, use the following commands:
+
 	mysql -uYOUR_USER -pYOUR_PASSWORD YOUR_DATABASE < install.schema.sql
 
 
