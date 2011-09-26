@@ -1,6 +1,7 @@
-.idea/
-vendor/
+/.idea
+/vendor
 index-test.php
-app/runtime/
-assets/
+/app/runtime
+/app/tests
+/assets
 
