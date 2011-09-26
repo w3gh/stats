@@ -12,7 +12,7 @@ $itemSummary = str_replace("Cost:", "<img alt='' title='Cost' style='vertical-al
 
 <tr>
 	 <td valign='top' class='padLeft' width='52' align='left'>
-		 <a href='item.php?item=<?=$itemID?>'>
+		 <a href='<?=$this->createUrl('items/view',array('id'=>$itemID))?>'>
 		  <img border=0 width='48' height='48' src='<?=$this->assetsUrl?>/img/items/<?=$icon?>'>
 		 </a>
 	 </td>

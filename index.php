@@ -49,7 +49,8 @@ function param($param,$default=FALSE)
  */
 function __()
 {
-	return call_user_func_array('Yii::t',func_get_args());
+	$args = func_get_args();
+	return call_user_func_array('Yii::t',$args);
 }
 
 $app->run();
