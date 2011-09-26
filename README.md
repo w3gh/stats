@@ -1,7 +1,7 @@
-
 # Installation
 
-1. Download and Extract Script
+## Download and Extract Script
+
 You can obtain the lastest release from [github repository](https://github.com/JiLiZART/w3ghstats)
 the files are available in .tar.gz and .zip formats and can be extracted using most compression tools.
 
@@ -14,8 +14,11 @@ use the following commands:
 	cd w3ghstats
 	mkdir assets
 	chmod 775 assets
+	mkdir app/runtime
+	chmod 775 app/runtime
 
-2. Database setup
+## Database setup
+
 You can edit configuration in path/to/w3ghstats/app/config/web.php 
 fill 'title' and 'connectionString', 'user', 'password' in db section of array, 
 
@@ -56,11 +59,11 @@ on Linux/Unix command line, use the following commands:
 
 you will be entered in mysql shell, now type
 
-	CREATE DATABASE ``databasename``;
+	CREATE DATABASE `databasename`;
 
 and hit ENTER, you will see:
 
-    Query OK, 0 rows affected (0.13 sec).
+	Query OK, 0 rows affected (0.13 sec).
     
 quit and ENTER.
 
