@@ -13,9 +13,10 @@ use the following commands:
 	tar -zxvf w3ghstats.tgz
 	cd w3ghstats
 	mkdir assets
-	chmod 775 assets
 	mkdir app/runtime
+	chmod 775 assets
 	chmod 775 app/runtime
+	chmod 775 app/framework/zii/widgets/assets/
 
 ## Database setup
 
