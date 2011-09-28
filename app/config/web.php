@@ -97,6 +97,7 @@ return array(
 				
 				array(
 					'class'=>'CWebLogRoute',
+					'enabled'=>YII_DEBUG,
 				),
 
 			),
@@ -121,5 +122,7 @@ return array(
 		'headAdmin'=>'JiLiZART',
 		// this is used in contact page
 		'adminEmail'=>'webmaster@example.com',
+
+		'analyticsAccount'=>false,
 	),
 );

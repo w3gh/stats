@@ -11,15 +11,21 @@ $this->pageTitle=__('app','Bans');
 ?>
 
 <h1>Bans</h1>
-	<?php $this->widget('LinkPager', array('pages' => $pages)); ?>
 <table>
 	<thead>
-		<th><?=$sort->link('id',__('app','id'))?></th>
-		<th><?=$sort->link('name',__('app','Name'))?></th>
-		<th><?=$sort->link('reason',__('app','Reason'))?></th>
-		<th><?=$sort->link('game',__('app','Game Name'))?></th>
-		<th><?=$sort->link('date',__('app','Date'))?></th>
-		<th><?=$sort->link('bannedby',__('app','Banned By'))?></th>
+		<tr>
+			<th colspan="6">
+				<?php $this->widget('LinkPager', array('pages' => $pages)); ?>
+			</th>
+		</tr>
+		<tr>
+			<th><?=$sort->link('id',__('app','id'))?></th>
+			<th><?=$sort->link('name',__('app','Name'))?></th>
+			<th><?=$sort->link('reason',__('app','Reason'))?></th>
+			<th><?=$sort->link('game',__('app','Game Name'))?></th>
+			<th><?=$sort->link('date',__('app','Date'))?></th>
+			<th><?=$sort->link('bannedby',__('app','Banned By'))?></th>
+		</tr>
 	</thead>
 	<tbody>
 		<?php if($bansCount < 1):?>
@@ -36,29 +42,36 @@ $this->pageTitle=__('app','Bans');
 				$date = date($dateFormat,strtotime($ban['date']) );
 			?>
 			<tr>
-				<td class='bansRow'>
-					<div align='left'><?=$ban['id']?></div>
+				<td>
+					<?=$ban['id']?>
 				</td>
-				<td width="160">
-					<div align='left'><?=CHtml::link($ban['name'],array('players/view','id'=>$ban['name']))?></div>
+				<td>
+					<?=CHtml::link($ban['name'],array('players/view','id'=>$ban['name']))?>
 				</td>
-				<td style='width='200'>
-					<div align='left'><?=$reason?></div>
+				<td>
+					<?=$reason?>
 				</td>
-				<td width='180'>
-					<div align='left'><?=$ban['gamename']?></div>
+				<td>
+					<?=$ban['gamename']?>
 				</td>
-				<td width='150'>
-					<div align='left'><?=$date?></div>
+				<td >
+					<?=$date?>
 				</td>
-				<td width='200'>
-					<div align='left'><?=CHtml::link($ban['admin'],array('players/view','id'=>$ban['admin']))?></div>
+				<td >
+					<?=CHtml::link($ban['admin'],array('players/view','id'=>$ban['admin']))?>
 				</td>
 			</tr>
 		<?php endforeach;?>
 	</tbody>
+	<tfoot>
+		<tr>
+			<tf colspan="6">
+				<?php $this->widget('LinkPager', array('pages' => $pages)); ?>
+			</tf>
+		</tr>
+	</tfoot>
 </table>
-	<?php $this->widget('LinkPager', array('pages' => $pages)); ?>
+
 <?php /* $this->widget('zii.widgets.CListView', array(
 	'dataProvider'=>$dataProvider,
 	'itemView'=>'_view',

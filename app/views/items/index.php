@@ -17,7 +17,8 @@ $this->menu=array(
 			</th>
 			<th class='padLeft'>Name</th>
 		</tr>
-		<?php $this->widget('zii.widgets.CListView', array(
+		<?php $this->widget('zii.widgets.CListView',
+		  array(
 							'dataProvider' => $dataProvider,
 							'itemView' => '_view',
 			        //'template'=>"{summary}\n{sorter}\n{pager}\n{items}\n{pager}",
