@@ -51,7 +51,7 @@ $this->pageTitle=__('app','Dota Games');
               </div>
             </div>
 </div>
-<div align='center'>
+
 	<?php $this->widget('LinkPager', array('pages' => $pages)); ?>
 	<table class='tableA'>
 		<thead>
@@ -73,52 +73,48 @@ $this->pageTitle=__('app','Dota Games');
 			<?php foreach($games as $list): ?>
 				<?php
 
-					$gid=$list["id"];
-					$map=CHtml::encode(substr($list["map"], strripos($list["map"], '\\')+1));
-					$type=$list["type"];
+					$gid=       $list["id"];
+					$map=       CHtml::encode(substr($list["map"], strripos($list["map"], '\\')+1));
+					$type=      $list["type"];
 
-					$gametime=date(param('dateFormat'),strtotime($list["datetime"]));
-					$gamename=trim($list["gamename"]);
-					$ownername=$list["ownername"];
-					$duration=Util::secondsToTime($list["duration"]);
-					$creator=trim($list["creatorname"]);
-					$creatorId=trim(strtolower($list["creatorname"]));
-					$winner=$list["winner"];
-					$dispWinner = "";
+					$gametime=  date(param('dateFormat'),strtotime($list["datetime"]));
+					$gamename=  trim($list["gamename"]);
+					$ownername= $list["ownername"];
+					$duration=  Util::secondsToTime($list["duration"]);
+					$creator=   trim($list["creatorname"]);
+					$creatorId= trim(strtolower($list["creatorname"]));
+					$winner=    $list["winner"];
 
+					$gamenameHtmlOptions=array();
 					if ($winner == 1) {
-						$dispWinner = __('app','<b>Map</b>: :map <br> <b>Winner</b> Sentinel',array(':map'=>$map));
-						$gamename = "<span class='GamesSentinel'>$gamename</span>";
+						$gamenameHtmlOptions['data-title']=__('app','<b>Map</b>: :map <br> <b>Winner</b> Sentinel',array(':map'=>$map));
+						$gamenameHtmlOptions['class']='GamesSentinel';
 					}
 
 					if ($winner == 2) {
-						$dispWinner = __('app','<b>Map</b>: :map <br> <b>Winner</b> Scourge',array(':map'=>$map));
-						$gamename = "<span class='GamesScourge'>$gamename</span>";}
+						$gamenameHtmlOptions['data-title']=__('app','<b>Map</b>: :map <br> <b>Winner</b> Scourge',array(':map'=>$map));
+						$gamenameHtmlOptions['class']='GamesScourge';
+					}
 
 					if ($winner == 0) {
-						$dispWinner = __('app','<b>Map</b>: :map <br> <b>Winner</b> Draw Game',array(':map'=>$map));
-						$gamename = "<span class='GamesDraw'>$gamename</span>";
+						$gamenameHtmlOptions['data-title']=__('app','<b>Map</b>: :map <br> <b>Winner</b> Draw Game',array(':map'=>$map));
+						$gamenameHtmlOptions['class']='GamesDraw';
 					}
 				?>
 				<tr>
-					<td class='tableD' width='300'>
-						<div align='left'>
+					<td >
 							<?=CHtml::link($gamename,
 							               array(
 							                    'view',
 								                  'id'=>$gid
 							               ),
-							               array(
-							                    'data-title'=>$dispWinner
-							               )
+							               $gamenameHtmlOptions
 							);?>
-						</div>
 					</td>
-					<td width='160'><div align='left'><?=$duration?></div></td>
-					<td width='100'><div align='left'><?=$type?></div></td>
-					<td width='200'><div align='left'><?=$gametime?></div></td>
-					<td width='200'>
-						<div align='left'>
+					<td><?=$duration?></td>
+					<td><?=$type?></td>
+					<td><?=$gametime?></td>
+					<td>
 							<?=CHtml::link($creator,
 							               array(
 							                    'players/view',
@@ -126,10 +122,8 @@ $this->pageTitle=__('app','Dota Games');
 							               )
 							);?>
 							<?=(!$creator) ? __('app','Autohosted'):'';?>
-						</div>
 					</td>
 				</tr>
 			<?php endforeach; ?>
 	</table>
 	<?php $this->widget('LinkPager', array('pages' => $pages)); ?>
-</div>

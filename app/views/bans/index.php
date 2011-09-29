@@ -11,13 +11,9 @@ $this->pageTitle=__('app','Bans');
 ?>
 
 <h1>Bans</h1>
+<?php $this->widget('LinkPager', array('pages' => $pages)); ?>
 <table>
 	<thead>
-		<tr>
-			<th colspan="6">
-				<?php $this->widget('LinkPager', array('pages' => $pages)); ?>
-			</th>
-		</tr>
 		<tr>
 			<th><?=$sort->link('id',__('app','id'))?></th>
 			<th><?=$sort->link('name',__('app','Name'))?></th>
@@ -63,15 +59,8 @@ $this->pageTitle=__('app','Bans');
 			</tr>
 		<?php endforeach;?>
 	</tbody>
-	<tfoot>
-		<tr>
-			<tf colspan="6">
-				<?php $this->widget('LinkPager', array('pages' => $pages)); ?>
-			</tf>
-		</tr>
-	</tfoot>
 </table>
-
+<?php $this->widget('LinkPager', array('pages' => $pages)); ?>
 <?php /* $this->widget('zii.widgets.CListView', array(
 	'dataProvider'=>$dataProvider,
 	'itemView'=>'_view',

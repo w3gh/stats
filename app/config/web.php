@@ -110,10 +110,13 @@ return array(
 		'dateFormat'=>'d.m.Y H:i',
 		'newsPerPage'=>10,
 		'gamesPerPage'=>10,
+		'playersPerPage'=>10,
 		'heroesPerPage'=>10,
 		'bansPerPage'=>10,
 
 		'heroGameHistoryPerPage'=>10,
+
+		'minGamesCount'=>3,
 
 		'showItemsMostUsedByHero'=>true,
 		'showAllSlotsInGame' => true,
@@ -123,6 +126,6 @@ return array(
 		// this is used in contact page
 		'adminEmail'=>'webmaster@example.com',
 
-		'analyticsAccount'=>false,
+		'analyticsAccount'=>false,//paste ID from analytics.google.com
 	),
 );

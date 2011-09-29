@@ -17,8 +17,7 @@
 	<!-- Mobile viewport optimized: j.mp/bplateviewport -->
   <meta name="viewport" content="width=device-width,initial-scale=1">
 
-	<link rel="stylesheet" href="<?=$this->assetsUrl?>css/bootstrap.min.css">
-	<link rel="stylesheet" href="<?=$this->assetsUrl?>css/layout.css">
+	<link rel="stylesheet" href="<?=$this->assetsUrl?>css/bootstrap.css">
 
 	  <!-- All JavaScript at the bottom, except this Modernizr build incl. Respond.js
        Respond is a polyfill for min/max-width media queries. Modernizr enables HTML5 elements & feature detects;
@@ -29,12 +28,12 @@
 <body class="black">
 <div class="topbar">
 	<div class="topbar-inner">
-		<div class="container">
-			<h3><?php echo CHtml::link(app()->name); ?></h3>
+		<div class="container-fluid">
+			<?= CHtml::link(app()->name,'',array('class'=>'brand')); ?>
 			<?php $this->widget('zii.widgets.CMenu',array(
 				'id'=>'menu',
 				'htmlOptions'=>array(
-					//'class'=>'nav'
+					'class'=>'nav'
 				),
 				'items'=>array(
 					array('label'=>'Home', 'url'=>array('/site/index')),
@@ -67,31 +66,33 @@
 					</li>
 				</ul>
 			<?php endif;?>
+			<p class="pull-right">Hello World</p>
 		</div>
 	</div>
 </div>
 
 <div class="container-fluid" id="page">
+	<div id="header" class="row header">
 
+	</div>
 
-	<?php if(isset($this->breadcrumbs)):?>
-		<?php $this->widget('zii.widgets.CBreadcrumbs', array(
-			'links'=>$this->breadcrumbs,
-		)); ?><!-- breadcrumbs -->
-	<?php endif?>
+	<?= $content; ?>
 
-	<?php echo $content; ?>
+	<div id="footer" class="row footer">
 
-	<div id="footer">
-                    <ul class="inline links">
-                      <li><?php echo __('app','{time} sec',array('{time}'=>sprintf('%0.5f',Yii::getLogger()->executionTime))); ?></li>
-                      <li><?php echo __('app', '{mem} KB',array('{mem}'=>number_format(Yii::getLogger()->memoryUsage/1024))); ?></li>
-                      <li><?php echo __('app', '{query} queries',array('{query}'=>array_shift(app()->db->getStats())))?></li>
-                    </ul>
-		Copyright &copy; <?php echo date('Y'); ?> by JiLiZART.<br/>
-		All Rights Reserved.<br/>
-		<?php echo Yii::powered(); ?>
+			<div class="span10">
+				<ul class="inline links unstyled">
+					<li><?= __('app','{time} sec',array('{time}'=>sprintf('%0.5f',Yii::getLogger()->executionTime))); ?></li>
+					<li><?= __('app', '{mem} KB',array('{mem}'=>number_format(Yii::getLogger()->memoryUsage/1024))); ?></li>
+					<li><?= __('app', '{query} queries',array('{query}'=>array_shift(app()->db->getStats())))?></li>
+				</ul>
+			</div>
 
+			<div class="span6">
+				Copyright &copy; <?php echo date('Y'); ?> by JiLiZART.<br/>
+				All Rights Reserved.<br/>
+				<?= Yii::powered(); ?>
+			</div>
 
 	</div><!-- footer -->
 
@@ -103,7 +104,6 @@
   <!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if offline -->
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.3/jquery.min.js"></script>
   <script>window.jQuery || document.write('<script src="<?=$this->assetsUrl?>js/libs/jquery-1.6.3.min.js"><\/script>')</script>
-
 
 	<!-- twitter bootstrap.js -->
 	<script defer src="<?=$this->assetsUrl?>js/libs/bootstrap/bootstrap-dropdown.js"></script>
