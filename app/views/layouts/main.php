@@ -18,17 +18,18 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
 
 	<link rel="stylesheet" href="<?=$this->assetsUrl?>css/bootstrap.css">
+	<link rel="stylesheet" href="<?=app()->theme->baseUrl?>/assets/css/style.css">
 
-	  <!-- All JavaScript at the bottom, except this Modernizr build incl. Respond.js
+	<!-- All JavaScript at the bottom, except this Modernizr build incl. Respond.js
        Respond is a polyfill for min/max-width media queries. Modernizr enables HTML5 elements & feature detects;
        for optimal performance, create your own custom Modernizr build: www.modernizr.com/download/ -->
   <script src="<?=$this->assetsUrl?>js/libs/modernizr-2.0.6.min.js"></script>
 </head>
 
-<body class="black">
+<body id="theme-<?=app()->theme->name?>">
 <div class="topbar">
 	<div class="topbar-inner">
-		<div class="container-fluid">
+		<div class="container">
 			<?= CHtml::link(app()->name,'',array('class'=>'brand')); ?>
 			<?php $this->widget('zii.widgets.CMenu',array(
 				'id'=>'menu',
@@ -71,7 +72,7 @@
 	</div>
 </div>
 
-<div class="container-fluid" id="page">
+<div class="container" id="page">
 	<div id="header" class="row header">
 
 	</div>
@@ -83,7 +84,7 @@
 			<div class="span10">
 				<ul class="inline links unstyled">
 					<li><?= __('app','{time} sec',array('{time}'=>sprintf('%0.5f',Yii::getLogger()->executionTime))); ?></li>
-					<li><?= __('app', '{mem} KB',array('{mem}'=>number_format(Yii::getLogger()->memoryUsage/1024))); ?></li>
+					<li><?= __('app', '{mem} MB',array('{mem}'=>number_format(Yii::getLogger()->memoryUsage/1024))); ?></li>
 					<li><?= __('app', '{query} queries',array('{query}'=>array_shift(app()->db->getStats())))?></li>
 				</ul>
 			</div>

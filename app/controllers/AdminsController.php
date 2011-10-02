@@ -130,7 +130,7 @@ class AdminsController extends PublicController
 		//$dataProvider=new CActiveDataProvider('Admins');
 		$criteria = new CDbCriteria();
 		$criteria->distinct=true;
-		$admins = Admins::model()->findAll($criteria);
+		$admins = Admins::model()->gameshosted()->banscount()->findAll($criteria);
 
 		$this->render('index',array(
 			   'admins'=>$admins,

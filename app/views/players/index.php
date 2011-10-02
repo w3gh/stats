@@ -3,19 +3,7 @@ $this->breadcrumbs=array(
 	'Players',
 );
 $this->pageTitle=__('app','Players');
-/*
-			'name'=>'LOWER(name)',
-			'kills'=>'kills',
-			'deaths'=>'deaths',
-			'assists'=>'assists',
-			'games'=>'totgames',
-			'wins'=>'wins',
-			'losses'=>'losses',
-			'ratio'=>'kdratio',
-			'creeps'=>'creepkills',
-			'denies'=>'creepdenies',
-			'neutral'=>'neutralkills',
- * */
+
 ?>
 <?php $this->widget('LinkPager', array('pages' => $pages)); ?>
 	<table>

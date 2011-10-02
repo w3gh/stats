@@ -10,21 +10,25 @@ $this->menu = array(
 $this->pageTitle = __('app', 'Admins');
 ?>
 
-<h1>Admins</h1>
-<table class='tableC'>
+<h1><?=__('app','Admins')?></h1>
+<table>
 	<tr>
-		<td style='height:24px;' width='30%'><?=__('apps', 'Head Administrator:')?>
-			<span style='color:red'><?=param('headAdmin');?></span>
+		<td><?=__('apps', 'Head Administrator:')?>
+			<span class="label important head-admin"><?=param('headAdmin');?></span>
 		</td>
-		<td width='70%'>
-			<?=__('app', 'Total Administrators: :count', array(':count' => $adminsCount))?>
+		<td>
+			<?=__('app', 'Total Administrators:')?>
+			<span class="label admins-count"><?=$adminsCount?></span>
 		</td>
 	</tr>
 </table>
-<table>
+
+<table id="admins" class="list zebra-striped">
 	<thead>
 		<th><?=__('app', 'Admins');?></th>
 		<th><?=__('app', 'Server');?></th>
+		<th><?=__('app', 'Games');?></th>
+		<th><?=__('app', 'Bans');?></th>
 	</thead>
 	<tbody>
 		<?php if ($adminsCount < 1): ?>
@@ -38,6 +42,8 @@ $this->pageTitle = __('app', 'Admins');
 			<tr>
 				<td><?=CHtml::link($admin['name'], array('players/view', 'id' => $admin['name']))?></td>
 				<td><?=$admin['server']?></td>
+				<td><?//=$admin['gameshosted']?></td>
+				<td><?=$admin['banscount']?></td>
 			</tr>
 		<?php endforeach; ?>
 	</tbody>

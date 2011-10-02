@@ -1,0 +1,79 @@
+/**
+ * File: style.css
+ * Author: jilizart
+ * Date: 02.10.11
+/*--------------------------------------------------------------------------------------------------------------------*/
+
+body#theme-classic {
+    background-color: #000;
+    background-repeat:no-repeat;
+	background-position:center 289px;
+}
+
+a {
+    color:#58A8C7;
+}
+
+/**
+ * Tables
+/* -------------------------------------------------------------------------------------------------------------------*/
+table {
+    background: #141414;
+    color: #CACACA;
+    border: 1px solid #232220;
+    padding: 2px;
+}
+    table tr + tr td {
+      border-top: 1px solid #232220;
+    }
+    table th + th, table td + td {
+        border-color: #232220;
+    }
+
+    table th, table td {
+        border-color: #232220;
+    }
+
+.zebra-striped tbody tr:nth-child(odd) td {
+  background-color: #1A1A1A;
+}
+.zebra-striped tbody tr:hover td {
+  background-color: #1F1F1F;
+}
+
+/**
+ * Pagination
+/* -------------------------------------------------------------------------------------------------------------------*/
+
+.pagination ul {
+    border-color: #232220;
+}
+
+.pagination a:hover,
+.pagination .active a {
+    color: #999;
+    background-color: #777;
+}
+
+/**
+ * Breadcrumbs
+/* -------------------------------------------------------------------------------------------------------------------*/
+
+.breadcrumb {
+  background: #141414;
+  border: 1px solid #232220;
+  -webkit-box-shadow: inset 0 1px 0 #1A1A1A;
+  -moz-box-shadow: inset 0 1px 0 #1A1A1A;
+  box-shadow: inset 0 1px 0 #1A1A1A;
+}
+.breadcrumb li {
+  display: inline;
+  text-shadow: 0 1px 0 #1A1A1A;
+}
+.breadcrumb .divider {
+  padding: 0 5px;
+  color: #bfbfbf;
+}
+.breadcrumb .active a {
+  color: #404040;
+}

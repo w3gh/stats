@@ -46,13 +46,13 @@ class GamesController extends PublicController
 		$model = Games::model();
 		$gamesPerPage = param('gamesPerPage');
 
-		$year = $request->getParam('year', FALSE);
-		$month = $request->getParam('month', FALSE);
-		$day = $request->getParam('day', FALSE);
-
 		$criteria = new CDbCriteria;
 
 		$criteria->addSearchCondition('map','dota');// generates map LIKE '%dota%'
+
+		$year = $request->getParam('year', FALSE);
+		$month = $request->getParam('month', FALSE);
+		$day = $request->getParam('day', FALSE);
 
 		if($year){
 			$criteria->addCondition('YEAR(datetime) = :year');
@@ -72,10 +72,9 @@ class GamesController extends PublicController
 		$pages = new CPagination;
 		$pages->setItemCount($count);
 		$pages->setPageSize($gamesPerPage);
-		$pages->pageVar = 'games_page';
+		$pages->pageVar = 'page';
 		
 		$sort = new CSort;
-
 		$sort->defaultOrder = 'id';
 		$sort->attributes = array(
 			'game' => 'LOWER(gamename)',
@@ -91,6 +90,8 @@ class GamesController extends PublicController
 
 		$criteria->alias="g";
 		$criteria->join="LEFT JOIN dotagames AS dg ON g.id = dg.gameid";
+
+		//apply sorting and pages to criteria
 		$sort->applyOrder($criteria);
 		$pages->applyLimit($criteria);
 		

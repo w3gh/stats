@@ -57,6 +57,32 @@ class Admins extends CActiveRecord
 		);
 	}
 
+	public function defaultScope()
+	{
+		return array(
+	     'select'=>array(
+          'a.id AS id',
+          'a.name AS name',
+          'a.server AS server',
+          'a.botid AS botid',
+      ),
+      'order'=>'a.botid,a.server DESC',
+			'alias'=>'a'
+		);
+	}
+
+	public function scopes()
+	{
+		return array(
+			  'gameshosted'=>array(
+            'select'=>'(SELECT count(*) FROM games AS g WHERE g.ownername = a.name) AS gameshosted'
+        ),
+        'banscount'=>array(
+            'select'=>'(SELECT count(*) FROM bans AS b WHERE b.admin = a.name) AS banscount'
+        ),
+		);
+	}
+
 	/**
 	 * @return array customized attribute labels (name=>label)
 	 */

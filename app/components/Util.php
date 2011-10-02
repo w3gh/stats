@@ -27,7 +27,11 @@ class Util {
 			{
 				$seconds_left = "0".$seconds_left;
 			}
-			return $hours."h".$minutes."m".$seconds_left."s";
+			return __('app','{hours} h {minutes} min {seconds} sec',array(
+			 '{hours}'=>$hours,
+			 '{minutes}'=>$minutes,
+			 '{seconds}'=>$seconds_left,
+			));
 		}
 		else
 		{
@@ -35,7 +39,10 @@ class Util {
 			{
 				$seconds_left = "0".$seconds_left;
 			}
-			return $minutes."m".$seconds_left."s";
+			return __('app','{minutes} min {seconds} sec',array(
+			 '{minutes}'=>$minutes,
+			 '{seconds}'=>$seconds_left,
+			));
 		}
 	}
 
@@ -46,8 +53,6 @@ class Util {
 	 */
 	public static function millisecondsToTime($milliseconds)
 	{
-		$return="";
-		$return2="";
 
 		// get the seconds
 		$seconds = floor($milliseconds / 1000) ;
@@ -63,12 +68,13 @@ class Util {
 		$minutes_left = $minutes % 60;
 		
 		// A little unneccasary with minutes and hours,,  but HEY  every thing's possible
+		$return='';
 		if($hours)
-			$return =$hours."h ";
-
-		if($minutes_left)
-			$return2 =$minutes_left."m ";
+			$return.=__('app','{hours} h',array('{hours}'=>$hours));
 		
-		return $return.$return2.$seconds_left.".".$milliseconds;
+		if($minutes_left)
+			$return.=__('app','{minutes} min',array('{minutes}'=>$minutes_left));
+		
+		return $return.' '.$seconds_left.".".$milliseconds;
 	}
 }
