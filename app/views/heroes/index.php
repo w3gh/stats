@@ -108,10 +108,10 @@ $result = $db->query($sql);
 
 				<td>
 					<div class="label hero">
-						<a href='<?=$this->createUrl('view',array('id'=>$hid))?>'>
-							<img width='32' height='32' alt='' src='<?=$this->assetsUrl?>/img/heroes/<?=$hid?>.gif' border=0 />
+						<a class="hero-name" href='<?=$this->createUrl('view',array('id'=>$hid))?>'>
+							<img class="hero-icon" width='32' height='32' alt='' src='<?=$this->assetsUrl?>/img/heroes/<?=$hid?>.gif' border=0 />
+							<?=$hero?>
 						</a>
-						<a href='<?=$this->createUrl('view',array('id'=>$hid))?>'><?=$hero?></a>
 					</div>
 				</td>
 				<td><?=$totgames?></td>

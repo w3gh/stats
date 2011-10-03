@@ -2476,3 +2476,22 @@ table.list thead a {
 .label.type a {
   color: #ffffff;
 }
+.label.hero {
+  line-height: 32px;
+  background-color: #404040;
+}
+.label.hero a {
+  color: #E4E4E4;
+  text-shadow: 0 1px 0 #333 !important;
+}
+/**
+ * Heroes
+/* -------------------------------------------------------------------------------------------------------------------*/
+#heroes .hero-name, #heroes .hero-icon, #heroes .label.hero {
+  height: 32px;
+}
+#heroes .hero-name {
+  display: block;
+  line-height: 32px;
+  vertical-align: top;
+}
