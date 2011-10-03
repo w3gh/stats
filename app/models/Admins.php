@@ -12,6 +12,16 @@
 class Admins extends CActiveRecord
 {
 	/**
+	 * @var used for gameshosted scope
+	 */
+	public $gameshosted;
+
+	/**
+	 * @var used for $banscount scope
+	 */
+  public $banscount;
+	
+	/**
 	 * Returns the static model of the specified AR class.
 	 * @return Admins the static model class
 	 */

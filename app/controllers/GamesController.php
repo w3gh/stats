@@ -79,12 +79,12 @@ class GamesController extends PublicController
 		$sort->attributes = array(
 			'game' => 'LOWER(gamename)',
 			'duration' => 'duration',
-			'type' => 'type',
+			'type' => 'gamestate',
 			'date' => 'datetime',
 			'creator' => 'LOWER(creatorname)'
 		);
 
-		$criteria->select="CASE WHEN(gamestate = '17') THEN :priv ELSE :pub END AS type,
+		$criteria->select="gamestate,
 			g.id, map, datetime, gamename,
 			ownername, duration, creatorname, dg.winner";
 
@@ -95,20 +95,17 @@ class GamesController extends PublicController
 		$sort->applyOrder($criteria);
 		$pages->applyLimit($criteria);
 		
-		$criteria->params[':pub']=__('app','Public');
-		$criteria->params[':priv']=__('app','Private');
-		
 		$commandBuilder = app()->db->getCommandBuilder();
 		$command = $commandBuilder->createFindCommand('games',$criteria,'g');
 
 		$games = $command->queryAll();
 
 		$this->render('index',array(
-			                     'games'=>$games,
-			                     'gamesCount'=>$count,
-			                     'pages'=>$pages,
-			                     'sort'=>$sort,
-		                      ));
+		 'games'=>$games,
+		 'gamesCount'=>$count,
+		 'pages'=>$pages,
+		 'sort'=>$sort,
+		));
 	}
 
 	/**

@@ -1,4 +1,4 @@
-<table id="gamesSummary">
+<table id="gamesSummary" class='list zebra-striped'>
 	<thead>
 		<tr>
 			<th></th>
@@ -61,7 +61,7 @@
 			<td><?=$draw?>(<?=$drawPercent?>%)</td>
 			<td colspan="8"></td>
 		</tr>
-		<tr>
+		<tr class="gradient">
 			<td colspan="3"><?= __('app', 'Total Games: :total', array(':total' => $totalGames))?></td>
 			<td colspan="3"><?=__('app', 'Average Duration: :duration', array(':duration' => $avgDuration))?></td>
 			<td colspan="4"><?=__('app', 'Total Duration :duration', array(':duration' => $totalDuration))?></td>

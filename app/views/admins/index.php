@@ -7,10 +7,9 @@ $this->menu = array(
 	array('label' => 'Create Admins', 'url' => array('create')),
 	array('label' => 'Manage Admins', 'url' => array('admin')),
 );
-$this->pageTitle = __('app', 'Admins');
+$this->pageTitle=$this->title= __('app', 'Admins');
 ?>
 
-<h1><?=__('app','Admins')?></h1>
 <table>
 	<tr>
 		<td><?=__('apps', 'Head Administrator:')?>
@@ -42,7 +41,7 @@ $this->pageTitle = __('app', 'Admins');
 			<tr>
 				<td><?=CHtml::link($admin['name'], array('players/view', 'id' => $admin['name']))?></td>
 				<td><?=$admin['server']?></td>
-				<td><?//=$admin['gameshosted']?></td>
+				<td><?=$admin['gameshosted']?></td>
 				<td><?=$admin['banscount']?></td>
 			</tr>
 		<?php endforeach; ?>

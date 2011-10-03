@@ -7,12 +7,11 @@ $this->menu=array(
 	array('label'=>'Create Bans', 'url'=>array('create')),
 	array('label'=>'Manage Bans', 'url'=>array('admin')),
 );
-$this->pageTitle=__('app','Bans');
+$this->pageTitle=$this->title=__('app','Bans');
 ?>
 
-<h1>Bans</h1>
 <?php $this->widget('LinkPager', array('pages' => $pages)); ?>
-<table>
+<table id="bans" class="list zebra-striped">
 	<thead>
 		<tr>
 			<th><?=$sort->link('id',__('app','id'))?></th>

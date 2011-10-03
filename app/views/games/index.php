@@ -1,8 +1,8 @@
 <?php
 $this->breadcrumbs=array(
-	'Games',
+	'Dota Games',
 );
-$this->pageTitle=__('app','Dota Games');
+$this->pageTitle=$this->title=__('app','Dota Games');
 ?>
 
 <?php $this->widget('GamesSummary');?>
@@ -10,12 +10,14 @@ $this->pageTitle=__('app','Dota Games');
 <?php //@TODO Filter block ?>
 
 <?php $this->widget('LinkPager', array('pages' => $pages)); ?>
-	<table id="games" class='list'>
+	<table id="games" class='list zebra-striped'>
 		<thead>
 			<tr>
-				<th><?= $sort->link('game', __('app', 'Game')); ?></th>
+				<th>
+					<?= $sort->link('game', __('app', 'Game')); ?>
+					<span class="label type"><?= $sort->link('type', __('app', 'Type')); ?></span>
+				</th>
 				<th><?= $sort->link('duration', __('app', 'Duration')); ?></th>
-				<th><?= $sort->link('type', __('app', 'Type')); ?></th>
 				<th><?= $sort->link('date', __('app', 'Date')); ?></th>
 				<th><?= $sort->link('creator', __('app', 'Creator')); ?></th>
 			</tr>
@@ -32,7 +34,7 @@ $this->pageTitle=__('app','Dota Games');
 
 					$gid=       $list["id"];
 					$map=       CHtml::encode(substr($list["map"], strripos($list["map"], '\\')+1));
-					$type=      $list["type"];
+					$type=      ($list["gamestate"] == 17) ? 'Private':'Public';
 
 					$gametime=  date(param('dateFormat'),strtotime($list["datetime"]));
 					$gamename=  trim($list["gamename"]);
@@ -67,9 +69,9 @@ $this->pageTitle=__('app','Dota Games');
 							               ),
 							               $gamenameHtmlOptions
 							);?>
+						<span class="label type <?=strtolower($type)?>"><?=__('app',$type)?></span>
 					</td>
 					<td><?=$duration?></td>
-					<td><?=$type?></td>
 					<td><?=$gametime?></td>
 					<td>
 							<?=CHtml::link($creator,

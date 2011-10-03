@@ -17,8 +17,7 @@
 	<!-- Mobile viewport optimized: j.mp/bplateviewport -->
   <meta name="viewport" content="width=device-width,initial-scale=1">
 
-	<link rel="stylesheet" href="<?=$this->assetsUrl?>css/bootstrap.css">
-	<link rel="stylesheet" href="<?=app()->theme->baseUrl?>/assets/css/style.css">
+	<link rel="stylesheet" href="<?=app()->theme->baseUrl?>/assets/css/style".<?=(YII_DEBUG)?'':'.min'?>.".css">
 
 	<!-- All JavaScript at the bottom, except this Modernizr build incl. Respond.js
        Respond is a polyfill for min/max-width media queries. Modernizr enables HTML5 elements & feature detects;
@@ -49,15 +48,19 @@
 					array('label'=>'Logout ('.app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!app()->user->isGuest)
 				),
 			)); ?>
-			<?php if(!empty($this->menu)):?>
+
 				<ul class="nav secondary-nav">
 					<li class="dropdown">
-						<a class="dropdown-toggle" href="#">Operations</a>
+						<a class="dropdown-toggle" href="#"><?=(app()->user->isGuest) ? __('app','Login'):app()->user->name?></a>
+						<ul class="dropdown-menu">
+							<li><?//=$this->renderPartial('//site/login',array('model'=>new LoginForm))?></li>
+							<li class="divider"></li>
 						<?php
-								$this->widget('zii.widgets.CMenu', array(
+								$this->widget('Menu', array(
 									'items'=>$this->menu,
-									'htmlOptions'=>array('class'=>'dropdown-menu'),
+									'renderOpenTag'=>false,
 								));?>
+						</ul>
 	<!--					<ul class="dropdown-menu">-->
 	<!--						<li><a href="#">Secondary link</a></li>-->
 	<!--						<li><a href="#">Something else here</a></li>-->
@@ -66,17 +69,17 @@
 	<!--					</ul>-->
 					</li>
 				</ul>
-			<?php endif;?>
-			<p class="pull-right">Hello World</p>
+			
+			<p class="pull-right"><?=(app()->user->isGuest) ? __('app','Please'):__('app','Welcome back')?>,</p>
 		</div>
 	</div>
 </div>
 
 <div class="container" id="page">
-	<div id="header" class="row header">
 
-	</div>
+		<?=CHtml::tag('h1',array('class'=>'title'),$this->title)?>
 
+	
 	<?= $content; ?>
 
 	<div id="footer" class="row footer">

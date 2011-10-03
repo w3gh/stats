@@ -1,33 +1,34 @@
-<table>
+<table id="game-commands" class="list zebra-stripped">
 	<thead>
-		<tr>
-			<th colspan="2">Game Commands:</th>
-		</tr>
+	<tr>
+		<th colspan="2">Game Commands:</th>
+	</tr>
 	</thead>
 	<tbody>
-		<tr>
-			<td width='30%'>
-				!stats [name]
-			</td>
-			<td width='70%'>
-				Display basic player statistics, optionally add [name] to display statistics for another player
-			</td>
-		</tr>
-		<tr>
-			<td width='30%'>
-				!statsdota [name]
-			</td>
-			<td width='70%'>
-				Display DotA player statistics, optionally add [name] to display statistics for another player
-			</td>
-		</tr>
+	<tr>
+		<td width='30%'>
+			!stats [name]
+		</td>
+		<td width='70%'>
+			Display basic player statistics, optionally add [name] to display statistics for another player
+		</td>
+	</tr>
+	<tr>
+		<td width='30%'>
+			!statsdota [name]
+		</td>
+		<td width='70%'>
+			Display DotA player statistics, optionally add [name] to display statistics for another player
+		</td>
+	</tr>
 	</tbody>
-	</table>
-	<table>
+</table>
+
+<table id="admin-commands" class="list zebra-stripped">
 	<thead>
-		<tr>
-			<th colspan="2">Admin Commands:</th>
-		</tr>
+	<tr>
+		<th colspan="2">Admin Commands:</th>
+	</tr>
 	</thead>
 	<tbody>
 	<tr>

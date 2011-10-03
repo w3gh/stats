@@ -140,6 +140,11 @@ SELECT *
 		  GROUP BY LOWER(shortname)
 		  ORDER BY LOWER(shortname) ASC 
  * */
+
+		$model=Items::model();
+
+		$itemsPerPage=param('itemsPerPage');
+
 		$criteria = new CDbCriteria();
 		$criteria->addCondition("item_info !=''");
 		$criteria->addCondition("name != 'Aegis Check'");
@@ -148,11 +153,27 @@ SELECT *
 		$criteria->group='LOWER(shortname)';
 		$criteria->order='LOWER(shortname)';
 
-		$dataProvider=new CActiveDataProvider('Items',array(
-				'criteria'=>$criteria,
-		                                              ));
+		$count = $model->count($criteria);
+		$pages = new CPagination($count);
+		$pages->setPageSize($itemsPerPage);
+
+		$sort = new CSort;
+		$sort->defaultOrder='name';
+		$sort->attributes=array(
+			'item'=>'itemid',
+			'name'=>'shortname',
+		);
+
+		$pages->applyLimit($criteria);
+		$sort->applyOrder($criteria);
+
+		$items = $model->findAll($criteria);
+
 		$this->render('index',array(
-			'dataProvider'=>$dataProvider,
+			'itemsCount'=>count($items),
+			'items'=>$items,
+			'pages'=>$pages,
+			'sort'=>$sort,
 		));
 	}
 

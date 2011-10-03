@@ -6,6 +6,9 @@
 class PublicController extends CController
 {
 	private $_assetsUrl;
+
+	public $title='';
+	
 	/**
 	 * @var string the default layout for the controller view. Defaults to '//layouts/column1',
 	 * meaning using a single column layout. See 'protected/views/layouts/column1.php'.
@@ -28,7 +31,7 @@ class PublicController extends CController
 	public function getAssetsUrl()
 	{
 		if($this->_assetsUrl===null)
-			$this->_assetsUrl=app()->getAssetManager()->publish(Yii::getPathOfAlias(($this->module != null) ? $this->module->name.'.assets':'application.assets'));
+			$this->_assetsUrl=app()->assetManager->publish(Yii::getPathOfAlias(($this->module != null) ? $this->module->name.'.assets':'application.assets'));
 		return $this->_assetsUrl.'/';
 	}
 

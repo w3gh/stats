@@ -29,6 +29,26 @@ $(document).ready(function(){
 	    }
 	  });
 
+		$('.pagination').each(function(){
+
+			var pager_pages = $(this).find('.page:not(.active)');
+			var pager_pages_hide = function(){
+				pager_pages.each(function(){
+					$(this).hide();
+				});
+			}
+			pager_pages_hide();
+	//		$('.pagination').mouseout(function(){
+	//		  pager_pages_hide();
+	//		});
+
+			$(this).find('.page.active').hover(function(){
+				pager_pages.each(function(){
+					$(this).show();
+				})
+			});
+
+		});
 
 	  // Disable certain links in docs
 	  // =============================

@@ -123,6 +123,7 @@ return array(
 		'gamesPerPage'=>10,
 		'playersPerPage'=>10,
 		'heroesPerPage'=>10,
+		'itemsPerPage'=>10,
 		'bansPerPage'=>10,
 
 		'heroGameHistoryPerPage'=>10,

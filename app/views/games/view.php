@@ -23,6 +23,8 @@ $this->breadcrumbs = array(
 	$gameName
 );
 
+$this->pageTitle=$this->title=$gameName
+
 /**
  * @FIXME Country Flags will be released as widget
  * @FIXME User points mod will be released as widget
@@ -31,66 +33,34 @@ $this->breadcrumbs = array(
  */
 
 ?>
-<table>
-
-	<tr>
-		<th><?=$gameName?></th>
-		<th></th>
-		<th></th>
-		<th><a href="#">DownloadReplay</a></th>
-	</tr>
-
-	<tr>
+<table class="list">
+	<tr class="gradient">
 		<td><?=__('app', 'Game')?>: <b><?= $gameName; ?></b></td>
 		<td><?=__('app', 'Date')?>: <b><?= $gmtime; ?></b></td>
 		<td><?=__('app', 'Creator')?>: <b><?= (!empty($creatorName)) ? $creatorName:__('app','Autohosted'); ?></b></td>
 		<td><?=__('app', 'Duration')?>: <b><?= $duration; ?></b></td>
+		<td><a class="btn sucsess" href="#">DownloadReplay</a></td>
 	</tr>
-	
 </table>
 
-<table>
-<thead>
-	<tr>
-		<th class='padLeft' width='150'>
-			<div align='center'><?=__('app', 'Player')?></div>
-		</th>
-		<th width='40'>
-			<div align='center'><?=__('app', 'Hero')?></div>
-		</th>
-		<th width='50'>
-			<div align='center'><?=__('app', 'Kills')?></div>
-		</th>
-		<th width='50'>
-			<div align='center'><?=__('app', 'Deaths')?></div>
-		</th>
-		<th width='60'>
-			<div align='center'><?=__('app', 'Assists')?></div>
-		</th>
-		<th width='60'>
-			<div align='center'><?=__('app', 'Creeps')?></div>
-		</th>
-		<th width='60'>
-			<div align='center'><?=__('app', 'Denies')?></div>
-		</th>
-		<th width='60'>
-			<div align='center'><?=__('app', 'Neutrals')?></div>
-		</th>
-		<th width='60'>
-			<div align='center'><?=__('app', 'Towers')?></div>
-		</th>
-		<th width='60'>
-			<div align='center'><?=__('app', 'Gold')?></div>
-		</th>
-		<th width='220'>
-			<div align='center'><?=__('app', 'Items')?></div>
-		</th>
-		<th width='60'>
-			<div align='left'><?=__('app', 'Left at')?></div>
-		</th>
-		<th width='100'><?=__('app', 'Reason')?></th>
-	</tr>
-</thead>
+<table id="game" class="list zebra-striped">
+	<thead>
+		<tr>
+			<th><?=__('app', 'Player')?></th>
+			<th><?=__('app', 'Hero')?></th>
+			<th><?=__('app', 'Kills')?></th>
+			<th><?=__('app', 'Deaths')?></th>
+			<th><?=__('app', 'Assists')?></th>
+			<th><?=__('app', 'Creeps')?></th>
+			<th><?=__('app', 'Denies')?></th>
+			<th><?=__('app', 'Neutrals')?></th>
+			<th><?=__('app', 'Towers')?></th>
+			<th><?=__('app', 'Gold')?></th>
+			<th><?=__('app', 'Items')?></th>
+			<th><?=__('app', 'Left at')?></th>
+			<th><?=__('app', 'Reason')?></th>
+		</tr>
+	</thead>
 <?php
 
 foreach ($gameStats as $player):
@@ -319,15 +289,12 @@ endforeach;
 <table>
 	<tr>
 
-		<td width='320' class='padLeft' align='left'>
-
-			<b><?=__('app','Best Player')?>:</b>
-			
+		<td>
+			<?=__('app','Best Player')?>:
 			<?=CHtml::link($bestPlayer,array('players/view','id'=>strtolower($bestPlayer)));?>
-			
 		</td>
 
-		<td class='padRight' align='left'>
+		<td>
 			<h1>
 				<b><?=__('app', 'Sentinel')?></b>
 				<?=$sentinelKills?>:<?=$scourgeKills?>

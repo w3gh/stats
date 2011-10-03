@@ -1,4 +1,4 @@
-<div class="article">
+<div class="article hero-unit">
 <?/*
 	<b><?php echo CHtml::encode($data->getAttributeLabel('news_id')); ?>:</b>
 	<?php echo CHtml::link(CHtml::encode($data->news_id), array('view', 'id'=>$data->news_id)); ?>
