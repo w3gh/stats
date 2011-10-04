@@ -112,6 +112,7 @@
 	<!-- twitter bootstrap.js -->
 	<script defer src="<?=$this->assetsUrl?>js/libs/bootstrap/bootstrap-dropdown.js"></script>
 	<script defer src="<?=$this->assetsUrl?>js/libs/bootstrap/bootstrap-modal.js"></script>
+	<script defer src="<?=$this->assetsUrl?>js/libs/bootstrap/bootstrap-twipsy.js"></script>
 	<script defer src="<?=$this->assetsUrl?>js/libs/bootstrap/bootstrap-popover.js"></script>
 	<script defer src="<?=$this->assetsUrl?>js/libs/bootstrap/bootstrap-alerts.js"></script>
 

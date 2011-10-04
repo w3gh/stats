@@ -162,6 +162,11 @@ class PlayersController extends PublicController
 	public function actionView($id)
 	{
 
+		if(app()->request->isAjaxRequest) {
+			$this->widget('PlayerStats',array('player'=>$id));
+			return;
+		}
+
 		$gamesPerPage = param('gamesPerPage');
 		$minPlayedRatio = param('minPlayedRatio');
 		

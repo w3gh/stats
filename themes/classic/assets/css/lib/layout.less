@@ -81,7 +81,12 @@ table.list {
     padding: 2px 6px 3px;
     text-transform: lowercase;
     text-shadow: 0 -1px 0 rgba(0,0,0,.25);
-    &.public {}
+    &.public {
+        background-color: #ccff99;
+        color: #6B993D;
+        text-shadow: 0 -1px 0 rgba(0,0,0,.1);
+    }
+    &.private { background-color: lighten(#000,30%) }
     &.admin {}
     &.banned {}
     &.safe {}
@@ -98,6 +103,10 @@ table.list {
             color: #E4E4E4;
             text-shadow: 0 1px 0 #333 !important;
         }
+    }
+
+    &.server {
+
     }
 }
 
@@ -119,5 +128,22 @@ table.list {
         line-height: 32px;
         vertical-align: top;
 
+    }
+}
+
+/**
+ * Players
+/* -------------------------------------------------------------------------------------------------------------------*/
+
+#players {
+
+    .player-name,
+    .label.hero {
+        height: 32px;
+    }
+    .player-name {
+        display: block;
+        line-height: 32px;
+        vertical-align: top;
     }
 }

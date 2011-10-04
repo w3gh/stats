@@ -108,7 +108,7 @@ $result = $db->query($sql);
 
 				<td>
 					<div class="label hero">
-						<a class="hero-name" href='<?=$this->createUrl('view',array('id'=>$hid))?>'>
+						<a class="hero-name" rel="popover" title="<?=$hero?>" href='<?=$this->createUrl('view',array('id'=>$hid))?>'>
 							<img class="hero-icon" width='32' height='32' alt='' src='<?=$this->assetsUrl?>/img/heroes/<?=$hid?>.gif' border=0 />
 							<?=$hero?>
 						</a>

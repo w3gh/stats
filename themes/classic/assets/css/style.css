@@ -230,13 +230,13 @@ body {
   margin-left: 240px;
 }
 a {
-  color: #58a8c7;
+  color: #417d94;
   text-decoration: none;
   line-height: inherit;
   font-weight: inherit;
 }
 a:hover {
-  color: #35809e;
+  color: #2a505f;
   text-decoration: underline;
 }
 .pull-right {
@@ -566,6 +566,9 @@ pre {
   white-space: pre;
   white-space: pre-wrap;
   word-wrap: break-word;
+}
+abbr {
+  border-bottom: 1px dashed;
 }
 /* Forms.less
  * Base styles for various input types, form layouts, and states
@@ -1637,13 +1640,13 @@ a.menu:after, .dropdown-toggle:after {
   border-radius: 15px;
 }
 .pills a:hover {
-  background: #35809e;
+  background: #2a505f;
   color: #ffffff;
   text-decoration: none;
   text-shadow: 0 1px 1px rgba(0, 0, 0, 0.25);
 }
 .pills .active a {
-  background: #58a8c7;
+  background: #417d94;
   color: #ffffff;
   text-shadow: 0 1px 1px rgba(0, 0, 0, 0.25);
 }
@@ -2355,7 +2358,7 @@ button.btn::-moz-focus-inner, input[type=submit].btn::-moz-focus-inner {
   display: block;
 }
 .media-grid a:hover {
-  border-color: #58a8c7;
+  border-color: #417d94;
   -webkit-box-shadow: 0 1px 4px rgba(0, 105, 214, 0.25);
   -moz-box-shadow: 0 1px 4px rgba(0, 105, 214, 0.25);
   box-shadow: 0 1px 4px rgba(0, 105, 214, 0.25);
@@ -2470,6 +2473,14 @@ table.list thead a {
   text-transform: lowercase;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
 }
+.label.public {
+  background-color: #ccff99;
+  color: #6B993D;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.1);
+}
+.label.private {
+  background-color: #4d4d4d;
+}
 .label.type {
   float: right;
 }
@@ -2491,6 +2502,17 @@ table.list thead a {
   height: 32px;
 }
 #heroes .hero-name {
+  display: block;
+  line-height: 32px;
+  vertical-align: top;
+}
+/**
+ * Players
+/* -------------------------------------------------------------------------------------------------------------------*/
+#players .player-name, #players .label.hero {
+  height: 32px;
+}
+#players .player-name {
   display: block;
   line-height: 32px;
   vertical-align: top;

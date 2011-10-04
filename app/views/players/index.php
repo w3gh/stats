@@ -6,7 +6,7 @@ $this->pageTitle=__('app','Players');
 
 ?>
 <?php $this->widget('LinkPager', array('pages' => $pages)); ?>
-	<table>
+	<table id="players" class="list zebra-striped">
 		<thead>
 			<tr>
 				<th><?= $sort->link('name', __('app', 'Name')); ?></th>
@@ -32,7 +32,17 @@ $this->pageTitle=__('app','Players');
 			<?endif;?>
 			<?php foreach($players as $player): ?>
 				<tr>
-					<td><?=$player['name']?></td>
+					<td>
+							<?=CHtml::link($player['name'],
+							               array('players/view','id'=>$player['name']),
+														 array('class'=>'clearfix',
+														      'rel'=>'popover',
+															 'data-original-title'=>ucfirst($player['name']),
+														 )
+
+							)?>
+							<span class="label server">servername</span>
+					</td>
 					<td><?=$player['kills']?></td>
 					<td><?=$player['deaths']?></td>
 					<td><?=$player['assists']?></td>

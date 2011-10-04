@@ -116,7 +116,8 @@ foreach ($gameStats as $player):
 	if ($hero != "") {
 		$hero = CHtml::link(
 			CHtml::image($this->assetsUrl.'/img/heroes/'.$hero.'.gif','',array('width'=>28)),
-			array('heroes/view','id'=>$hero)
+			array('heroes/view','id'=>$hero),
+			array('title'=>$heroName,'rel'=>'popover')
 		);
 	}
 	else
@@ -173,14 +174,21 @@ foreach ($gameStats as $player):
 		$bestScore = ($kills - $deaths + $assists * 0.5) + ($towerKills * 0.3 + $raxkills * 0.3);
 	}
 
-	$playerHtmlOptions=array();
+	$playerHtmlOptions=array('title'=>$player['name'],'rel'=>'popover');
+
+	$playerName=CHtml::link($name,array('players/view','id'=>$name),$playerHtmlOptions);
+	$playerName.=CHtml::tag('span',array('label country'),$country);
+	$playerName.=CHtml::tag('span',array('label points'),$points);
+
 	if (trim(strtolower($player['banname'])) == strtolower($player['name'])) {
-		$playerHtmlOptions['style']='color:#BD0000';
+		$playerName.=CHtml::tag('span',array('label banned'),__('app','Banned'));
 	}
 
 	if (trim(strtolower($player['adminname'])) == strtolower($player['name'])) {
-		$playerHtmlOptions['style']='color:#0031bd';
+		$playerName.=CHtml::tag('span',array('label admin'),__('app','Admin'));
 	}
+
+
 
 	//Trim down the leftreason
 	$leftReason = str_ireplace("has", "", $leftReason);
@@ -236,8 +244,8 @@ foreach ($gameStats as $player):
 ?>
 	<tr>
 		<td>
-			<?=$country.CHtml::link($name,array('players/view','id'=>$name),$playerHtmlOptions).$points?>
-			<div class="server"><?=$server?></div>
+			<?=$playerName?>
+			<span class="label server"><?=$server?></span>
 		</td>
 		<td><?=$hero?></td>
 		<td>
@@ -267,7 +275,7 @@ foreach ($gameStats as $player):
 		<td>
 			<div class='clearfix' style="width: <?=28*3?>;">
 				<?php foreach($items as $item):?>
-					<img  style="float:left;" title="" alt='' width='28' src='<?=$item['img']?>'>
+					<img  style="float:left;" title="" alt='' width='16' src='<?=$item['img']?>'>
 				<?php endforeach ?>
 			</div>
 		</td>

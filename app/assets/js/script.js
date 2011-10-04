@@ -32,23 +32,45 @@ $(document).ready(function(){
 		$('.pagination').each(function(){
 
 			var pager_pages = $(this).find('.page:not(.active)');
-			var pager_pages_hide = function(){
-				pager_pages.each(function(){
+			var pager_pages_hide = function() {
+				pager_pages.each(function() {
 					$(this).hide();
 				});
 			}
 			pager_pages_hide();
-	//		$('.pagination').mouseout(function(){
-	//		  pager_pages_hide();
-	//		});
+			//		$('.pagination').mouseout(function(){
+			//		  pager_pages_hide();
+			//		});
 
-			$(this).find('.page.active').hover(function(){
-				pager_pages.each(function(){
+			$(this).find('.page.active').hover(function() {
+				pager_pages.each(function() {
 					$(this).show();
 				})
 			});
 
 		});
+		$('a[rel="popover"]').popover({
+			content: function() {
+				var response='No data';
+				$.ajax({
+					async: false,
+					type: 'GET',
+					url: this,
+					dataType: 'html',
+					success: function(data) {
+						response=data;
+					},
+					error: function(data) {
+						response=data;
+					}
+				});
+				return response;
+			},
+			html: true,
+			delayOut: 5
+		});
+
+		$('abbr').twipsy();
 
 	  // Disable certain links in docs
 	  // =============================

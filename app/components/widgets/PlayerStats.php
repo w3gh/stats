@@ -37,30 +37,30 @@ class PlayerStats extends PlayerGamesDurations
 
 		$data['name']=$row['name'];
 
-		$data['kills']=number_format($row['sumkills'],"0",".",",");
+		$data['kills']=app()->format->number($row['sumkills']);
 		$data['killsRaw']=$row['sumkills'];
 
-		$data['deaths']=number_format($row['sumdeaths'],"0",".",",");
+		$data['deaths']=app()->format->number($row['sumdeaths']);
 		$data['deathsRaw']=$row['sumdeaths'];
 
-		$data['assists']=number_format($row['sumassists'],"0",".",",");
+		$data['assists']=app()->format->number($row['sumassists']);
 		$data['assistsRaw']=$row['sumassists'];
 
-		$data['creepKills']=number_format($row['sumcreeps'],"0",".",",");
+		$data['creepKills']=app()->format->number($row['sumcreeps']);
 		$data['creepKillsRaw']=$row['sumcreeps'];
 
-		$data['creepDenies']=number_format($row['sumdenies'],"0",".",",");
+		$data['creepDenies']=app()->format->number($row['sumdenies']);
 		$data['creepDeniesRaw']=$row['sumdenies'];
 
-		$data['neutralKills']=number_format($row['sumneutrals'],"0",".",",");
+		$data['neutralKills']=app()->format->number($row['sumneutrals']);
 		$data['neutralKillsRaw']=$row['sumneutrals'];
 
-		$data['towerKills']=number_format($row['sumtowers'],"0",".",",");
+		$data['towerKills']=app()->format->number($row['sumtowers']);
 		$data['towerKillsRaw']=$row['sumtowers'];
 
-		$data['raxKills']=number_format($row['sumraxs'],"0",".",",");
+		$data['raxKills']=app()->format->number($row['sumraxs']);
 
-		$data['courierKills']=number_format($row['sumcouriers'],"0",".",",");
+		$data['courierKills']=app()->format->number($row['sumcouriers']);
 		$data['courierKillsRaw']=$row['sumcouriers'];
 
 	if ($row['sumdeaths'] >=1)
@@ -110,7 +110,7 @@ class PlayerStats extends PlayerGamesDurations
 			$arr=$command->queryRow();
 			$data[$id]=$arr['count'];
 		}
-		$data['totalGames']=$data['wins']+$data['losses'];
+		$data['totalGames']=(int)$data['wins']+(int)$data['losses'];
 		return $data;
 	}
 
@@ -131,7 +131,7 @@ class PlayerStats extends PlayerGamesDurations
 		 LEFT JOIN dotaplayers ON dotaplayers.gameid=games.id
 		 AND dotaplayers.colour=gp.colour
 		 LEFT JOIN dotagames AS dg ON games.id=dg.gameid
-		 WHERE LOWER(gp.name)=LOWER(:username) AND dg.winner <>0
+		 WHERE LOWER(gp.name)=LOWER(:username) AND dg.winner <> 0
 		 LIMIT 1";
 	}
 
@@ -161,39 +161,34 @@ class PlayerStats extends PlayerGamesDurations
 			$data['killsPerHour'] = 0;
 		}
 
+		$data['killsPerGame']=0;
+		$data['deathsPerGame']=0;
+		$data['assistsPerGame']=0;
+		$data['discPercent']=0;
+		$data['winLoose']=0;
+
 		if ($data['totalGames']>0)
 		{
 			$data['killsPerGame'] = round($data['killsRaw']/$data['totalGames'],2);
 			$data['deathsPerGame'] = round($data['deathsRaw']/$data['totalGames'],2);
 			$data['assistsPerGame'] = round($data['assistsRaw']/$data['totalGames'],2);
 			//$DiscPercent = ROUND($disc/($disc+$data['totalGames']), 4)*100;
-			$data['discPercent'] = 0;//FIXME
 
-			if($data['wins'] == 0 )
-			{
-				$data['winLoose'] = 0;
-			}
-			else
+			//@TODO
+			$data['discPercent'] = 0;
+			
+			$data['winLoose']=0;
+			if($data['wins'] != 0 )
 			{
 				$data['winLoose'] = round($data['wins']/$data['totalGames'], 4)*100;
 			}
 		}
-		else
-		{
-			$data['killsPerGame'] = 0;
-			$data['deathsPerGame'] =0;
-			$data['assistsPerGame'] = 0;
-			$data['discPercent'] = 0;
-		}
 
+		$data['killsPercent'] = 0;
 		if ($data['killsRaw'] >0)
 	  {
 		  $data['killsPercent'] = round($data['killsRaw']/($data['killsRaw']+$data['deathsRaw']), 4)*100;
 	  }
-		else
-		{
-			$data['killsPercent'] = 0;
-		}
 
 		$this->render('playerStats',$data);
 	}

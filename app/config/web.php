@@ -38,6 +38,10 @@ return array(
 			'allowAutoLogin'=>true,
 		),
 
+		'format'=>array(
+			'class'=>'system.utils.CFormatter'
+		),
+
 		'urlManager'=>array(
 			'urlFormat'=>'path',
 			'urlSuffix'=>'.html',

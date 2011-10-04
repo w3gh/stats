@@ -99,10 +99,15 @@ class HeroesController extends PublicController
 			                                               ':heroid'=>$id,
 			                                               ':minPlayedRatio'=>$minPlayedRatio,
 		                                                 ));
-		$hero = $command->queryRow();
-		$this->render('view',array(
-			'hero'=>$hero,
-		));
+
+		$data['hero'] = $command->queryRow();
+		$data['hid'] = strtoupper($data['hero']['original']);
+		$data['description'] = $data['hero']['description'];
+		
+		if(app()->request->isAjaxRequest)
+			return $this->renderPartial('_view',$data);
+
+		$this->render('view',$data);
 	}
 
 	/**
