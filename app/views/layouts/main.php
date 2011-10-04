@@ -17,7 +17,7 @@
 	<!-- Mobile viewport optimized: j.mp/bplateviewport -->
   <meta name="viewport" content="width=device-width,initial-scale=1">
 
-	<link rel="stylesheet" href="<?=app()->theme->baseUrl?>/assets/css/style.<?=(YII_DEBUG)?'':'.min'?>.css">
+	<link rel="stylesheet" href="<?=app()->theme->baseUrl?>/assets/css/style<?=(YII_DEBUG)?'':'.min'?>.css">
 
 	<!-- All JavaScript at the bottom, except this Modernizr build incl. Respond.js
        Respond is a polyfill for min/max-width media queries. Modernizr enables HTML5 elements & feature detects;
