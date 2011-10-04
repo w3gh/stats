@@ -26,20 +26,33 @@ class PublicController extends CController
 	public $breadcrumbs=array();
 
 	/**
-	 * @return string the base URL that contains all published asset files of gii.
+	 * @return string the base URL that contains all published asset files of app.
 	 */
 	public function getAssetsUrl()
 	{
-		if($this->_assetsUrl===null)
-			$this->_assetsUrl=app()->assetManager->publish(Yii::getPathOfAlias(($this->module != null) ? $this->module->name.'.assets':'application.assets'));
-		return $this->_assetsUrl.'/';
+
+		if($this->_assetsUrl!==null){
+			return $this->_assetsUrl;
+		}
+		else{
+			$assetsPath=Yii::getPathOfAlias(($this->module != null) ? $this->module->name.'.assets':'application.assets');
+			$this->setAssetsUrl($assetsPath);
+			return $this->_assetsUrl;
+		}
+
 	}
 
 	/**
-	 * @param string $value the base URL that contains all published asset files of gii.
+	 * @param string $value the base URL that contains all published asset files of app.
 	 */
-	public function setAssetsUrl($value)
+	public function setAssetsUrl($path)
 	{
-		$this->_assetsUrl=$value;
+		if(($assetsPath=realpath($path))===false || !is_dir($assetsPath) || !is_writable($assetsPath))
+			throw new CException(__('app','Assets path "{path}" is not valid. Please make sure it is a directory writable by the Web server process.',
+				array('{path}'=>$path)));
+		
+		$assetsUrl = app()->assetManager->publish($path);
+
+		$this->_assetsUrl=$assetsUrl.'/';
 	}
 }

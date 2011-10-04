@@ -1,11 +1,11 @@
 <?php
-$this->pageTitle=app()->name . ' - Error';
+$this->pageTitle=__('app','Error');
 $this->breadcrumbs=array(
-	'Error',
+	__('app','Error'),
 );
 ?>
 
-<h2>Error <?php echo $code; ?></h2>
+<h2><?=__('app','Error').' '.$code?></h2>
 
 <div class="error">
 <?php echo CHtml::encode($message); ?>
