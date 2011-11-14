@@ -4,10 +4,10 @@
  * This is the model class for table "news".
  *
  * The followings are the available columns in table 'news':
- * @property integer $news_id
- * @property string $news_title
- * @property string $news_content
- * @property string $news_created
+ * @property integer $id
+ * @property string $title
+ * @property string $content
+ * @property string $created
  */
 class News extends CActiveRecord
 {
@@ -36,11 +36,11 @@ class News extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('news_title, news_content', 'required'),
-			array('news_title', 'length', 'max'=>90),
+			array('title, content', 'required'),
+			array('title', 'length', 'max'=>90),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('news_id, news_title, news_content, news_created,news_updated', 'safe', 'on'=>'search'),
+			array('id, title, content, created, updated', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -51,9 +51,10 @@ class News extends CActiveRecord
 	{
 		return array(
 			'CTimestampBehavior' => array(
-				'class' => 'zii.behaviors.CTimestampBehavior',
-				'createAttribute' => 'news_created',
-				'updateAttribute' => 'news_updated',
+				'class'=>'zii.behaviors.CTimestampBehavior',
+				'createAttribute'=>'created',
+				'updateAttribute'=>'updated',
+				'setUpdateOnCreate'=>true,
 			)
 		);
 	}
@@ -75,10 +76,11 @@ class News extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'news_id' => 'News',
-			'news_title' => 'News Title',
-			'news_content' => 'News Content',
-			'news_created' => 'News Created',
+			'id' => 'Id',
+			'title' => 'Title',
+			'content' => 'Content',
+			'created' => 'Created',
+			'modified' => 'Modified',
 		);
 	}
 
@@ -93,10 +95,10 @@ class News extends CActiveRecord
 
 		$criteria=new CDbCriteria;
 
-		$criteria->compare('news_id',$this->news_id);
-		$criteria->compare('news_title',$this->news_title,true);
-		$criteria->compare('news_content',$this->news_content,true);
-		$criteria->compare('news_created',$this->news_created,true);
+		$criteria->compare('id',$this->id);
+		$criteria->compare('title',$this->title,true);
+		$criteria->compare('content',$this->content,true);
+		$criteria->compare('created',$this->created,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

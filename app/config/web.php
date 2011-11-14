@@ -134,6 +134,8 @@ return array(
 
 		'minGamesCount'=>3,
 
+		'pageCacheTime' => 900, //15 min
+
 		'showItemsMostUsedByHero'=>true,
 		'showAllSlotsInGame' => true,
 		'minPlayedRatio'=> '0.8',

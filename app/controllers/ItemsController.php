@@ -160,7 +160,7 @@ SELECT *
 		$sort = new CSort;
 		$sort->defaultOrder='name';
 		$sort->attributes=array(
-			'item'=>'itemid',
+			//'item'=>'itemid',
 			'name'=>'shortname',
 		);
 

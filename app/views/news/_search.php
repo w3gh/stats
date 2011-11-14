@@ -5,28 +5,28 @@
 	'method'=>'get',
 )); ?>
 
-	<div class="row">
-		<?php echo $form->label($model,'news_id'); ?>
-		<?php echo $form->textField($model,'news_id'); ?>
+	<div class="clearfix">
+		<?php echo $form->label($model,'id'); ?>
+		<?php echo $form->textField($model,'id'); ?>
 	</div>
 
-	<div class="row">
-		<?php echo $form->label($model,'news_title'); ?>
-		<?php echo $form->textField($model,'news_title',array('size'=>60,'maxlength'=>90)); ?>
+	<div class="clearfix">
+		<?php echo $form->label($model,'title'); ?>
+		<?php echo $form->textField($model,'title',array('size'=>60,'maxlength'=>90)); ?>
 	</div>
 
-	<div class="row">
-		<?php echo $form->label($model,'news_content'); ?>
-		<?php echo $form->textArea($model,'news_content',array('rows'=>6, 'cols'=>50)); ?>
+	<div class="clearfix">
+		<?php echo $form->label($model,'content'); ?>
+		<?php echo $form->textArea($model,'content',array('rows'=>6, 'cols'=>50)); ?>
 	</div>
 
-	<div class="row">
-		<?php echo $form->label($model,'news_created'); ?>
-		<?php echo $form->textField($model,'news_created'); ?>
+	<div class="clearfix">
+		<?php echo $form->label($model,'created'); ?>
+		<?php echo $form->textField($model,'created'); ?>
 	</div>
 
-	<div class="row buttons">
-		<?php echo CHtml::submitButton('Search'); ?>
+	<div class="clearfix buttons">
+		<?php echo CHtml::submitButton(__('Search')); ?>
 	</div>
 
 <?php $this->endWidget(); ?>

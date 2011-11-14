@@ -10,6 +10,7 @@ $replayDate =   $gameInfo['datetime'];
 $gameName =     $gameInfo['gamename'];
 $win =          $gameInfo['winner'];
 
+//fill defaults
 $scourge =        1;
 $sentinel =       1;
 $sentinelKills =  0;
@@ -26,13 +27,14 @@ $this->breadcrumbs = array(
 $this->pageTitle=$this->title=$gameName
 
 /**
- * @FIXME Country Flags will be released as widget
- * @FIXME User points mod will be released as widget
- * @FIXME Replay Link Will be released as widget
- * @FIXME Replay Chat will be released as widget
+ * @TODO Country Flags will be released as widget
+ * @TODO User points mod will be released as widget
+ * @TODO Replay Link Will be released as widget
+ * @TODO Replay Chat will be released as widget
  */
 
 ?>
+
 <table class="list">
 	<tr class="gradient">
 		<td><?=__('app', 'Game')?>: <b><?= $gameName; ?></b></td>
@@ -58,7 +60,7 @@ $this->pageTitle=$this->title=$gameName
 			<th><?=__('app', 'Gold')?></th>
 			<th><?=__('app', 'Items')?></th>
 			<th><?=__('app', 'Left at')?></th>
-			<th><?=__('app', 'Reason')?></th>
+<!--			<th>--><?//=__('app', 'Reason')?><!--</th>-->
 		</tr>
 	</thead>
 <?php
@@ -67,7 +69,7 @@ foreach ($gameStats as $player):
 	
 	$player = new ArrayObject($player);
 	
-	$kills =        $player['kills'];//$player["kills"];
+	$kills =        $player['kills'];
 	$deaths =       $player['deaths'];
 	$assists =      $player["assists"];
 	$creepKills =   $player["creepkills"];
@@ -95,7 +97,7 @@ foreach ($gameStats as $player):
 
 	$items = array();
 
-	for ($i = 1; $i < 6; ++$i)
+	for ($i = 1; $i <= 6; ++$i)
 	{
 
 		$iconPath = $this->assetsUrl . '/img/items/';
@@ -113,7 +115,8 @@ foreach ($gameStats as $player):
 	}
 
 
-	if ($hero != "") {
+	if ($hero != "")
+	{
 		$hero = CHtml::link(
 			CHtml::image($this->assetsUrl.'/img/heroes/'.$hero.'.gif','',array('width'=>28)),
 			array('heroes/view','id'=>$hero),
@@ -125,7 +128,8 @@ foreach ($gameStats as $player):
 		$hero = CHtml::image($this->assetsUrl.'/img/heroes/blank.gif','',array('width'=>28));
 	}
 
-	if (empty($nameId)) {
+	if (empty($nameId))
+	{
 		$gold = 0;
 		$points = 0;
 		$hero = "";
@@ -143,60 +147,81 @@ foreach ($gameStats as $player):
 	}
 
 	//Bold high results
-	if ($kills >= 10) {
+	if ($kills >= 10)
+	{
 		$kills = "<b>{$kills}</b>";
 	}
-	if ($deaths >= 10) {
+
+	if ($deaths >= 10)
+	{
 		$deaths = "<b>{$deaths}</b>";
 	}
-	if ($assists >= 10) {
+	if ($assists >= 10)
+	{
 		$assists = "<b>{$assists}</b>";
 	}
-	if ($creepKills >= 60) {
+
+	if ($creepKills >= 60)
+	{
 		$creepKills = "<b>{$creepKills}</b>";
 	}
-	if ($creepDenies >= 10) {
+
+	if ($creepDenies >= 10)
+	{
 		$creepDenies = "<b>{$creepDenies}</b>";
 	}
-	if ($neutralKills >= 30) {
+
+	if ($neutralKills >= 30)
+	{
 		$neutralKills = "<b>{$neutralKills}</b>";
 	}
-	if ($towerKills >= 2) {
+
+	if ($towerKills >= 2)
+	{
 		$towerKills = "<b>{$towerKills}</b>";
 	}
-	if ($gold >= 2500) {
+
+	if ($gold >= 2500)
+	{
 		$gold = "<b>$gold</b>";
 	}
 
 	$myScore = ($kills - $deaths + $assists * 0.5) + ($towerKills * 0.3 + $raxkills * 0.3);
+
 	if ($myScore > $bestScore AND $kills > 0) {
 		$bestPlayer = $name;
 		$bestScore = ($kills - $deaths + $assists * 0.5) + ($towerKills * 0.3 + $raxkills * 0.3);
 	}
 
+	/* Player Row */
 	$playerHtmlOptions=array('title'=>$player['name'],'rel'=>'popover');
 
 	$playerName=CHtml::link($name,array('players/view','id'=>$name),$playerHtmlOptions);
-	$playerName.=CHtml::tag('span',array('label country'),$country);
-	$playerName.=CHtml::tag('span',array('label points'),$points);
+
+	if($country)
+		$playerName.=CHtml::tag('span',array('class'=>'label country'),$country);
+	if($points)
+		$playerName.=CHtml::tag('span',array('class'=>'label points'),$points);
 
 	if (trim(strtolower($player['banname'])) == strtolower($player['name'])) {
-		$playerName.=CHtml::tag('span',array('label banned'),__('app','Banned'));
+		$playerName.=CHtml::tag('span',array('class'=>'label banned'),__('app','Banned'));
 	}
 
 	if (trim(strtolower($player['adminname'])) == strtolower($player['name'])) {
-		$playerName.=CHtml::tag('span',array('label admin'),__('app','Admin'));
+		$playerName.=CHtml::tag('span',array('class'=>'label admin'),__('app','Admin'));
 	}
 
-
-
-	//Trim down the leftreason
+	//Trim down the leftreason Useful only for US
+	//@TODO Rework for multi lang support
 	$leftReason = str_ireplace("has", "", $leftReason);
 	$leftReason = str_ireplace("was", "", $leftReason);
 	$leftReason = ucfirst(trim($leftReason));
 	$substring =  strchr($leftReason, "(");
 	$leftReason = str_replace($substring, "", $leftReason);
 
+	/**
+	 * Dete
+	 */
 	if ($win == 0) {
 		$sentinelResult = __('app','Loser');
 		$scourgeResult = __('app','Loser');
@@ -218,10 +243,8 @@ foreach ($gameStats as $player):
 		$sentinel = 0;
 		?>
 	<tr class='sentinelRow'>
-		<td colspan='6'></td>
-		<td><span class='sentinelCol'><?=__('app', 'Sentinel')?></span></td>
-		<td><span class='sentinelCol'><?=$sentinelResult?></span></td>
-		<td colspan='5'></td>
+		<td colspan='12'><span class='sentinelCol'><?=__('app', 'Sentinel')?></span>
+				<span class='sentinelCol'><?=$sentinelResult?></span></td>
 	</tr>
 <?php
 
@@ -232,10 +255,8 @@ foreach ($gameStats as $player):
 		$scourge = 0;
 ?>
 		<tr class='scourgeRow'>
-			<td colspan='6'></td>
-			<td><span class='scourgeCol'><?=__('app', 'Scourge')?></span></td>
-			<td><span class='scourgeCol'><?=$scourgeResult?></span></td>
-			<td colspan='5'></td>
+			<td colspan='12'><span class='scourgeCol'><?=__('app', 'Scourge')?></span>
+					<span class='scourgeCol'><?=$scourgeResult?></span></td>
 		</tr>
 <?php
 	}
@@ -248,43 +269,24 @@ foreach ($gameStats as $player):
 			<span class="label server"><?=$server?></span>
 		</td>
 		<td><?=$hero?></td>
+		<td><?=$kills?></td>
+		<td><?=$deaths?></td>
+		<td><?=$assists?></td>
+		<td><?=$creepKills?></td>
+		<td><?=$creepDenies?></td>
+		<td><?=$neutralKills?></td>
+		<td><?=$towerKills?></td>
+		<td><?=$gold?></td>
 		<td>
-			<div align='center'><?=$kills?></div>
-		</td>
-		<td>
-			<div align='center'><?=$deaths?></div>
-		</td>
-		<td>
-			<div align='center'><?=$assists?></div>
-		</td>
-		<td>
-			<div align='center'><?=$creepKills?></div>
-		</td>
-		<td>
-			<div align='center'><?=$creepDenies?></div>
-		</td>
-		<td>
-			<div align='center'><?=$neutralKills?></div>
-		</td>
-		<td>
-			<div align='center'><?=$towerKills?></div>
-		</td>
-		<td>
-			<div align='center'><?=$gold?></div>
-		</td>
-		<td>
-			<div class='clearfix' style="width: <?=28*3?>;">
+			<div class='clearfix' style="width: <?=16*3?>;">
 				<?php foreach($items as $item):?>
 					<img  style="float:left;" title="" alt='' width='16' src='<?=$item['img']?>'>
-				<?php endforeach ?>
+				<?php endforeach; ?>
 			</div>
 		</td>
 
 		<td>
-			<div align='left'><?=$left?></div>
-		</td>
-		<td>
-			<div align='left'><span class='leftReason'><?=$leftReason?></span></div>
+			<abbr title="<?=$leftReason?>"><?=$left?></abbr>
 		</td>
 
 	</tr>
@@ -297,10 +299,10 @@ endforeach;
 <table>
 	<tr>
 
-		<td>
-			<?=__('app','Best Player')?>:
-			<?=CHtml::link($bestPlayer,array('players/view','id'=>strtolower($bestPlayer)));?>
-		</td>
+<!--		<td>-->
+<!--			--><?//=__('app','Best Player')?><!--:-->
+<!--			--><?//=CHtml::link($bestPlayer,array('players/view','id'=>strtolower($bestPlayer)));?>
+<!--		</td>-->
 
 		<td>
 			<h1>

@@ -1,8 +1,6 @@
 /.idea
 /vendor
 index-test.php
-/app/runtime
 /app/tests
-/assets
 .debug
 

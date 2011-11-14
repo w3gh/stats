@@ -50,8 +50,10 @@ class NewsController extends PublicController
 	 */
 	public function actionView($id)
 	{
+		$model = $this->loadModel($id);
+
 		$this->render('view',array(
-			'model'=>$this->loadModel($id),
+			'model'=>$model,
 		));
 	}
 
@@ -70,7 +72,7 @@ class NewsController extends PublicController
 		{
 			$model->attributes=$_POST['News'];
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->news_id));
+				$this->redirect(array('view','id'=>$model->id));
 		}
 
 		$this->render('create',array(
@@ -94,7 +96,7 @@ class NewsController extends PublicController
 		{
 			$model->attributes=$_POST['News'];
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->news_id));
+				$this->redirect(array('view','id'=>$model->id));
 		}
 
 		$this->render('update',array(

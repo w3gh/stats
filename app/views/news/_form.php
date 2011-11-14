@@ -10,15 +10,15 @@
 	<?php echo $form->errorSummary($model); ?>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'news_title'); ?>
-		<?php echo $form->textField($model,'news_title',array('size'=>60,'maxlength'=>90)); ?>
-		<?php echo $form->error($model,'news_title'); ?>
+		<?php echo $form->labelEx($model,'title'); ?>
+		<?php echo $form->textField($model,'title',array('size'=>60,'maxlength'=>90)); ?>
+		<?php echo $form->error($model,'title'); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'news_content'); ?>
-		<?php echo $form->textArea($model,'news_content',array('rows'=>6, 'cols'=>50)); ?>
-		<?php echo $form->error($model,'news_content'); ?>
+		<?php echo $form->labelEx($model,'content'); ?>
+		<?php echo $form->textArea($model,'content',array('rows'=>6, 'cols'=>50)); ?>
+		<?php echo $form->error($model,'content'); ?>
 	</div>
 
 	<div class="row">

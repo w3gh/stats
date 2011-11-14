@@ -14,46 +14,43 @@ $this->pageTitle=$this->title=__('app','Items');
 <table id="items" class="list zebra-stripped">
 	<thead>
 		<tr>
-			<th><?=$sort->link('item', __('app','Item'));?></th>
-			<th><?=$sort->link('name', __('app','Name'));?></th>
+			<th><?=$sort->link('name', __('app','Item'));?></th>
 		</tr>
 	</thead>
 	<tbody>
+
 		<?php if($itemsCount < 1):?>
-		<tr>
-			<td class="noEntries" colspan="2">
-				<?=__('app','No Items found')?>
-			</td>
-		</tr>
+			<tr>
+				<td class="noEntries" colspan="2">
+					<?=__('app','No Items found')?>
+				</td>
+			</tr>
 		<?php endif;?>
+
 		<?php
-		foreach($items as $item):
-		$itemName = CHTML::encode($item->shortname);
-		$icon = $item->icon;
-		$itemID = $item->itemid;
-		$itemSummary = $item->item_info;
-		$itemSummary = str_replace("\n\n", "<br>", $itemSummary);
-		$itemSummary = str_replace("\n", "<br>", $itemSummary);
-		$itemSummary = str_replace("Cost:", "<img alt='' title='Cost' style='vertical-align:middle;' border='0' src='".$this->assetsUrl."/img/coin.gif'>", $itemSummary);
+			foreach($items as $item):
+				$itemName = CHTML::encode($item->shortname);
+				$icon = $item->icon;
+				$itemID = $item->itemid;
+				$itemSummary = $item->item_info;
+				$itemSummary = str_replace("\n\n", "<br>", $itemSummary);
+				$itemSummary = str_replace("\n", "<br>", $itemSummary);
+				$itemSummary = str_replace("Cost:", "<img alt='' title='Cost' style='vertical-align:middle;' border='0' src='".$this->assetsUrl."/img/coin.gif'>", $itemSummary);
 
 		?>
 
 		<tr>
 			 <td>
-				 <a href='<?=$this->createUrl('items/view',array('id'=>$itemID))?>'>
-					<img border=0 width='48' height='48' src='<?=$this->assetsUrl?>/img/items/<?=$icon?>'>
-				 </a>
-			 </td>
 
-			 <td >
-				 <a onClick='showhide("<?=$itemID?>");' href='javascript:;'><?=$itemName?></a>
-				 <div style='display:none;' id = '<?=$itemID?>'>
-					 <?=$itemSummary?>
-					 <br>
-					 <?=CHtml::link('More info...', array('view','id'=>$itemID));?>
-					 <br><br>
-				 </div>
-			</td>
+					<div class="label item">
+						<a class="item-name" rel="popover" title="" href='<?=$this->createUrl('view',array('id'=>$itemID))?>'>
+							<img width='32' height='32' src='<?=$this->assetsUrl?>/img/items/<?=$icon?>'>
+							<?=$itemName?>
+							<div style="display:none"><?=$itemSummary?></div>
+						</a>
+					</div>
+
+			 </td>
 		</tr>
 
 		<?php endforeach;?>

@@ -26,11 +26,11 @@ CREATE TABLE IF NOT EXISTS `items` (
 -- --------------------------------------------------------
 
 CREATE TABLE IF NOT EXISTS `news` (
-  `news_id` mediumint(8) NOT NULL AUTO_INCREMENT,
-  `news_title` varchar(90) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
-  `news_content` mediumtext CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
-  `news_created` datetime NOT NULL,
-  `news_updated` datetime NOT NULL,
-  PRIMARY KEY (`news_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+  `id` mediumint(8) NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+  `content` mediumtext CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+  `created` datetime NOT NULL,
+  `updated` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1;
 
