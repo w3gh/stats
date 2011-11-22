@@ -13,7 +13,7 @@ $this->breadcrumbs=array(
         </p>
     </div>
 <?php endif; ?>
-<div class="form">
+<div class="form hero-unit">
 <?php $form=$this->beginWidget('CActiveForm', array(
 	'id'=>'login-form',
 	'enableClientValidation'=>true,

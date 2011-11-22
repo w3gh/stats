@@ -1,4 +1,4 @@
-<table class='tableA'>
+<table id='playerFastestGamesWon' class='list'>
 	<thead>
 		<tr>
 			<th colspan='8' class='padLeft'><b><?=__('app','Fastest Game Won')?></b></th>

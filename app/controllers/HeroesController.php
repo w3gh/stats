@@ -93,19 +93,19 @@ class HeroesController extends PublicController
 			LIMIT 1";
 
 		$command = app()
-										->db
-										->getCommandBuilder()
-										->createSqlCommand($sql,array(
-			                                               ':heroid'=>$id,
-			                                               ':minPlayedRatio'=>$minPlayedRatio,
-		                                                 ));
+						->db
+						->getCommandBuilder()
+						->createSqlCommand($sql,array(
+										   ':heroid'=>$id,
+										   ':minPlayedRatio'=>$minPlayedRatio,
+										 ));
 
 		$data['hero'] = $command->queryRow();
 		$data['hid'] = strtoupper($data['hero']['original']);
 		$data['description'] = $data['hero']['description'];
 		
 		if(app()->request->isAjaxRequest)
-			return $this->renderPartial('_view',$data);
+			return $this->renderPartial('view_ajax',$data);
 
 		$this->render('view',$data);
 	}

@@ -20,6 +20,7 @@ $this->menu=array(
 );
 ?>
 <?php $this->renderPartial('_view',array('hero'=>$hero,'hid'=>$hid,'description'=>$description))?>
+
 <?php $this->widget('HeroMostUsedItems',array('heroId'=>$hid))?>
 
 <?php $this->widget('HeroGameHistory',array(

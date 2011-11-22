@@ -570,6 +570,11 @@ pre {
 abbr {
   border-bottom: 1px dashed;
 }
+.small {
+  font-size: 10px;
+  font-weight: 300;
+  line-height: 18px;
+}
 /* Forms.less
  * Base styles for various input types, form layouts, and states
  * ------------------------------------------------------------- */

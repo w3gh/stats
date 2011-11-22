@@ -1,17 +1,17 @@
-<table class='tableA'>
+<table id='playerLongestGamesWon' class='list'>
 	<thead>
 		<tr>
-			<th colspan='8' class='padLeft'><b><?=__('app','Longest Game Won')?></b></th>
+			<th colspan='8' ><?=__('app','Longest Game Won')?></th>
 		</tr>
 		<tr>
 			<th><?=__('app','Game Name')?></th>
-			<th><b><?=__('app','Duration')?>:</b></th>
-			<th><div align='center'><b><?=__('app','Kills')?></b></div></th>
-			<th><div align='center'><b><?=__('app','Deaths')?></b></div></th>
-			<th><div align='center'><b><?=__('app','Assists')?></b></div></th>
-			<th><div align='center'><b><?=__('app','Creeps')?></b></div></th>
-			<th><div align='center'><b><?=__('app','Denies')?></b></div></th>
-			<th><div align='center'><b><?=__('app','Neutrals')?></b></div></th>
+			<th><?=__('app','Duration')?></th>
+			<th><?=__('app','Kills')?></th>
+			<th><?=__('app','Deaths')?></th>
+			<th><?=__('app','Assists')?></th>
+			<th><?=__('app','Creeps')?></th>
+			<th><?=__('app','Denies')?></th>
+			<th><?=__('app','Neutrals')?></th>
 		</tr>
 	</thead>
 	<tbody>
