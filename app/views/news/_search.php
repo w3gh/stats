@@ -26,7 +26,7 @@
 	</div>
 
 	<div class="clearfix buttons">
-		<?php echo CHtml::submitButton(__('Search')); ?>
+		<?php echo CHtml::submitButton(__('app','Search')); ?>
 	</div>
 
 <?php $this->endWidget(); ?>

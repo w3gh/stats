@@ -4,8 +4,8 @@ $this->breadcrumbs=array(
 	'Contact',
 );
 ?>
-
-<h1>Contact Us</h1>
+<div class="hero-unit">
+<h2>Contact Us</h2>
 
 <?php if(app()->user->hasFlash('contact')): ?>
 
@@ -28,50 +28,50 @@ If you have business inquiries or other questions, please fill out the following
 		'validateOnSubmit'=>true,
 	),
 )); ?>
-
-	<p class="note">Fields with <span class="required">*</span> are required.</p>
-
 	<?php echo $form->errorSummary($model); ?>
 
-	<div class="row">
+	<div class="clearfix  <?= ($model->getError('name')) ? 'error':''?>">
 		<?php echo $form->labelEx($model,'name'); ?>
-		<?php echo $form->textField($model,'name'); ?>
-		<?php echo $form->error($model,'name'); ?>
+        <div class="input">
+            <?php echo $form->textField($model,'name',array('class'=>'xxlarge')); ?>
+        </div>
 	</div>
 
-	<div class="row">
+	<div class="clearfix  <?= ($model->getError('email')) ? 'error':''?>">
 		<?php echo $form->labelEx($model,'email'); ?>
-		<?php echo $form->textField($model,'email'); ?>
-		<?php echo $form->error($model,'email'); ?>
+        <div class="input">
+            <?php echo $form->textField($model,'email',array('class'=>'xxlarge')); ?>
+        </div>
 	</div>
 
-	<div class="row">
+	<div class="clearfix  <?= ($model->getError('subject')) ? 'error':''?>">
 		<?php echo $form->labelEx($model,'subject'); ?>
-		<?php echo $form->textField($model,'subject',array('size'=>60,'maxlength'=>128)); ?>
-		<?php echo $form->error($model,'subject'); ?>
+        <div class="input">
+            <?php echo $form->textField($model,'subject',array('size'=>60,'maxlength'=>128,'class'=>'xxlarge')); ?>
+        </div>
 	</div>
 
-	<div class="row">
+	<div class="clearfix  <?= ($model->getError('body')) ? 'error':''?>">
 		<?php echo $form->labelEx($model,'body'); ?>
-		<?php echo $form->textArea($model,'body',array('rows'=>6, 'cols'=>50)); ?>
-		<?php echo $form->error($model,'body'); ?>
+        <div class="input">
+            <?php echo $form->textArea($model,'body',array('rows'=>6, 'cols'=>50,'class'=>'xxlarge')); ?>
+        </div>
 	</div>
 
 	<?php if(CCaptcha::checkRequirements()): ?>
-	<div class="row">
+	<div class="clearfix  <?= ($model->getError('verifyCode')) ? 'error':''?>">
 		<?php echo $form->labelEx($model,'verifyCode'); ?>
-		<div>
-		<?php $this->widget('CCaptcha'); ?>
-		<?php echo $form->textField($model,'verifyCode'); ?>
+		<div class="input">
+            <?php $this->widget('CCaptcha'); ?>
+            <?php echo $form->textField($model,'verifyCode'); ?>
+            <span class="help-block">Please enter the letters as they are shown in the image above.
+          		<br/>Letters are not case-sensitive.</span>
 		</div>
-		<div class="hint">Please enter the letters as they are shown in the image above.
-		<br/>Letters are not case-sensitive.</div>
-		<?php echo $form->error($model,'verifyCode'); ?>
 	</div>
 	<?php endif; ?>
 
-	<div class="row buttons">
-		<?php echo CHtml::submitButton('Submit'); ?>
+	<div class="actions">
+		<?php echo CHtml::submitButton('Submit',array('class'=>'btn primary')); ?>
 	</div>
 
 <?php $this->endWidget(); ?>
@@ -79,3 +79,4 @@ If you have business inquiries or other questions, please fill out the following
 </div><!-- form -->
 
 <?php endif; ?>
+</div>

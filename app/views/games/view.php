@@ -5,7 +5,6 @@ $dateFormat = param('dateFormat');
 $creatorName =  $gameInfo['creatorname'];
 $duration =     Util::secondsToTime($gameInfo['duration']);
 $gameTime =     date($dateFormat, strtotime($gameInfo['datetime']));
-$gmtime =       $gameInfo['datetime'];
 $replayDate =   $gameInfo['datetime'];
 $gameName =     $gameInfo['gamename'];
 $win =          $gameInfo['winner'];
@@ -20,7 +19,7 @@ $bestScore =      0;
 $bestPlayer =     "";
 
 $this->breadcrumbs = array(
-	'Games'=>array('index'),
+	__('app','Games')=>array('index'),
 	$gameName
 );
 
@@ -35,13 +34,13 @@ $this->pageTitle=$this->title=$gameName
 
 ?>
 
-<table class="list">
+<table id="game-info" class="list">
 	<tr class="gradient">
-		<td><?=__('app', 'Game')?>: <b><?= $gameName; ?></b></td>
-		<td><?=__('app', 'Date')?>: <b><?= $gmtime; ?></b></td>
-		<td><?=__('app', 'Creator')?>: <b><?= (!empty($creatorName)) ? $creatorName:__('app','Autohosted'); ?></b></td>
-		<td><?=__('app', 'Duration')?>: <b><?= $duration; ?></b></td>
-		<td><a class="btn sucsess" href="#">DownloadReplay</a></td>
+		<td class="info-row"><?=__('app', 'Game')?>: <b><?= $gameName; ?></b></td>
+		<td class="info-row"><?=__('app', 'Date')?>: <b><?= $gameTime; ?></b></td>
+		<td class="info-row"><?=__('app', 'Creator')?>: <b><?= (!empty($creatorName)) ? $creatorName:__('app','Autohosted'); ?></b></td>
+		<td class="info-row"><?=__('app', 'Duration')?>: <b><?= $duration; ?></b></td>
+		<td><a class="btn success" href="#">DownloadReplay</a></td>
 	</tr>
 </table>
 
@@ -67,8 +66,8 @@ $this->pageTitle=$this->title=$gameName
 
 foreach ($gameStats as $player):
 	
-	$player = new ArrayObject($player);
-	
+	//$player = new ArrayObject($player);
+	//var_dump($player);die();
 	$kills =        $player['kills'];
 	$deaths =       $player['deaths'];
 	$assists =      $player["assists"];
@@ -88,7 +87,6 @@ foreach ($gameStats as $player):
 	$server =       $player["server"];
 	$name=          trim($player["name"]);
 	$nameId=        strtolower(trim($player["name"]));
-	$name3=         trim($player["name"]);
 	$newColour=     $player["newcolour"];
 	$gameId=        $player["gameid"];
 	$banName=       $player["banname"];
@@ -151,7 +149,6 @@ foreach ($gameStats as $player):
 	{
 		$kills = "<b>{$kills}</b>";
 	}
-
 	if ($deaths >= 10)
 	{
 		$deaths = "<b>{$deaths}</b>";
@@ -203,11 +200,11 @@ foreach ($gameStats as $player):
 	if($points)
 		$playerName.=CHtml::tag('span',array('class'=>'label points'),$points);
 
-	if (trim(strtolower($player['banname'])) == strtolower($player['name'])) {
+	if ($player['name'] && (trim(strtolower($player['banname'])) == strtolower($player['name']))) {
 		$playerName.=CHtml::tag('span',array('class'=>'label banned'),__('app','Banned'));
 	}
 
-	if (trim(strtolower($player['adminname'])) == strtolower($player['name'])) {
+	if ($player['name'] && (trim(strtolower($player['adminname'])) == strtolower($player['name']))) {
 		$playerName.=CHtml::tag('span',array('class'=>'label admin'),__('app','Admin'));
 	}
 
@@ -220,7 +217,7 @@ foreach ($gameStats as $player):
 	$leftReason = str_replace($substring, "", $leftReason);
 
 	/**
-	 * Dete
+	 * Detect loser/winer
 	 */
 	if ($win == 0) {
 		$sentinelResult = __('app','Loser');
@@ -242,9 +239,11 @@ foreach ($gameStats as $player):
 	if ($sentinel == 1 AND $newColour <= 5) {
 		$sentinel = 0;
 		?>
-	<tr class='sentinelRow'>
-		<td colspan='12'><span class='sentinelCol'><?=__('app', 'Sentinel')?></span>
-				<span class='sentinelCol'><?=$sentinelResult?></span></td>
+	<tr class='sentinel-row'>
+		<td colspan='12'>
+            <span class='sentinel-col'><?=__('app', 'Sentinel')?></span>
+			<span class='sentinel-col'><?=$sentinelResult?></span>
+        </td>
 	</tr>
 <?php
 
@@ -254,9 +253,11 @@ foreach ($gameStats as $player):
 	{
 		$scourge = 0;
 ?>
-		<tr class='scourgeRow'>
-			<td colspan='12'><span class='scourgeCol'><?=__('app', 'Scourge')?></span>
-					<span class='scourgeCol'><?=$scourgeResult?></span></td>
+		<tr class='scourge-row'>
+			<td colspan='12'>
+                <span class='scourge-col'><?=__('app', 'Scourge')?></span>
+				<span class='scourge-col'><?=$scourgeResult?></span>
+            </td>
 		</tr>
 <?php
 	}
@@ -266,7 +267,7 @@ foreach ($gameStats as $player):
 	<tr>
 		<td>
 			<?=$playerName?>
-			<span class="label server"><?=$server?></span>
+			<?=($server) ? Chtml::tag('span',array('class'=>'label server'),$server):''?>
 		</td>
 		<td><?=$hero?></td>
 		<td><?=$kills?></td>
@@ -305,7 +306,7 @@ endforeach;
 <!--		</td>-->
 
 		<td>
-			<h1>
+			<h1 class="winer-loser">
 				<b><?=__('app', 'Sentinel')?></b>
 				<?=$sentinelKills?>:<?=$scourgeKills?>
 				<b><?=__('app', 'Scourge')?></b>

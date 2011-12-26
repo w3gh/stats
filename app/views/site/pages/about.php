@@ -1,10 +1,12 @@
 <?php
-$this->pageTitle=app()->name . ' - About';
+$this->pageTitle='About';
 $this->breadcrumbs=array(
 	'About',
 );
 ?>
-<h1>About</h1>
+<div class="hero-unit">
+    <h2>About</h2>
 
-<p>This is a "static" page. You may change the content of this page
-by updating the file <tt><?php echo __FILE__; ?></tt>.</p>
+    <p>This is a "static" page. You may change the content of this page
+    by updating the file <tt><?php echo __FILE__; ?></tt>.</p>
+</div>

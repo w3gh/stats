@@ -35,7 +35,7 @@ $stats = str_replace("Intelligence",
                      border=0 />Intelligence",$stats);
 ?>
 
-<table class="list">
+<table class="list zebra-striped">
 		<tbody>
 			<tr>
 				<td width='68%' valign='top'>

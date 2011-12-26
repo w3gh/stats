@@ -34,9 +34,15 @@ return array(
 	'components'=>array(
 
 		'user'=>array(
+            'class' => 'WebUser',
 			// enable cookie-based authentication
 			'allowAutoLogin'=>true,
 		),
+
+        'authManager' => array(
+            'class' => 'PhpAuthManager',
+            'defaultRoles' => array('guest'),
+        ),
 
 		'format'=>array(
 			'class'=>'system.utils.CFormatter'
@@ -68,7 +74,10 @@ return array(
 				'heroes/player/<player>'=>'heroes/index',
 
 				'admin/<controller>'=>'<controller>/admin',
-				'admin/<controller>/create'=>'<controller>/create'
+				'admin/<controller>/create'=>'<controller>/create',
+				'admin/<controller>/update/<id>'=>'<controller>/update',
+				'admin/<controller>/delete/<id>'=>'<controller>/delete',
+				'admin/<controller>/view/<id>'=>'<controller>/view'
 
 //      '<controller:\w+>/' => '<controller>/index',
 //			'<controller:\w+>/<id:\w+>'=>'<controller>/view',

@@ -1,19 +1,18 @@
 <?php
-$this->pageTitle=app()->name . ' - Login';
 $this->breadcrumbs=array(
-	'Login',
+    __('app','Login'),
 );
+$this->pageTitle=__('app','Login');
 ?>
 
 <?php if($model->hasErrors()): ?>
-		<div class="alert-message error">
+	<div class="alert-message error">
         <a href="#" class="close">×</a>
-        <p>
-	        <?= CHtml::errorSummary($model,''); ?>
-        </p>
+        <p><?= CHtml::errorSummary($model,''); ?></p>
     </div>
 <?php endif; ?>
-<div class="form hero-unit">
+
+<div class="form form-unit">
 <?php $form=$this->beginWidget('CActiveForm', array(
 	'id'=>'login-form',
 	'enableClientValidation'=>true,
@@ -58,7 +57,7 @@ $this->breadcrumbs=array(
 			</div>
 		</div>
 
-		<div class="well">
+		<div class="actions">
 			<?php echo CHtml::submitButton('Login',array('class'=>'btn primary')); ?>
 		</div>
 	</fieldset>

@@ -25,28 +25,29 @@ $this->pageTitle = $itemShortName;
 
 ?>
 
-<div align='center'>
-	    <table class='tableHeroPageTop'>
-		<tr>
-           <th><div align='center'><?=$itemShortName?> information</div></th></tr>
-        <tr>
-		    <td>
 
-		<div align='center'>
-		    <table class='tableItem'>
-            <tr>
-							<td align='left' class='ItemInfo'>
-								<img border='0' style='vertical-align:middle;' alt='<?=$itemShortName?>' title='' src='<?=$this->assetsUrl?>/img/items/<?=$itemIcon?>'> <b><?=$itemShortName?></b><br>
-								<?=$itemInfo?>
-							</td>
-		        </tr>
-		    </table>
-		</div>
+<table class='list zebra-striped'>
+<tr>
+   <th><?=$itemShortName?> information</th>
+</tr>
+<tr>
+    <td>
 
-             </td>
+
+    <table class='tableItem'>
+    <tr>
+                    <td align='left' class='ItemInfo'>
+                        <img border='0' style='vertical-align:middle;' alt='<?=$itemShortName?>' title='' src='<?=$this->assetsUrl?>/img/items/<?=$itemIcon?>'> <b><?=$itemShortName?></b><br>
+                        <?=$itemInfo?>
+                    </td>
         </tr>
-		</table>
-		</div>
+    </table>
+
+
+     </td>
+</tr>
+</table>
+
 <?php if(param('showItemsMostUsedByHero')) $this->widget('MostUsedHeroByItem',array(
 	'heroId'=>'',
 	'itemId'=>$itemId,

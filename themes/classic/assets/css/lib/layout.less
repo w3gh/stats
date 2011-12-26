@@ -22,6 +22,7 @@ body#theme-classic {
 /**
  * Tables
 /* -------------------------------------------------------------------------------------------------------------------*/
+
 table {
     background: @extraWhite;
 }
@@ -146,4 +147,37 @@ table.list {
         line-height: 32px;
         vertical-align: top;
     }
+}
+
+/**
+ * Game View
+/* -------------------------------------------------------------------------------------------------------------------*/
+
+#game-info {
+    .info-row {
+        font-size: 12px;
+        vertical-align: middle;
+        b {
+            font-size: 18px;
+        }
+    }
+}
+
+#game {
+
+    .sentinel-row,
+    .scourge-row {
+        color: @white;
+
+    }
+    .sentinel-row td {
+        text-align: center;
+        .gradientBar(#62c462, #57a957);
+    }
+
+    .scourge-row td {
+        text-align: center;
+        .gradientBar(#ee5f5b, #c43c35);
+    }
+
 }

@@ -44,8 +44,6 @@
 					array('label'=>'Heroes', 'url'=>array('/heroes')),
 					array('label'=>'About', 'url'=>array('/site/page', 'id'=>'about')),
 					array('label'=>'Contact', 'url'=>array('/site/contact')),
-					array('label'=>'Login', 'url'=>array('/site/login'), 'visible'=>app()->user->isGuest),
-					array('label'=>'Logout ('.app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!app()->user->isGuest)
 				),
 			)); ?>
 
@@ -79,10 +77,9 @@
 
 		<?=CHtml::tag('h1',array('class'=>'title'),$this->title)?>
 
-	
 	<?= $content; ?>
 
-	<div id="footer" class="row footer">
+	<div id="footer" class="footer row">
 
 			<div class="span10">
 				<ul class="inline links unstyled">

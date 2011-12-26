@@ -468,6 +468,24 @@ a.menu:after,
     line-height: @baseline * 1.5;
   }
 }
+
+.form-unit {
+  background-color: @extraWhite;
+  .border-radius(6px);
+  padding-top: 30px;
+  h1 {
+    margin-bottom: 0;
+    font-size: 60px;
+    line-height: 1;
+    letter-spacing: -1px;
+  }
+  p {
+    font-size: 18px;
+    font-weight: 200;
+    line-height: @baseline * 1.5;
+  }
+}
+
 footer {
   margin-top: @baseline - 1;
   padding-top: @baseline - 1;
@@ -644,6 +662,15 @@ input[type=submit].btn {
   // Adjust close icon
   .close {
     *margin-top: 3px; /* IE7 spacing */
+  }
+
+  ul {
+    margin: 0;
+  }
+
+  li {
+    color: white;
+    list-style: none;
   }
 
   // Remove extra margin from content

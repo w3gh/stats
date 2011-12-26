@@ -145,14 +145,14 @@ $this->breadcrumbs = array(
 				<a href='<?=$this->createUrl('games/view',array('id'=>$gameid))?>'><?=$gamename?></a>
 				<span class="label type <?=strtolower($type)?>"><?=__('app',$type)?></span>
 			</td>
-			<td><div align='center'><?=$gametime?></div></td>
+			<td><?=$gametime?></td>
 			<td >
-					<div class="label hero">
-						<a class="hero-name clearfix" rel="popover" title="<?=$hero?>" href='<?=$this->createUrl('heroes/view',array('id'=>$hid))?>'>
-							<img class="hero-icon" width='32' height='32' alt='' src='<?=$this->assetsUrl?>/img/heroes/<?=$hid?>.gif' border=0 />
-							<?=$hero?>
-						</a>
-					</div>
+				<div class="label hero">
+					<a class="hero-name clearfix" rel="popover" title="<?=$hero?>" href='<?=$this->createUrl('heroes/view',array('id'=>$hid))?>'>
+						<img class="hero-icon" width='32' height='32' alt='' src='<?=$this->assetsUrl?>/img/heroes/<?=$hid?>.gif' border=0 />
+						<?=$hero?>
+					</a>
+				</div>
 			</td>
 			<td><?=$kills?></td>
 			<td><?=$death?></td>
@@ -161,7 +161,7 @@ $this->breadcrumbs = array(
 			<td><?=$creepkills?></td>
 			<td><?=$creepdenies?></td>
 			<td><?=$neutralkills?></td>
-			<td><div align='left'><?=$outcome?></div></td>
+			<td><?=$outcome?></td>
 		</tr>
 		<?php endforeach;?>
 	</tbody>
