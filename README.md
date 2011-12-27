@@ -68,7 +68,9 @@ and hit ENTER, you will see:
     
 quit and ENTER.
 
-Import install.schema.sql into your database on Linux/Unix command line, use the following commands:
+All schema's located in app/data/
+For clean install you need install 'ghost.schema.sql' first, after 'install.schema.sql'
+For import sql into your database on Linux/Unix command line, use the following commands:
 
 	mysql -uYOUR_USER -pYOUR_PASSWORD YOUR_DATABASE < install.schema.sql
 
