@@ -51,6 +51,7 @@ return array(
 		'urlManager'=>array(
 			'urlFormat'=>'path',
 			'urlSuffix'=>'.html',
+            'showScriptName'=>false,
 			//'showScriptName'=>false, //use it only if .htaccess has right rule
 			'rules'=>array(
 				'index'=>'site/index',
@@ -68,6 +69,8 @@ return array(
 
 				'players/index'=>'players/index',
 				'players/<id>'=>'players/view',
+
+                'http://<id>.w3ghstats.local' => 'players/view',
 
 				'heroes/index'=>'heroes/index',
 				'heroes/<id>'=>'heroes/view',
@@ -99,7 +102,7 @@ return array(
 		'errorHandler'=>array(
 			// use 'site/error' action to display errors
         'errorAction'=>'site/error',
-    ),
+        ),
 
 		'log'=>array(
 			'class'=>'CLogRouter',
@@ -107,6 +110,7 @@ return array(
 				array(
 					'class'=>'CFileLogRoute',
 					'levels'=>'error, warning',
+                    'enabled'=>!YII_DEBUG,
 				),
 				
 				array(
