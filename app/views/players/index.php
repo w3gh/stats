@@ -20,12 +20,20 @@ $this->pageTitle=__('app','Players');
 				<th><?= $sort->link('creeps', __('app', 'Creeps')); ?></th>
 				<th><?= $sort->link('denies', __('app', 'Denies')); ?></th>
 				<th><?= $sort->link('neutral', __('app', 'Neutrals')); ?></th>
+                <th>
+                    <?=__('app','Server')?>
+                    <div class="btn-group" data-toggle="buttons-checkbox">
+                        <button class="btn btn-primary">eurobattle.net</button>
+                        <button class="btn btn-primary">eswest</button>
+                        <button class="btn btn-primary">rubattle.net</button>
+                    </div>
+                </th>
 			</tr>
 		</thead>
 		<tbody>
 			<?php if($playersCount < 1):?>
 				<tr>
-					<td class="noEntries" colspan="11">
+					<td class="noEntries" colspan="12">
 						<?= __('app', 'No Games found'); ?>
 					</td>
 				</tr>

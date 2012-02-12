@@ -70,7 +70,7 @@ $(document).ready(function(){
 			delayOut: 5
 		});
 
-		$('abbr').twipsy();
+		$('abbr').tooltip();
 
 	  // Disable certain links in docs
 	  // =============================

@@ -16,15 +16,38 @@ $this->pageTitle=$this->title=__('app','Dota Games');
 				<th>
 					<?= $sort->link('game', __('app', 'Game')); ?>
 					<span class="label type"><?= $sort->link('type', __('app', 'Type')); ?></span>
+
 				</th>
 				<th><?= $sort->link('duration', __('app', 'Duration')); ?></th>
 				<th><?= $sort->link('date', __('app', 'Date')); ?></th>
 				<th><?= $sort->link('creator', __('app', 'Creator')); ?></th>
+                <th>
+                    <?=__('app','Server')?>
+
+                </th>
 			</tr>
+            <tr>
+                <th>
+                    <div class="btn-group" data-toggle="buttons-checkbox">
+                        <button class="btn btn-primary active"><?=__('app', 'Public')?></button>
+                        <button class="btn btn-primary active"><?=__('app', 'Private')?></button>
+                    </div>
+                </th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th>
+                    <div class="btn-group" data-toggle="buttons-checkbox">
+                        <button class="btn btn-primary active">eurobattle.net</button>
+                        <button class="btn btn-primary active">eswest</button>
+                        <button class="btn btn-primary active">rubattle.net</button>
+                    </div>
+                </th>
+            </tr>
 		</thead>
 			<?php if($gamesCount < 1):?>
 				<tr>
-					<td class="noEntries" colspan="5">
+					<td class="noEntries" colspan="6">
 						<?= __('app', 'No Games found'); ?>
 					</td>
 				</tr>
@@ -82,6 +105,7 @@ $this->pageTitle=$this->title=__('app','Dota Games');
 							);?>
 							<?=(!$creator) ? __('app','Autohosted'):'';?>
 					</td>
+                    <td>Server</td>
 				</tr>
 			<?php endforeach; ?>
 	</table>

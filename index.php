@@ -24,7 +24,7 @@ function d()
 /**
  * Short Application alias
  * @see Yii::app()
- * @return CApplication the application singleton, null if the singleton has not been created yet.
+ * @return CWebApplication the application singleton, null if the singleton has not been created yet.
  */
 function app()
 {
