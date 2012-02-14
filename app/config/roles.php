@@ -2,6 +2,8 @@
 /**
  * File contain definitions of all roles
  * @author Nikolay Kostyurin <jilizart@gmail.com>
+ *
+ * !!DONT EDIT THIS FILE!!!
  */
 
 return array(
