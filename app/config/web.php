@@ -7,7 +7,7 @@ return array(
     'name'=>'W3Gh Stats',
     'theme' => 'classic',
 
-    'defaultController'=>'news',
+    'defaultController'=>'news/default/index',
     // preloading 'log' component
     'preload'=>array('log'),
 
@@ -19,6 +19,12 @@ return array(
     ),
 
     'modules'=>array(
+        'comment',
+        'news',
+        'ranker',
+        'user',
+        'ghost',
+
         // uncomment the following to enable the Gii tool
 
         'gii'=>array(
@@ -56,25 +62,33 @@ return array(
             //'showScriptName'=>false, //use it only if .htaccess has right rule
             'rules'=>array(
 
-                'index'=>'site/index',
                 'page/<id:\w+>'=>'site/page',
                 'contact'=>'site/contact',
 
-                'login'=>'site/login',
-                'logout'=>'site/logout',
+                'login'=>'user/default/login',
+                'logout'=>'user/default/logout',
 
-                'games/index'=>'games/index',
-                'games/<id:\d+>'=>'games/view',
+                'news/index'=>'news/default/index',
+                'news/<id:\d+>'=>'news/default/view',
 
-                'items/index'=>'items/index',
-                'items/<id>'=>'items/view',
+                'games/index'=>'ghost/games/index',
+                'games/<id:\d+>'=>'ghost/games/view',
 
-                'players/index'=>'players/index',
-                'players/<id>'=>'players/view',
+                'items/index'=>'ghost/items/index',
+                'items/<id>'=>'ghost/items/view',
 
-                'heroes/index'=>'heroes/index',
-                'heroes/<id>'=>'heroes/view',
-                'heroes/player/<player>'=>'heroes/index',
+                'players/index'=>'ghost/players/index',
+                'players/<id>'=>'ghost/players/view',
+
+                'servers/index'=>'ghost/servers/index',
+                'servers/<id>'=>'ghost/servers/view',
+
+                'bots/index'=>'ghost/bots/index',
+                'bots/<id>'=>'ghost/bots/view',
+
+                'heroes/index'=>'ghost/heroes/index',
+                'heroes/<id>'=>'ghost/heroes/view',
+                'heroes/player/<player>'=>'ghost/heroes/index',
 
                 'admin/<controller>'=>'<controller>/admin',
                 'admin/<controller>/create'=>'<controller>/create',

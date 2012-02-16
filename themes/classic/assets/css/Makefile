@@ -1,30 +1,28 @@
-VERSION=1.3.0
-DATE=$(shell DATE)
-BOOTSTRAP = ./style.css
-BOOTSTRAP_MIN = ./style.min.css
-BOOTSTRAP_LESS = ./lib/bootstrap.less
-LESS_COMPESSOR ?= `which lessc`
+BOOTSTRAP = ./bootstrap/docs/assets/css/bootstrap.css
+BOOTSTRAP_LESS = ./style.less
+BOOTSTRAP_RESPONSIVE = ./bootstrap/docs/assets/css/bootstrap-responsive.css
+BOOTSTRAP_RESPONSIVE_LESS = ./bootstrap/less/responsive.less
+LESS_COMPRESSOR ?= `which lessc`
 WATCHR ?= `which watchr`
 
+#
+# BUILD SIMPLE BOOTSTRAP DIRECTORY
+# lessc & uglifyjs are required
+#
+
 build:
-	@@if test ! -z ${LESS_COMPESSOR}; then \
-		sed -e 's/@VERSION/'"v${VERSION}"'/' -e 's/@DATE/'"${DATE}"'/' <${BOOTSTRAP_LESS} >${BOOTSTRAP_LESS}.tmp; \
-		lessc ${BOOTSTRAP_LESS}.tmp > ${BOOTSTRAP}; \
-		lessc ${BOOTSTRAP_LESS}.tmp > ${BOOTSTRAP_MIN} --compress; \
-		rm -f ${BOOTSTRAP_LESS}.tmp; \
-		echo "Bootstrap successfully built! - `date`"; \
-	else \
-		echo "You must have the LESS compiler installed in order to build Bootstrap."; \
-		echo "You can install it by running: npm install less -g"; \
-	fi
+	lessc ${BOOTSTRAP_LESS} > style.css
+	lessc --compress ${BOOTSTRAP_LESS} > style.min.css
+	lessc ${BOOTSTRAP_RESPONSIVE_LESS} > bootstrap-responsive.css
+	lessc --compress ${BOOTSTRAP_RESPONSIVE_LESS} > bootstrap-responsive.min.css
+
+#
+# WATCH LESS FILES
+#
 
 watch:
-	@@if test ! -z ${WATCHR}; then \
-	  echo "Watching less files..."; \
-	  watchr -e "watch('lib/.*\.less') { system 'make' }"; \
-	else \
-		echo "You must have the watchr installed in order to watch Bootstrap less files."; \
-		echo "You can install it by running: gem install watchr"; \
-	fi
+	echo "Watching less files..."; \
+	watchr -e "watch('less/.*\.less') { system 'make' }"
+
 
 .PHONY: build watch

@@ -17,7 +17,7 @@
 	<!-- Mobile viewport optimized: j.mp/bplateviewport -->
   <meta name="viewport" content="width=device-width,initial-scale=1">
 
-    <link rel="stylesheet" href="<?=app()->theme->baseUrl?>/assets/css/bootstrap<?=(YII_DEBUG)?'':'.min'?>.css">
+    <link rel="stylesheet" href="<?=app()->theme->baseUrl?>/assets/css/style<?=(YII_DEBUG)?'':'.min'?>.css">
 
 	<!-- All JavaScript at the bottom, except this Modernizr build incl. Respond.js
        Respond is a polyfill for min/max-width media queries. Modernizr enables HTML5 elements & feature detects;
@@ -30,11 +30,6 @@
 <div class="navbar navbar-fixed-top">
     <div class="navbar-inner">
         <div class="container-fluid">
-            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </a>
             <?= CHtml::link(app()->name,'',array('class'=>'brand')); ?>
             <div class="nav-collapse">
                 <?php $this->widget('zii.widgets.CMenu',array(
@@ -43,18 +38,17 @@
                 					'class'=>'nav'
                 				),
                 				'items'=>array(
-                					array('label'=>'Home', 'url'=>array('/site/index')),
-                					array('label'=>'Admins', 'url'=>array('/admins')),
-                					array('label'=>'Bans', 'url'=>array('/bans')),
-                					array('label'=>'Games', 'url'=>array('/games')),
-                					array('label'=>'Items', 'url'=>array('/items')),
-                					array('label'=>'Heroes', 'url'=>array('/heroes')),
+                					array('label'=>'Admins', 'url'=>array('/ghost/admins')),
+                					array('label'=>'Bans', 'url'=>array('/ghost/bans')),
+                					array('label'=>'Games', 'url'=>array('/ghost/games')),
+                					array('label'=>'Items', 'url'=>array('/ghost/items')),
+                					array('label'=>'Heroes', 'url'=>array('/ghost/heroes')),
                 					array('label'=>'About', 'url'=>array('/site/page', 'id'=>'about')),
                 					array('label'=>'Contact', 'url'=>array('/site/contact')),
                 				),
                 			)); ?>
                 <p class="navbar-text pull-right"><?=(app()->user->isGuest) ?
-                    __('app','Please <a href=":login">Login</a>',array(':login'=>$this->createUrl('site/login'))):
+                    __('app','Please <a href=":login">Login</a>',array(':login'=>$this->createUrl('/user/default/login'))):
                     __('app','Logged in as <a href="#">:username</a>',array(':username'=>app()->user->name))?>
                 </p>
             </div><!--/.nav-collapse -->
@@ -62,41 +56,9 @@
     </div>
 </div>
 
-<div class="topbar">
-	<div class="topbar-inner">
-		<div class="container">
+<div class="container-fluid" id="page">
 
-
-
-				<ul class="nav secondary-nav">
-					<li class="dropdown">
-						<a class="dropdown-toggle" href="#"><?=(app()->user->isGuest) ? __('app','Login'):app()->user->name?></a>
-						<ul class="dropdown-menu">
-							<li><?//=$this->renderPartial('//site/login',array('model'=>new LoginForm))?></li>
-							<li class="divider"></li>
-						<?php
-								$this->widget('Menu', array(
-									'items'=>$this->menu,
-									'renderOpenTag'=>false,
-								));?>
-						</ul>
-	<!--					<ul class="dropdown-menu">-->
-	<!--						<li><a href="#">Secondary link</a></li>-->
-	<!--						<li><a href="#">Something else here</a></li>-->
-	<!--						<li class="divider"></li>-->
-	<!--						<li><a href="#">Another link</a></li>-->
-	<!--					</ul>-->
-					</li>
-				</ul>
-			
-			<p class="pull-right">,</p>
-		</div>
-	</div>
-</div>
-
-<div class="container" id="page">
-
-		<?=CHtml::tag('h1',array('class'=>'title'),$this->title)?>
+	<?=CHtml::tag('h1',array('class'=>'title'),$this->title)?>
 
 	<?= $content; ?>
 
