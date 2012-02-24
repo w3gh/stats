@@ -1,6 +1,6 @@
 <?php
 
-class GhostModule extends CWebModule
+class GhostModule extends WebModule
 {
 	public function init()
 	{
@@ -11,6 +11,7 @@ class GhostModule extends CWebModule
 		$this->setImport(array(
 			$this->name.'.models.*',
             $this->name.'.components.*',
+            $this->name.'.widgets.*',
 		));
 	}
 

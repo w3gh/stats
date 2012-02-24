@@ -14,90 +14,17 @@ CREATE TABLE IF NOT EXISTS `heroes` (
 -- --------------------------------------------------------
 
 CREATE TABLE IF NOT EXISTS `items` (
-  `itemid` varchar(4) NOT NULL,
-  `name` varchar(50) NOT NULL,
-  `shortname` varchar(50) NOT NULL,
-  `item_info` mediumtext CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
-  `icon` varchar(50) NOT NULL,
+  `itemid` VARCHAR(4) NOT NULL,
+  `name` VARCHAR(50) NOT NULL,
+  `shortname` VARCHAR(50) NOT NULL,
+  `item_info` MEDIUMTEXT CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `icon` VARCHAR(50) NOT NULL,
   PRIMARY KEY (`itemid`),
   KEY `name` (`name`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
-  
-CREATE TABLE IF NOT EXISTS `news` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `title` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
-  `content` mediumtext CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
-  `created` datetime NOT NULL,
-  `updated` datetime NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1;
 
-CREATE TABLE IF NOT EXISTS `comments` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `uid` int(11) NOT NULL,
-  `message` TEXT CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
-  `created` datetime NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `uid` (`uid`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1;
-
-CREATE TABLE IF NOT EXISTS `comments_map` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `entity` varchar(255) NOT NULL COMMENT 'represents a entity type of comment, can be a game, player or news',
-  `cid` int(11) NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `cid` (`cid`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1;
-
-CREATE TABLE IF NOT EXISTS `users` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `username` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
-  `email` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
-  `password` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
-  `last_activity` datetime NOT NULL,
-  `server` varchar(100) NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `username` (`username`),
-  KEY `email` (`email`),
-  KEY `server` (`server`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1;
-
-
-CREATE TABLE IF NOT EXISTS `players` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `botid` int(11) NOT NULL,
-  `server` varchar(100) NOT NULL,
-  `name` varchar(15) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
-  `games` int(11) NOT NULL,
-  `wins` int(11) NOT NULL,
-  `looses` int(11) NOT NULL,
-  `kills` int(11) NOT NULL,
-  `deaths` int(11) NOT NULL,
-  `assists` int(11) NOT NULL,
-  `lastgame_id` int(11) NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `botid` (`botid`),
-  KEY `server` (`server`),
-  KEY `name` (`name`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1;
-
-CREATE TABLE IF NOT EXISTS `bots` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `botid` int(11) NOT NULL,
-  `name` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `botid` (`botid`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1;
-
-CREATE TABLE IF NOT EXISTS `servers` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `server` varchar(100) NOT NULL,
-  `name` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `server` (`server`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1;
 
 --
 --

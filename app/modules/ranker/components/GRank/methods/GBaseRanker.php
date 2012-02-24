@@ -17,79 +17,79 @@
  */
 abstract class GBaseRanker {
 
-  const kFactor1 = 36;
-  const kFactor2 = 24;
-  const kFactor3 = 16;
+    const kFactor1 = 36;
+    const kFactor2 = 24;
+    const kFactor3 = 16;
 
-  public $xpModifier     = 1.0;
-  public $goldModifier   = 1.0;
-  public $avgXPKill      = 1716.667;
-  public $avgGoldKill    = 640.0;
-  public $avgXPDeath     = 2203.0;
-  public $avgGoldDeath   = 640.0;
-  public $avgXPAssist    = 858.333;
-  public $avgGoldAssist  = 0.0;
-  public $avgXPCreep     = 58.202;
-  public $avgGoldCreep   = 29.152;
-  public $avgXPNeutral   = 70.0;
-  public $avgGoldNeutral = 40.0;
+    public $xpModifier     = 1.0;
+    public $goldModifier   = 1.0;
+    public $avgXPKill      = 1716.667;
+    public $avgGoldKill    = 640.0;
+    public $avgXPDeath     = 2203.0;
+    public $avgGoldDeath   = 640.0;
+    public $avgXPAssist    = 858.333;
+    public $avgGoldAssist  = 0.0;
+    public $avgXPCreep     = 58.202;
+    public $avgGoldCreep   = 29.152;
+    public $avgXPNeutral   = 70.0;
+    public $avgGoldNeutral = 40.0;
 
-  public static $rankedPlayers;
+    public static $rankedPlayers;
 
-  private $_rank;
-  
-  abstract function scorePlayer($unrankedPlayer, $unrankedTeams);
+    private $_rank;
 
-  abstract function scoreTeam($unrankedPlayers, $team);
+    abstract function scorePlayer($unrankedPlayer, $unrankedTeams);
 
-  public function  __construct($rankObject) {
-    $this->_rank=$rankObject;
-  }
+    abstract function scoreTeam($unrankedPlayers, $team);
 
-  /**
-   * Saves player using GRank class
-   * @param mixed $player
-   */
-  public function saveRankedPlayer($player)
-  {
-    $this->_rank->saveRankedPlayer($player);
-  }
-
-  /**
-   * 
-   * @param string $playerName
-   * @param string $server
-   * @return mixed Player data
-   */
-  public function &getRankedPlayer($playerName, $server)
-  {
-    if(!isset(self::$rankedPlayers[$playerName]))
-    {
-      if($player = $this->_rank->getRankedPlayer($playerName, $server))
-        self::$rankedPlayers[$server][$playerName]=$player;
-      else
-        self::$rankedPlayers[$server][$playerName]=new CAttributeCollection(array('isnew'=>true, 'name'=> $playerName, 'server'=>$server, 'skill' => 1000, 'id' => 0, 'games' => 0, 'kills' => 0, 'deaths' => 0, 'assists' => 0, 'creepkills' => 0, 'creepdenies' => 0, 'neutralkills' => 0, 'wins' => 0, 'contributionpoints' => 0, 'contributionpercent'=>0, 'teamadjustment'=>0, 'soloadjustment'=>0, 'rd'=>0, 'secondsplayed'=>0));
+    public function  __construct($rankObject) {
+        $this->_rank=$rankObject;
     }
-    return self::$rankedPlayers[$server][$playerName];
-  }
 
-  /*
-   * Calculate contribution points
-   */
-  function calcContribution($kills, $deaths, $assists, $creeps, $denies, $neutrals)
-  {
+    /**
+     * Saves player using GRank class
+     * @param mixed $player
+     */
+    public function saveRankedPlayer($player)
+    {
+        $this->_rank->saveRankedPlayer($player);
+    }
 
-    $result = (
-        $kills		* (($this->avgXPKill * $this->xpModifier) + ($this->avgGoldKill * $this->goldModifier))
-      - $deaths		* (($this->avgXPDeath * $this->xpModifier) + ($this->avgGoldDeath * $this->goldModifier))
-      + $assists	* (($this->avgXPAssist * $this->xpModifier) + ($this->avgGoldAssist * $this->goldModifier))
-      + $creeps		* (($this->avgXPCreep * $this->xpModifier) + ($this->avgGoldCreep * $this->goldModifier))
-      + $denies		* ((0.5 * $this->avgXPCreep * $this->xpModifier) + (0.5 * $this->avgGoldCreep * $this->goldModifier))
-      + $neutrals	* (($this->avgXPNeutral * $this->xpModifier) + ($this->avgGoldNeutral * $this->goldModifier))
-    );
+    /**
+     *
+     * @param string $playerName
+     * @param string $server
+     * @return mixed Player data
+     */
+    public function &getRankedPlayer($playerName, $server)
+    {
+        if(!isset(self::$rankedPlayers[$playerName]))
+        {
+            if($player = $this->_rank->getRankedPlayer($playerName, $server))
+                self::$rankedPlayers[$server][$playerName]=$player;
+            else
+                self::$rankedPlayers[$server][$playerName]=new CAttributeCollection(array('isnew'=>true, 'name'=> $playerName, 'server'=>$server, 'skill' => 1000, 'id' => 0, 'games' => 0, 'kills' => 0, 'deaths' => 0, 'assists' => 0, 'creepkills' => 0, 'creepdenies' => 0, 'neutralkills' => 0, 'wins' => 0, 'contributionpoints' => 0, 'contributionpercent'=>0, 'teamadjustment'=>0, 'soloadjustment'=>0, 'rd'=>0, 'secondsplayed'=>0));
+        }
+        return self::$rankedPlayers[$server][$playerName];
+    }
 
-    return $result;
-  }
+    /*
+    * Calculate contribution points
+    */
+    public function calcContribution($kills, $deaths, $assists, $creeps, $denies, $neutrals)
+    {
+
+        $result = (
+            $kills		* (($this->avgXPKill * $this->xpModifier) + ($this->avgGoldKill * $this->goldModifier))
+                - $deaths		* (($this->avgXPDeath * $this->xpModifier) + ($this->avgGoldDeath * $this->goldModifier))
+                + $assists	* (($this->avgXPAssist * $this->xpModifier) + ($this->avgGoldAssist * $this->goldModifier))
+                + $creeps		* (($this->avgXPCreep * $this->xpModifier) + ($this->avgGoldCreep * $this->goldModifier))
+                + $denies		* ((0.5 * $this->avgXPCreep * $this->xpModifier) + (0.5 * $this->avgGoldCreep * $this->goldModifier))
+                + $neutrals	* (($this->avgXPNeutral * $this->xpModifier) + ($this->avgGoldNeutral * $this->goldModifier))
+        );
+
+        return $result;
+    }
 
 }
 ?>

@@ -15,17 +15,17 @@ return array(
     'import'=>array(
         'application.models.*',
         'application.components.*',
-        'application.components.widgets.*'
+        'application.widgets.*'
     ),
 
     'modules'=>array(
-        'comment',
-        'news',
-        'ranker',
         'user',
         'ghost',
-
-        // uncomment the following to enable the Gii tool
+        'news',
+        'ranker',
+        'comment'=>array(
+            'commentableModels'=>array('News','Players','Games')
+        ),
 
         'gii'=>array(
             'class'=>'system.gii.GiiModule',
@@ -41,18 +41,26 @@ return array(
     'components'=>array(
 
         'user'=>array(
-            'class' => 'WebUser',
+            'class'=>'WebUser',
             // enable cookie-based authentication
             'allowAutoLogin'=>true,
         ),
 
-        'authManager' => array(
+        'authManager'=>array(
             'class' => 'PhpAuthManager',
             'defaultRoles' => array('guest'),
         ),
 
+        'themeManager' => array(
+            'themeClass'=>'Theme',
+        ),
+
         'format'=>array(
             'class'=>'system.utils.CFormatter'
+        ),
+
+        'widgetFactory'=>array(
+            'enableSkin'=>true,
         ),
 
         'urlManager'=>array(

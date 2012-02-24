@@ -3566,14 +3566,42 @@ body#theme-classic #page {
   padding-top: 60px;
 }
 h1.title {
-  color: #E4E4E4;
-  text-shadow: 0 1px 0 #333 !important;
+  color: #333;
+  text-shadow: 0 1px 0 #E4E4E4 !important;
+}
+.btn-top {
+  position: fixed;
+  right: 15px;
+  bottom: 15px;
+}
+/* -------------------------------------------------------------------------------------------------------------------*/
+#theme-classic .brand {
+  padding-right: 0;
+  padding-left: 0;
+  margin-left: 20px;
+  font-weight: bold;
+  color: #111;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.1), 0 0 30px rgba(255, 255, 255, 0.125);
+  -webkit-transition: all .2s linear;
+  -moz-transition: all .2s linear;
+  transition: all .2s linear;
 }
 /**
  * Tables
 /* -------------------------------------------------------------------------------------------------------------------*/
 table {
   background: #f5f5f5;
+}
+table.list {
+  width: 100%;
+  border-collapse: separate;
+  *border-collapse: collapse;
+  /* IE7, collapse table to remove spacing */
+
+  border: 1px solid #ddd;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
 }
 table.list .gradient {
   background-color: #e5e5e5;
@@ -3585,6 +3613,48 @@ table.list .gradient {
   background-image: linear-gradient(top, #f5f5f5, #cccccc);
   background-repeat: repeat-x;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f5f5f5', endColorstr='#cccccc', GradientType=0);
+}
+table.list th,
+table.list td {
+  padding: 10px 10px 9px;
+  line-height: 18px;
+  text-align: left;
+}
+table.list th {
+  padding-top: 9px;
+  font-weight: bold;
+  vertical-align: middle;
+  border-bottom: 1px solid #ddd;
+}
+table.list td {
+  vertical-align: top;
+}
+table.list th + th,
+table.list td + td {
+  border-left: 1px solid #ddd;
+}
+table.list tr + tr td {
+  border-top: 1px solid #ddd;
+}
+table.list tbody tr:first-child td:first-child {
+  -webkit-border-radius: 4px 0 0 0;
+  -moz-border-radius: 4px 0 0 0;
+  border-radius: 4px 0 0 0;
+}
+table.list tbody tr:first-child td:last-child {
+  -webkit-border-radius: 0 4px 0 0;
+  -moz-border-radius: 0 4px 0 0;
+  border-radius: 0 4px 0 0;
+}
+table.list tbody tr:last-child td:first-child {
+  -webkit-border-radius: 0 0 0 4px;
+  -moz-border-radius: 0 0 0 4px;
+  border-radius: 0 0 0 4px;
+}
+table.list tbody tr:last-child td:last-child {
+  -webkit-border-radius: 0 0 4px 0;
+  -moz-border-radius: 0 0 4px 0;
+  border-radius: 0 0 4px 0;
 }
 table.list thead {
   background-color: #e5e5e5;

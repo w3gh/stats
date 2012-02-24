@@ -1,6 +1,6 @@
 <?php
 
-class SiteController extends PublicController
+class SiteController extends Controller
 {
 
 	private $_model=null;

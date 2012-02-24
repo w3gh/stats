@@ -29,8 +29,8 @@ $this->pageTitle=$this->title=__('app','Dota Games');
             <tr>
                 <th>
                     <div class="btn-group" data-toggle="buttons-checkbox">
-                        <button class="btn btn-primary active"><?=__('app', 'Public')?></button>
-                        <button class="btn btn-primary active"><?=__('app', 'Private')?></button>
+                        <button class="btn active"><?=__('app', 'Public')?></button>
+                        <button class="btn active"><?=__('app', 'Private')?></button>
                     </div>
                 </th>
                 <th>
@@ -44,20 +44,16 @@ $this->pageTitle=$this->title=__('app','Dota Games');
                 ))?>
                 </th>
                 <th>
-                    <?$this->widget('zii.widgets.jui.CJuiDatePicker',array(
-                    'name'=>'date',
-                ))?>
+                    <?$this->widget('zii.widgets.jui.CJuiDatePicker',array('name'=>'date'))?>
                 </th>
                 <th>
-                    <?$this->widget('zii.widgets.jui.CJuiAutoComplete',array(
-                                        'name'=>'date',
-                                    ))?>
+                    <?$this->widget('zii.widgets.jui.CJuiAutoComplete',array('name'=>'date'))?>
                 </th>
                 <th>
                     <div class="btn-group" data-toggle="buttons-checkbox">
-                        <button class="btn btn-primary active">eurobattle.net</button>
-                        <button class="btn btn-primary active">eswest</button>
-                        <button class="btn btn-primary active">rubattle.net</button>
+                        <button class="btn active">eurobattle.net</button>
+                        <button class="btn active">eswest</button>
+                        <button class="btn active">rubattle.net</button>
                     </div>
                 </th>
             </tr>

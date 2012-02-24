@@ -52,15 +52,15 @@ class CommentableBehavior extends CActiveRecordBehavior
 	/**
 	 * @var string name of the table defining the relation with comment and model
 	 */
-	public $mapTable = null;
+	public $mapType = null;
 	/**
 	 * @var string name of the table column holding commentId in mapTable
 	 */
-	public $mapCommentColumn = 'commentId';
+	public $mapCommentColumn = 'type_id';
 	/**
 	 * @var string name of the table column holding related Objects Id in mapTable
 	 */
-	public $mapRelatedColumn = null;
+	public $mapRelatedColumn = 'cid';
 
 	public function attach($owner)
 	{

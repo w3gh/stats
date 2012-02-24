@@ -135,7 +135,7 @@ class Comment extends CActiveRecord
 	public function relations()
 	{
 		return array(
-			'user' => array(self::BELONGS_TO, $this->module->userModelClass, 'userId'),
+			'user' => array(self::BELONGS_TO, $this->module->userModelClass, 'uid'),
 		);
 	}
 

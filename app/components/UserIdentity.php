@@ -9,6 +9,12 @@ class UserIdentity extends CUserIdentity
 {
     protected $_id;
 
+    /**
+     * Server from user
+     * @var string
+     */
+    public $server='';
+
 	/**
 	 * Authenticates a user.
 	 * The example implementation makes sure if the username and password
@@ -19,20 +25,29 @@ class UserIdentity extends CUserIdentity
 	 */
 	public function authenticate()
 	{
-        $users = include Yii::getPathOfAlias('application.config.users').'.php';
+        /*
+        $user = User::model()->find(
+            array('username=:username','server=:server'),
+            array(':username'=>$this->username,':server'=>$this->server));
+        */
+        $user= new stdClass();
+        $user->username='admin';
+        $user->password=User::model()->hash('admin');
+        $user->role='administrator';
 
-		if(!isset($users[$this->username]))
+
+		if($user->username!==$this->username)
         {
             $this->errorCode=self::ERROR_USERNAME_INVALID;
         }
-		else if($users[$this->username]['password']!==$this->hash($users[$this->username]['salt']))
+		else if($user->password!==User::model()->hash($this->password))
         {
             $this->errorCode=self::ERROR_PASSWORD_INVALID;
         }
 		else
         {
             $this->_id=strtolower($this->username);
-            $this->setState('role',$users[$this->username]['role']);
+            $this->setState('role',$user->role);
             $this->errorCode=self::ERROR_NONE;
         }
 		return !$this->errorCode;
@@ -43,8 +58,4 @@ class UserIdentity extends CUserIdentity
         return $this->_id;
     }
 
-    protected function hash($salt)
-    {
-        return md5($this->password.$salt);
-    }
 }

@@ -1,6 +1,6 @@
 <?php
 
-class PvpgnModule extends CWebModule
+class PvpgnModule extends WebModule
 {
 	/**
 	 * @var Filesystem Path to PvPGN Server
@@ -28,7 +28,7 @@ class PvpgnModule extends CWebModule
 		$this->setImport(array(
 			$this->name.'.models.*',
 			$this->name.'.components.*',
-			$this->name.'.components.widgets.*',
+			$this->name.'.widgets.*',
 		));
 	}
 

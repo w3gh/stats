@@ -85,7 +85,7 @@ class User extends CActiveRecord
 		);
 	}
 
-    protected function hash($password)
+    public function hash($password)
     {
         return md5($password);
     }

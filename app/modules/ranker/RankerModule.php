@@ -4,12 +4,19 @@ class CRankerModule extends WebModule
 {
 	public function init()
 	{
+        parent::init();
 		// import the module-level models and components
 		$this->setImport(array(
 			$this->name.'.models.*',
 			$this->name.'.components.*',
-			$this->name.'.components.widgets.*',
+			$this->name.'.widgets.*',
 		));
+
+        Yii::app()->setComponents(array(
+            'ranker'=>array(
+                'class'=>'GRanker'
+            )
+        ));
 	}
 
 	public function beforeControllerAction($controller, $action)

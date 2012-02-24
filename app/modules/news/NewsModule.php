@@ -1,6 +1,6 @@
 <?php
 
-class NewsModule extends CWebModule
+class NewsModule extends WebModule
 {
 	public function init()
 	{

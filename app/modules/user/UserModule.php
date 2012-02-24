@@ -1,6 +1,6 @@
 <?php
 
-class UserModule extends CWebModule
+class UserModule extends WebModule
 {
 	public function init()
 	{
@@ -9,8 +9,8 @@ class UserModule extends CWebModule
 
 		// import the module-level models and components
 		$this->setImport(array(
-			'user.models.*',
-			'user.components.*',
+			$this->name.'.models.*',
+            $this->name.'.components.*',
 		));
 	}
 

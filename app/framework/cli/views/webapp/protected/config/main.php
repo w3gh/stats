@@ -82,7 +82,7 @@ return array(
 	),
 
 	// application-level parameters that can be accessed
-	// using param(1)
+	// using Yii::app()->params['paramName']
 	'params'=>array(
 		// this is used in contact page
 		'adminEmail'=>'webmaster@example.com',

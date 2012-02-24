@@ -6,7 +6,7 @@
  * @author Carsten Brandt <mail@cebe.cc>
  * @package yiiext.modules.comment
  */
-class CommentModule extends CWebModule
+class CommentModule extends WebModule
 {
 	/**
 	 * @var array associative array of 'scopename' to commentable models 'modelclass'

@@ -18,10 +18,30 @@ body#theme-classic {
     }
 
         h1.title {
-            color: #E4E4E4;
-            text-shadow: 0 1px 0 #333 !important;
+            color: #333;
+            text-shadow: 0 1px 0 #E4E4E4 !important;
         }
-        
+
+
+    .btn-top {
+        position: fixed;
+        right: 15px;
+        bottom: 15px;
+    }
+/* -------------------------------------------------------------------------------------------------------------------*/
+
+#theme-classic .brand {
+    padding-right: 0;
+    padding-left: 0;
+    margin-left: 20px;
+    font-weight: bold;
+    color: #111;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, .1), 0 0 30px rgba(255, 255, 255, .125);
+    -webkit-transition: all .2s linear;
+    -moz-transition: all .2s linear;
+    transition: all .2s linear;
+}
+
 
 /**
  * Tables
@@ -32,10 +52,47 @@ table {
 }
 
 table.list {
+    width: 100%;
     .gradient {
         #gradient > .vertical(@extraWhite, #ccc);
     }
-    
+  border-collapse: separate; // Done so we can round those corners!
+  *border-collapse: collapse; /* IE7, collapse table to remove spacing */
+  border: 1px solid #ddd;
+  .border-radius(4px);
+  th, td {
+    padding: 10px 10px 9px;
+    line-height: @baseLineHeight;
+    text-align: left;
+  }
+  th {
+    padding-top: 9px;
+    font-weight: bold;
+    vertical-align: middle;
+    border-bottom: 1px solid #ddd;
+  }
+  td {
+    vertical-align: top;
+  }
+  th + th,
+  td + td {
+    border-left: 1px solid #ddd;
+  }
+  tr + tr td {
+    border-top: 1px solid #ddd;
+  }
+  tbody tr:first-child td:first-child {
+    .border-radius(4px 0 0 0);
+  }
+  tbody tr:first-child td:last-child {
+    .border-radius(0 4px 0 0);
+  }
+  tbody tr:last-child td:first-child {
+    .border-radius(0 0 0 4px);
+  }
+  tbody tr:last-child td:last-child {
+    .border-radius(0 0 4px 0);
+  }
     thead {
         #gradient > .vertical(@extraWhite, #ccc);
         th { line-height: 16px; }
@@ -50,6 +107,7 @@ table.list {
 /**
  * Pagination
 /* -------------------------------------------------------------------------------------------------------------------*/
+
 .pagination {
     ul{
         background: @extraWhite;
