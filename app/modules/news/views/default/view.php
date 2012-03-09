@@ -30,4 +30,10 @@ $this->pageTitle=$this->title=CHtml::encode($model->title);
 		'created',
 	),
 )); ?>
+
+<h3>Comments</h3>
+
+<?php $this->renderPartial('comment.views.comment.commentList', array(
+	'model'=>$model
+)); ?>
 </div>

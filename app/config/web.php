@@ -15,17 +15,21 @@ return array(
     'import'=>array(
         'application.models.*',
         'application.components.*',
-        'application.widgets.*'
+        'application.widgets.*',
+        'application.modules.news.models.*',
+        'application.modules.ghost.models.*',
+        'application.modules.user.models.*',
     ),
 
     'modules'=>array(
         'user',
+        'comment'=>array(
+            'commentableModels'=>array('News','Players','Games'),
+            'userNameAttribute'=>'username'
+        ),
         'ghost',
         'news',
         'ranker',
-        'comment'=>array(
-            'commentableModels'=>array('News','Players','Games')
-        ),
 
         'gii'=>array(
             'class'=>'system.gii.GiiModule',

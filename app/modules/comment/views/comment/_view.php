@@ -38,7 +38,7 @@
 		wrote on
 		<span class="ext-comment-date">
 			<?php echo Yii::app()->format->formatDateTime(
-				is_numeric($data->createDate) ? $data->createDate : strtotime($data->createDate)
+				is_numeric($data->created) ? $data->created : strtotime($data->created)
 			); ?>
 		</span>:
 	</span>
@@ -59,7 +59,7 @@
 	)); ?>
 
 	<span class="ext-comment-options">
-	<?php if (!Yii::app()->user->isGuest && (Yii::app()->user->id == $data->userId)) {
+	<?php if (!Yii::app()->user->isGuest && (Yii::app()->user->id == $data->uid)) {
 	    echo CHtml::ajaxLink('delete', array('/comment/comment/delete', 'id'=>$data->id), array(
 			'success'=>'function(){ $("#ext-comment-'.$data->id.'").remove(); }',
 		    'type'=>'POST',

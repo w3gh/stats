@@ -55,7 +55,11 @@ class News extends CActiveRecord
 				'createAttribute'=>'created',
 				'updateAttribute'=>'updated',
 				'setUpdateOnCreate'=>true,
-			)
+			),
+            'commentable' => array(
+                'class' => 'application.modules.comment.behaviors.CommentableBehavior',
+                //'mapType' => 'news',
+            ),
 		);
 	}
 

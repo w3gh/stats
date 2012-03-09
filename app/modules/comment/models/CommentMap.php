@@ -5,10 +5,11 @@
  *
  * The followings are the available columns in table 'comments_map':
  * @property integer $id
- * @property string $entity
+ * @property string $type
+ * @property integer $type_id
  * @property integer $cid
  */
-class CommentsMap extends CActiveRecord
+class CommentMap extends CActiveRecord
 {
 	/**
 	 * Returns the static model of the specified AR class.
@@ -35,12 +36,12 @@ class CommentsMap extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('entity, cid', 'required'),
-			array('cid', 'numerical', 'integerOnly'=>true),
-			array('entity', 'length', 'max'=>255),
+			array('type,type_id, cid', 'required'),
+			array('cid, type_id', 'numerical', 'integerOnly'=>true),
+			array('type', 'length', 'max'=>255),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, entity, cid', 'safe', 'on'=>'search'),
+			array('id, type, cid', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -62,7 +63,8 @@ class CommentsMap extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'entity' => 'Entity',
+			'type' => 'Type',
+			'type_id' => 'Type ID',
 			'cid' => 'Cid',
 		);
 	}
@@ -79,7 +81,7 @@ class CommentsMap extends CActiveRecord
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('id',$this->id);
-		$criteria->compare('entity',$this->entity,true);
+		$criteria->compare('type',$this->type,true);
 		$criteria->compare('cid',$this->cid);
 
 		return new CActiveDataProvider($this, array(

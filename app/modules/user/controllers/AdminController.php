@@ -65,7 +65,7 @@ class AdminController extends Controller
    		$model=new User;
 
    		// Uncomment the following line if AJAX validation is needed
-   		// $this->performAjaxValidation($model);
+   		$this->performAjaxValidation($model);
 
    		if(isset($_POST['User']))
    		{

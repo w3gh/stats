@@ -35,6 +35,16 @@ class Games extends CActiveRecord
 		return 'games';
 	}
 
+    public function behaviors()
+    {
+        return array(
+            'commentable' => array(
+                'class' => 'application.modules.comment.behaviors.CommentableBehavior',
+                //'mapType' => 'games',
+            ),
+        );
+    }
+
 	/**
 	 * @return array validation rules for model attributes.
 	 */
@@ -66,6 +76,8 @@ class Games extends CActiveRecord
 		);
 	}
 
+
+
 	/**
 	 * @return array customized attribute labels (name=>label)
 	 */
@@ -88,7 +100,7 @@ class Games extends CActiveRecord
 
     public $winner;
 
-    public function infoById($gid = false)
+    public function findInfoByPk($gid = false)
     {
         if($gid == false)
             return $this;
@@ -109,7 +121,7 @@ class Games extends CActiveRecord
         $description,$name,$newcolour,$gameid,$banname,$itemicon1,$itemicon2,$itemicon3,$itemicon4,
         $itemicon5,$itemicon6,$item1,$item2,$item3,$item4,$item5,$item6,$adminname;
 
-    public function statsById($gid = false)
+    public function findStatsByPk($gid = false)
     {
         if($gid == false)
             return $this;

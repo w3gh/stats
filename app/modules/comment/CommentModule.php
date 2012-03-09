@@ -43,6 +43,10 @@ class CommentModule extends WebModule
 	 * @var string allows you to extend comment class and use your extended one, set path alias here
 	 */
 	public $commentModelClass = 'comment.models.Comment';
+    /**
+	 * @var string allows you to extend comment class and use your extended one, set path alias here
+	 */
+	public $commentMapModelClass = 'comment.models.CommentMap';
 
     public function init()
     {

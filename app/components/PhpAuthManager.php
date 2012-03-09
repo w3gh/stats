@@ -14,8 +14,8 @@ class PhpAuthManager extends CPhpAuthManager {
         parent::init();
 
         // For guests we have default role
-        if(!app()->user->isGuest){
-            $this->assign(app()->user->role,app()->user->id);
-        }
+//        if(!app()->user->isGuest){
+//            $this->assign(app()->user->role,app()->user->id);
+//        }
     }
 }

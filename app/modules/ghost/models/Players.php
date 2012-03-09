@@ -35,6 +35,16 @@ class Players extends CActiveRecord
 		return 'players';
 	}
 
+    public function behaviors()
+    {
+        return array(
+            'commentable' => array(
+                'class' => 'application.modules.comment.behaviors.CommentableBehavior',
+                //'mapType' => 'news',
+            ),
+        );
+    }
+
 	/**
 	 * @return array validation rules for model attributes.
 	 */

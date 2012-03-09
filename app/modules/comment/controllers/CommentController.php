@@ -53,9 +53,9 @@ class CommentController extends CController
 
 			// determine current users id
 			if (Yii::app()->user->isGuest) {
-				$comment->userId = null;
+				$comment->uid = null;
 			} else {
-				$comment->userId = Yii::app()->user->id;
+				$comment->uid = Yii::app()->user->id;
 			}
 
 			if(Yii::app()->request->isAjaxRequest) {
@@ -158,7 +158,7 @@ class CommentController extends CController
 		if(Yii::app()->request->isPostRequest)
 		{
 			$comment = $this->loadModel($id);
-			if (!Yii::app()->user->isGuest && (Yii::app()->user->id == $comment->userId))
+			if (!Yii::app()->user->isGuest && (Yii::app()->user->id == $comment->uid))
 			{
 				$comment->delete();
 

@@ -3551,6 +3551,10 @@ a.thumbnail:hover {
   -moz-border-radius: 6px;
   border-radius: 6px;
 }
+.news-list {
+  padding: 10px;
+  background-color: #f5f5f5;
+}
 /**
  * File: layout.less
  * Author: jilizart
@@ -3585,6 +3589,9 @@ h1.title {
   -webkit-transition: all .2s linear;
   -moz-transition: all .2s linear;
   transition: all .2s linear;
+}
+#top-navbar .navbar-inner {
+  background: url('../img/dota/shared.png') 0 0 repeat-x;
 }
 /**
  * Tables

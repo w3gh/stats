@@ -10,12 +10,11 @@
  * The followings are the available columns in table 'comments':
  * @property integer $id
  * @property string  $message
- * @property integer $userId
- * @property integer $createDate
+ * @property integer $uid
+ * @property integer $created
  *
  * The followings are the available model relations:
  * @property Users $user
- * @property CommentsCommitMap $commentsCommitMap
  *
  * @author Carsten Brandt <mail@cebe.cc>
  * @package yiiext.modules.comment
@@ -31,7 +30,7 @@ class Comment extends CActiveRecord
 	 */
 	public function setType($type)
 	{
-		$this->_type = strtolower($type);
+		$this->_type = $type;
 	}
 
 	/**
@@ -88,7 +87,7 @@ class Comment extends CActiveRecord
 		return array(
 			'CTimestampBehavior' => array(
 				'class' => 'zii.behaviors.CTimestampBehavior',
-				'createAttribute' => 'createDate',
+				'createAttribute' => 'created',
 				'updateAttribute' => null,
 				// need special DbExpression when db is sqlite
 				'timestampExpression' => (strncasecmp('sqlite', $this->dbConnection->driverName, 6)===0) ?
@@ -107,7 +106,7 @@ class Comment extends CActiveRecord
 			array('key',  'validateKey',  'on'=>'create'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, message, userId', 'safe', 'on'=>'search'),
+			array('id, message, uid', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -148,13 +147,17 @@ class Comment extends CActiveRecord
 	protected function afterSave()
 	{
 		if ($this->_new) {
-			$commentedModel = CActiveRecord::model($this->module->commentableModels[$this->type]);
-			// if comment is new, connect it with commended model
-			$this->getDbConnection()->createCommand(
-				"INSERT INTO ".$commentedModel->mapTable."(".$commentedModel->mapCommentColumn.", ".$commentedModel->mapRelatedColumn.")
-				 VALUES (:id, :key);"
-			)->execute(array(':id' => $this->id, ':key' => $this->key));
+            $type=$this->module->commentableModels[$this->type];
+			$commentedModel = CActiveRecord::model($type);
+            $commentMap = Yii::createComponent($this->module->commentMapModelClass);
 
+            $commentMap->type=$type;
+            $commentMap->type_id=$this->getKey();
+            $commentMap->cid=$this->id;
+
+            echo d($this->getKey());
+
+            $commentMap->save();
 			parent::afterSave();
 
 			// raise new comment event
@@ -181,7 +184,7 @@ class Comment extends CActiveRecord
 	 */
 	public function getUserName()
 	{
-		return is_null($this->user) ? 'Guest' : $this->user->{$this->module->userNameAttribute};
+		return is_null($this->user) ? __('comment','Guest') : $this->user->{$this->module->userNameAttribute};
 	}
 
 	/**

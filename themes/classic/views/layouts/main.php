@@ -63,9 +63,14 @@ $min=(YII_DEBUG)?'':'.min';//check,need use a minified version?
                     <?else:?>
 
                     <ul class="nav pull-right">
-                        <li>
-                            <?=__('app','<a href="#">Logged in as <strong>:username</strong></a>',array(':username'=>app()->user->name))?>
-                        </li>
+                        <li><?=__('app','<a href="#">Logged in as <strong>:username</strong></a>',
+                            array(':username'=>app()->user->name))?></li>
+
+                        <?php if(false == app()->user->isGuest):?>
+                            <li class="divider-vertical"></li>
+                            <li><?=CHtml::link('Logout',array('/user/default/logout'))?></li>
+                        <?php endif;?>
+
                         <li class="divider-vertical"></li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Actions <b class="caret"></b></a>
@@ -73,13 +78,6 @@ $min=(YII_DEBUG)?'':'.min';//check,need use a minified version?
                             'htmlOptions'=>array('class'=>'dropdown-menu'),
                             'items'=>$this->menu,
                                 ))?>
-                            <!--                              <ul class="dropdown-menu">-->
-                            <!--                                <li><a href="#">Action</a></li>-->
-                            <!--                                <li><a href="#">Another action</a></li>-->
-                            <!--                                <li><a href="#">Something else here</a></li>-->
-                            <!--                                <li class="divider"></li>-->
-                            <!--                                <li><a href="#">Separated link</a></li>-->
-                            <!--                              </ul>-->
                         </li>
                     </ul>
                     <?endif;?>
@@ -90,7 +88,7 @@ $min=(YII_DEBUG)?'':'.min';//check,need use a minified version?
 
 	<?=CHtml::tag('h1',array('class'=>'title'),$this->title)?>
 
-	<?= $content; ?>
+	<?=$content; ?>
 
 	<footer id="footer" class="footer row">
 

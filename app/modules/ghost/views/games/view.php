@@ -315,3 +315,11 @@ endforeach;
 
 	</tr>
 </table>
+
+<div class="hero-unit">
+    <h3>Comments</h3>
+
+    <?php $this->renderPartial('comment.views.comment.commentList', array(
+    	'model'=>$model
+    )); ?>
+</div>

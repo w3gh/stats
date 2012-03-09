@@ -11,6 +11,7 @@ class NewsModule extends WebModule
 		$this->setImport(array(
 			$this->name.'.models.*',
             $this->name.'.components.*',
+            $this->name.'.widgets.*',
 		));
 	}
 

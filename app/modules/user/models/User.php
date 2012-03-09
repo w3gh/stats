@@ -5,6 +5,7 @@
  *
  * The followings are the available columns in table 'users':
  * @property integer $id
+ * @property string $role
  * @property string $username
  * @property string $email
  * @property string $password
@@ -38,9 +39,14 @@ class User extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('username, email, password, last_activity, server', 'required'),
-			array('username, email, password', 'length', 'max'=>255),
+			array('username, email, password, role', 'required'),
+			array('username, email, password, role', 'length', 'max'=>255),
 			array('server', 'length', 'max'=>100),
+
+            array('username', 'unique', 'message' => __('user',"This user's name already exists.")),
+            array('email', 'unique', 'message' => __('user',"This user's email address already exists.")),
+            array('email', 'email', 'allowEmpty' =>false),
+
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
 			array('id, username, email, password, last_activity, server', 'safe', 'on'=>'search'),
@@ -60,13 +66,15 @@ class User extends CActiveRecord
 
     public function beforeSave()
     {
-        if (parent::beforeSave())
-        {
-            $this->last_activity = new CDbExpression('NOW()');
+        $this->last_activity = time();
 
-            if($this->getIsNewRecord())
-                $this->password = $this->hash($this->password);
+        if($this->isNewRecord)
+        {
+            $this->password = $this->hash($this->password);
         }
+
+
+        return parent::beforeSave();
     }
 
 
@@ -77,6 +85,7 @@ class User extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
+			'role' => 'Role',
 			'username' => 'Username',
 			'email' => 'Email',
 			'password' => 'Password',
@@ -102,10 +111,11 @@ class User extends CActiveRecord
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('id',$this->id);
+		$criteria->compare('role',$this->role,true);
 		$criteria->compare('username',$this->username,true);
 		$criteria->compare('email',$this->email,true);
 		$criteria->compare('password',$this->password,true);
-		$criteria->compare('last_activity',$this->last_activity,true);
+		$criteria->compare('last_activity',$this->last_activity);
 		$criteria->compare('server',$this->server,true);
 
 		return new CActiveDataProvider($this, array(
